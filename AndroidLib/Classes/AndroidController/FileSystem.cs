@@ -1,0 +1,171 @@
+﻿/*
+ * FileSystem.cs - Developed by Dan Wager for AndroidLib.dll
+ */
+
+using System;
+using System.IO;
+
+namespace RegawMOD.Android
+{
+    /// <summary>
+    /// Contains mount directory information
+    /// </summary>
+    public class MountInfo
+    {
+        private string directory;
+        private string block;
+        private MountType type;
+
+        internal MountInfo(string directory, string block, MountType type)
+        {
+            this.directory = directory;
+            this.block = block;
+            this.type = type;
+        }
+
+        /// <summary>
+        /// Gets a value indicating the mount directory
+        /// </summary>
+        public string Directory { get { return this.directory; } }
+
+        /// <summary>
+        /// Gets a value indicating the mount block
+        /// </summary>
+        public string Block { get { return this.block; } }
+
+        /// <summary>
+        /// Gets a value indicating how the mount directory is mounted
+        /// </summary>
+        /// <remarks>See <see cref="MountType"/> for more details</remarks>
+        public MountType MountType { get { return this.type; } }
+    }
+
+    /// <summary>
+    /// Contains information about the Android device's file system
+    /// </summary>
+    public class FileSystem
+    {
+        private Device device;
+
+        private MountInfo systemMount;
+
+        internal FileSystem(Device device)
+        {
+            this.device = device;
+            UpdateMountPoints();
+        }
+
+        private void UpdateMountPoints()
+        {
+            if (this.device.State != DeviceState.ONLINE)
+            {
+                this.systemMount = new MountInfo(null, null, MountType.NONE);
+                return;
+            }
+
+            AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, "mount");
+            using (StringReader r = new StringReader(Adb.ExecuteAdbCommand(adbCmd)))
+            {
+                string line;
+                string[] splitLine;
+                string dir, mount;
+                MountType type;
+
+                while (r.Peek() != -1)
+                {
+                    line = r.ReadLine();
+                    splitLine = line.Split(' ');
+
+                    try
+                    {
+                        if (line.Contains(" on /system "))
+                        {
+                            dir = splitLine[2];
+                            mount = splitLine[0];
+                            type = (MountType)Enum.Parse(typeof(MountType), splitLine[5].Substring(1, 2).ToUpper());
+                            this.systemMount = new MountInfo(dir, mount, type);
+                            return;
+                        }
+
+                        if (line.Contains(" /system "))
+                        {
+                            dir = splitLine[1];
+                            mount = splitLine[0];
+                            type = (MountType)Enum.Parse(typeof(MountType), splitLine[3].Substring(0, 2).ToUpper());
+                            this.systemMount = new MountInfo(dir, mount, type);
+                            return;
+                        }
+                    }
+                    catch
+                    {
+                        dir = "/system";
+                        mount = "ERROR";
+                        type = MountType.NONE;
+                        this.systemMount = new MountInfo(dir, mount, type);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the <see cref="MountInfo"/> containing information about the /system mount directory
+        /// </summary>
+        /// <remarks>See <see cref="MountInfo"/> for more details</remarks>
+        public MountInfo SystemMountInfo { get { UpdateMountPoints(); return this.systemMount; } }
+
+        //void PushFile();
+        //void PullFile();
+
+        /// <summary>
+        /// Mounts connected Android device's file system as specified
+        /// </summary>
+        /// <param name="type">The desired <see cref="MountType"/> (RW or RO)</param>
+        /// <returns>True if remount is successful, False if remount is unsuccessful</returns>
+        /// <example>The following example shows how you can mount the file system as Read-Writable or Read-Only
+        /// <code>
+        /// // This example demonstrates mounting the Android device's file system as Read-Writable
+        /// using System;
+        /// using RegawMOD.Android;
+        /// 
+        /// class Program
+        /// {
+        ///     static void Main(string[] args)
+        ///     {
+        ///         AndroidController android = AndroidController.Instance;
+        ///         Device device;
+        ///         
+        ///         Console.WriteLine("Waiting For Device...");
+        ///         android.WaitForDevice(); //This will wait until a device is connected to the computer
+        ///         device = android.ConnectedDevices[0]; //Sets device to the first Device in the collection
+        ///
+        ///         Console.WriteLine("Connected Device - {0}", device.SerialNumber);
+        ///
+        ///         Console.WriteLine("Mounting System as RW...");
+        ///     	Console.WriteLine("Mount success? - {0}", device.RemountSystem(MountType.RW));
+        ///     }
+        /// }
+        /// 
+        ///	// The example displays the following output (if mounting is successful):
+        ///	//		Waiting For Device...
+        ///	//		Connected Device - {serial # here}
+        ///	//		Mounting System as RW...
+        ///	//		Mount success? - true
+        /// </code>
+        /// </example>
+        public bool RemountSystem(MountType type)
+        {
+            if (!this.device.HasRoot)
+                return false;
+
+            AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, true, "mount", string.Format("-o remount,{0} -t yaffs2 {1} /system", type.ToString().ToLower(), this.systemMount.Block));
+            Adb.ExecuteAdbCommandNoReturn(adbCmd);
+
+            UpdateMountPoints();
+
+            if (this.systemMount.MountType == type)
+                return true;
+            
+            return false;
+        }
+    }
+}
