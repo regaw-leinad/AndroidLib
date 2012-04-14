@@ -35,7 +35,7 @@ namespace RegawMOD.Android
 
             ResourceFolderManager.Register("Signer");
 
-            resDir = ResourceFolderManager.GetRegisteredFolderPath("Signer") + "\\";
+            resDir = ResourceFolderManager.GetRegisteredFolderPath("Signer");
 
             ExtractResources(resDir);
 
