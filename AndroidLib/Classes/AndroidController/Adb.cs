@@ -172,6 +172,11 @@ namespace RegawMOD.Android
             ExecuteAdbCommandNoReturn(Adb.FormAdbCommand("kill-server"));
         }
 
+        internal static string Devices()
+        {
+            return ExecuteAdbCommand(Adb.FormAdbCommand("devices"));
+        }
+
         /// <summary>
         /// Forwards a port that remains until the current <see cref="AndroidController"/> instance is Disposed, or the device is unplugged
         /// </summary>

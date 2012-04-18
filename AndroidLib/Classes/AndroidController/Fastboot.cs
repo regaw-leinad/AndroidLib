@@ -23,6 +23,11 @@ namespace RegawMOD.Android
     {
         private const string FASTBOOT_EXE = "fastboot.exe";
 
+        internal static string Devices()
+        {
+            return ExecuteFastbootCommand(FormFastbootCommand("devices"));
+        }
+
         /// <summary>
         /// Forms a <see cref="FastbootCommand"/> that is passed to <c>Fastboot.ExecuteFastbootCommand()</c>
         /// </summary>

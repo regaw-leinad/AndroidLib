@@ -254,8 +254,7 @@ namespace RegawMOD.Android
 
             this.connectedDevices.Clear();
 
-            AdbCommand updateDevices = Adb.FormAdbCommand("devices");
-            deviceList = Adb.ExecuteAdbCommand(updateDevices);
+            deviceList = Adb.Devices();
             if (deviceList.Length > 29)
             {
                 using (StringReader s = new StringReader(deviceList))
@@ -278,8 +277,7 @@ namespace RegawMOD.Android
                 }
             }
 
-            FastbootCommand fbCmd = Fastboot.FormFastbootCommand("devices");
-            deviceList = Fastboot.ExecuteFastbootCommand(fbCmd);
+            deviceList = Fastboot.Devices();
             if (deviceList.Length > 0)
             {
                 using (StringReader s = new StringReader(deviceList))
