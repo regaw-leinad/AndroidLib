@@ -37,8 +37,7 @@ namespace RegawMOD.Android
         {
             string state = null;
 
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "devices");
-            using (StringReader r = new StringReader(Adb.ExecuteAdbCommand(adbCmd)))
+            using (StringReader r = new StringReader(Adb.Devices()))
             {
                 string line;
 
@@ -53,8 +52,7 @@ namespace RegawMOD.Android
 
             if (state == null)
             {
-                FastbootCommand fbCmd = Fastboot.FormFastbootCommand("devices");
-                using (StringReader r = new StringReader(Fastboot.ExecuteFastbootCommand(fbCmd)))
+                using (StringReader r = new StringReader(Fastboot.Devices()))
                 {
                     string line;
 
@@ -196,9 +194,8 @@ namespace RegawMOD.Android
         public bool PullFile(string pathOnDevice, string destinationDirectory)
         {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", pathOnDevice, "\"" + destinationDirectory + "\"");
-            string outPut = Adb.ExecuteAdbCommand(adbCmd);
 
-            if (outPut.Contains(" does not exist"))
+            if (Adb.ExecuteAdbCommand(adbCmd).Contains(" does not exist"))
                 return false;
 
             return true;
