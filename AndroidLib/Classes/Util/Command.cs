@@ -55,6 +55,26 @@ namespace RegawMOD
             return output;
         }
 
+        internal static int RunProcessReturnExitCode(string executable, string arguments)
+        {
+            int exitCode;
+
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = true;
+
+                p.Start();
+                p.WaitForExit();
+                exitCode = p.ExitCode;
+            }
+
+            return exitCode;
+        }
+
         internal static bool RunProcessOutputContains(string executable, string arguments, string containsString, bool ignoreCase = false)
         {
             string output, error, regular;

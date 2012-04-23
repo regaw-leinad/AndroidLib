@@ -155,6 +155,16 @@ namespace RegawMOD.Android
         }
 
         /// <summary>
+        /// Executes an <see cref="AdbCommand"/> on the running Adb Server
+        /// </summary>
+        /// <param name="command">Instance of <see cref="AdbCommand"/></param>
+        /// <returns>Exit code of the process</returns>
+        public static int ExecuteAdbCommandReturnExitCode(AdbCommand command)
+        {
+            return Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+        }
+
+        /// <summary>
         /// Gets a value indicating if an Android Debug Bridge Server is currently running.
         /// </summary>
         public static bool ServerRunning

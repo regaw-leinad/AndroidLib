@@ -188,17 +188,29 @@ namespace RegawMOD.Android
         /// <summary>
         /// Pulls a file from the device
         /// </summary>
-        /// <param name="pathOnDevice">Path to file to pull from device</param>
+        /// <param name="fileOnDevice">Path to file to pull from device</param>
         /// <param name="destinationDirectory">Directory on local computer to pull file to</param>
-        /// <returns>True if file is pulled, false if file doesn't exist</returns>
-        public bool PullFile(string pathOnDevice, string destinationDirectory)
+        /// <returns>True if file is pulled, false if file doesn't exist or pull failed</returns>
+        public bool PullFile(string fileOnDevice, string destinationDirectory)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", pathOnDevice, "\"" + destinationDirectory + "\"");
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", fileOnDevice, "\"" + destinationDirectory + "\"");
 
             if (Adb.ExecuteAdbCommand(adbCmd).Contains(" does not exist"))
                 return false;
 
             return true;
+        }
+
+        /// <summary>
+        /// Pulls a folder from the device
+        /// </summary>
+        /// <param name="folderOnDevice">Path to folder to pull from device</param>
+        /// <param name="destinationDirectory">Directory on local computer to pull file to</param>
+        /// <returns>True if folder is pulled, false if folder doesn't exist or pull failed</returns>
+        public bool PullFolder(string folderOnDevice, string destinationDirectory)
+        {
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", (folderOnDevice.EndsWith("/") ? folderOnDevice : folderOnDevice + "/"), "\"" + destinationDirectory + "\"");
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
         /// <summary>
