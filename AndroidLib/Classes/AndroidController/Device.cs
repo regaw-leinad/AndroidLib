@@ -202,14 +202,14 @@ namespace RegawMOD.Android
         }
 
         /// <summary>
-        /// Pulls a folder from the device
+        /// Pulls a full directory recursively from the device
         /// </summary>
-        /// <param name="folderOnDevice">Path to folder to pull from device</param>
-        /// <param name="destinationDirectory">Directory on local computer to pull file to</param>
-        /// <returns>True if folder is pulled, false if folder doesn't exist or pull failed</returns>
-        public bool PullFolder(string folderOnDevice, string destinationDirectory)
+        /// <param name="location">Path to folder to pull from device</param>
+        /// <param name="destination">Directory on local computer to pull file to</param>
+        /// <returns>True if directory is pulled, false if directory doesn't exist or pull failed</returns>
+        public bool PullDirectory(string location, string destination)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", (folderOnDevice.EndsWith("/") ? folderOnDevice : folderOnDevice + "/"), "\"" + destinationDirectory + "\"");
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", (location.EndsWith("/") ? location : location + "/"), "\"" + destination + "\"");
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 

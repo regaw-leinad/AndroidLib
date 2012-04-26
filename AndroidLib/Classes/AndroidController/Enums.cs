@@ -5,6 +5,32 @@
 namespace RegawMOD.Android
 {
     /// <summary>
+    /// Specifies a FileSystem Listing
+    /// </summary>
+    public enum ListingType
+    {
+        /// <summary>
+        /// Represents a File
+        /// </summary>
+        FILE,
+
+        /// <summary>
+        /// Represents a Directory
+        /// </summary>
+        DIRECTORY,
+
+        /// <summary>
+        /// Represents neither File or Directory
+        /// </summary>
+        NONE,
+
+        /// <summary>
+        /// Usually returned if BusyBox is not installed on device
+        /// </summary>
+        ERROR
+    }
+
+    /// <summary>
     /// Specifies current state of <see cref="Device"/>
     /// </summary>
     public enum DeviceState

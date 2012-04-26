@@ -167,5 +167,31 @@ namespace RegawMOD.Android
             
             return false;
         }
+
+        private const string IS_FILE = "if [ -f {0} ]; then echo \"1\"; else echo \"0\"; fi";
+        private const string IS_DIRECTORY = "if [ -d {0} ]; then echo \"1\"; else echo \"0\"; fi";
+
+        /// <summary>
+        /// Gets a <see cref="ListingType"/> indicating is the requested location is a File or Directory
+        /// </summary>
+        /// <param name="location">Path of requested location on device</param>
+        /// <returns>See <see cref="ListingType"/></returns>
+        /// <remarks><para>Requires a device containing BusyBox for now, returns ListingType.ERROR if not installed.</para>
+        /// <para>Returns ListingType.NONE if file/Directory does not exist</para></remarks>
+        public ListingType FileOrDirectory(string location)
+        {
+            if (!this.device.BusyBox.IsInstalled)
+                return ListingType.ERROR;
+
+            AdbCommand isFile = Adb.FormAdbShellCommand(this.device, false, string.Format(IS_FILE, location));
+            AdbCommand isDir = Adb.FormAdbShellCommand(this.device, false, string.Format(IS_DIRECTORY, location));
+
+            if (Adb.ExecuteAdbCommand(isFile).Contains("1"))
+                return ListingType.FILE;
+            else if (Adb.ExecuteAdbCommand(isDir).Contains("1"))
+                return ListingType.DIRECTORY;
+
+            return ListingType.NONE;
+        }
     }
 }
