@@ -24,7 +24,7 @@ namespace RegawMOD
     ///     static void Main(string[] args)
     ///     {
     ///         // Registers "Testing" with the manager
-    ///         ResFolderManager.Register("Testing");
+    ///         ResourceFolderManager.Register("Testing");
     ///         
     ///         // Creates file in the "Testing" folder
     ///         using (StreamWriter w = new StreamWriter(ResourceFolderManager.GetRegisteredFolderPath("Testing") + "Test1.txt"))
@@ -33,7 +33,7 @@ namespace RegawMOD
     ///         }
     ///         
     ///         // Removes folder from memory and file system, including all contents
-    ///         ResFolderManager.Unregister("Testing");
+    ///         ResourceFolderManager.Unregister("Testing");
     ///     }
     /// }
     /// </code>
