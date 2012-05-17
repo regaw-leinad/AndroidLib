@@ -11,7 +11,7 @@ namespace RegawMOD
     /// Controls Resource Folders for the <see cref="RegawMOD"/> Namespace
     /// </summary>
     /// <remarks><para>You can use this in your own programs to have a managed resource folder to extract your own files/write data to.</para>
-    /// <para>Calling UnregisterDirectory() deletes the directory and everything recursively in it, and removes unregisters the directory in the manager.</para></remarks>
+    /// <para>Calling Unregister() deletes the directory and everything recursively in it, and removes unregisters the directory in the manager.</para></remarks>
     /// <example><para>This example shows how to register a new directory with the <see cref="ResourceFolderManager"/>, and create a .txt file in the folder.</para>
     /// <code>//This example shows how to register a new directory named "Testing" and create a file in the folder named "Test1.txt".
     /// 
