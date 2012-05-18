@@ -94,7 +94,7 @@ namespace RegawMOD
         }
 
         /// <summary>
-        /// Unregisters and removes the temporary resource directory defined in <paramref name="name"/> recursively with 
+        /// Unregisters and removes the temporary resource directory defined in <paramref name="name"/> recursively 
         /// </summary>
         /// <param name="name">Name of resource directory to unregister</param>
         /// <returns>True if deletion succeeds, false if not</returns>

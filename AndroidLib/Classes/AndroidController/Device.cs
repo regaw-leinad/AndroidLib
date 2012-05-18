@@ -193,7 +193,7 @@ namespace RegawMOD.Android
         /// <returns>True if file is pulled, false if pull failed</returns>
         public bool PullFile(string fileOnDevice, string destinationDirectory)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", fileOnDevice, "\"" + destinationDirectory + "\"");
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"");
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
@@ -205,7 +205,7 @@ namespace RegawMOD.Android
         /// <returns>True if directory is pulled, false if pull failed</returns>
         public bool PullDirectory(string location, string destination)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", (location.EndsWith("/") ? location : location + "/"), "\"" + destination + "\"");
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"");
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
@@ -216,7 +216,7 @@ namespace RegawMOD.Android
         /// <returns>True if install is successful, False if install fails for any reason</returns>
         public bool InstallApk(string location)
         {
-            return (Adb.ExecuteAdbCommandReturnExitCode(Adb.FormAdbCommand(this, "install", location)) == 0);
+            return (Adb.ExecuteAdbCommandReturnExitCode(Adb.FormAdbCommand(this, "install", "\"" + location + "\"")) == 0);
         }
 
         /// <summary>

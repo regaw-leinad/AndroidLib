@@ -64,7 +64,6 @@ namespace RegawMOD.Android
             {"AdbWinApi.dll", "47a6ee3f186b2c2f5057028906bac0c6"},
             {"AdbWinUsbApi.dll", "5f23f2f936bdfac90bb0a4970ad365cf"},
             {"fastboot.exe", "35792abb2cafdf2e6844b61e993056e2"},
-            //{"aapt.exe", "26a35ee028ed08d7ad0d18ffb6bb587a"}
         };
         #endregion
 

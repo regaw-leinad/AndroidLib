@@ -49,6 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AAPT\AAPT.cs" />
+    <Compile Include="Classes\AAPT\AAPT.Dump.cs" />
     <Compile Include="Classes\AndroidController\Adb.cs" />
     <Compile Include="Classes\AndroidController\BusyBox.cs" />
     <Compile Include="Classes\AndroidController\BatteryInfo.cs" />
