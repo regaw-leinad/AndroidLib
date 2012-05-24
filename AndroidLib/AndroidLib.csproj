@@ -77,7 +77,9 @@
     <EmbeddedResource Include="Resources\AndroidController\AdbWinApi.dll" />
     <EmbeddedResource Include="Resources\AndroidController\AdbWinUsbApi.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\Other\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Signer\testkey.pk8" />
     <EmbeddedResource Include="Resources\Signer\testkey.x509.pem" />
@@ -87,7 +89,7 @@
     <EmbeddedResource Include="Resources\Signer\signapk.jar" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Other\aapt.exe" />
+    <EmbeddedResource Include="Resources\AAPT\aapt.exe" />
   </ItemGroup>
   <ItemGroup>
     <None Include="regaw_leinad.pfx" />
