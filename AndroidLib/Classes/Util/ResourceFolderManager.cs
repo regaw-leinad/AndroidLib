@@ -72,7 +72,7 @@ namespace RegawMOD
         /// <returns>Full path of the registered resource directory <paramref name="folder"/></returns>
         public static string GetRegisteredFolderPath(string folder)
         {
-            return (controlledFolders.ContainsKey(folder) ? controlledFolders[folder].FullName + "\\": null);
+            return (controlledFolders.ContainsKey(folder) ? controlledFolders[folder].FullName : null);
         }
 
         /// <summary>

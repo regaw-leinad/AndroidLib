@@ -23,6 +23,7 @@ namespace RegawMOD.Android
     /// </summary>
     public static class Adb
     {
+        private static object _lock = "U is lawked";
         internal const string ADB = "adb";
         internal const string ADB_EXE = "adb.exe";
 
@@ -129,7 +130,10 @@ namespace RegawMOD.Android
         /// <param name="inputLines">Lines of commands to send to shell</param>
         public static void ExecuteAdbShellCommandInputString(Device device, params string[] inputLines)
         {
-            Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", inputLines);
+            lock (_lock)
+            {
+                Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", inputLines);
+            }
         }
 
         /// <summary>
@@ -140,7 +144,14 @@ namespace RegawMOD.Android
         /// <returns>Output of <paramref name="command"/> run on server</returns>
         public static string ExecuteAdbCommand(AdbCommand command)
         {
-            return Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+            string result = "";
+
+            lock (_lock)
+            {
+                result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -151,7 +162,10 @@ namespace RegawMOD.Android
         /// <returns>Output of <paramref name="command"/> run on server</returns>
         public static void ExecuteAdbCommandNoReturn(AdbCommand command)
         {
-            Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+            lock (_lock)
+            {
+                Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+            }
         }
 
         /// <summary>
@@ -161,7 +175,14 @@ namespace RegawMOD.Android
         /// <returns>Exit code of the process</returns>
         public static int ExecuteAdbCommandReturnExitCode(AdbCommand command)
         {
-            return Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+            int result = -1;
+
+            lock (_lock)
+            {
+                result = Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+            }
+
+            return result;
         }
 
         /// <summary>

@@ -144,17 +144,30 @@ namespace RegawMOD.Android
         public bool HasRoot { get { return this.su.Exists; } }
 
         /// <summary>
+        /// Reboots the device regularly from fastboot
+        /// </summary>
+        public void FastbootReboot()
+        {
+            if (this.State == DeviceState.FASTBOOT)
+                new Thread(new ThreadStart(FastbootRebootThread)).Start();
+        }
+
+        private void FastbootRebootThread()
+        {
+            Fastboot.ExecuteFastbootCommandNoReturn(Fastboot.FormFastbootCommand(this, "reboot"));
+        }
+
+        /// <summary>
         /// Reboots the device regularly
         /// </summary>
         public void Reboot()
         {
-            Thread t = new Thread(new ThreadStart(RebootThread));
-            t.Start();
+            new Thread(new ThreadStart(RebootThread)).Start();
         }
 
         private void RebootThread()
         {
-            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbShellCommand(this, false, "reboot"));
+            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot"));
         }
 
         /// <summary>
@@ -162,13 +175,12 @@ namespace RegawMOD.Android
         /// </summary>
         public void RebootRecovery()
         {
-            Thread t = new Thread(new ThreadStart(RebootRecoveryThread));
-            t.Start();
+            new Thread(new ThreadStart(RebootRecoveryThread)).Start();
         }
 
         private void RebootRecoveryThread()
         {
-            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbShellCommand(this, false, "reboot", "recovery"));
+            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot", "recovery"));
         }
 
         /// <summary>
@@ -176,13 +188,12 @@ namespace RegawMOD.Android
         /// </summary>
         public void RebootBootloader()
         {
-            Thread t = new Thread(new ThreadStart(RebootBootloaderThread));
-            t.Start();
+            new Thread(new ThreadStart(RebootBootloaderThread)).Start();
         }
 
         private void RebootBootloaderThread()
         {
-            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbShellCommand(this, false, "reboot", "bootloader"));
+            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot", "bootloader"));
         }
 
         /// <summary>
