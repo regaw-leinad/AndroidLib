@@ -209,6 +209,18 @@ namespace RegawMOD.Android
         }
 
         /// <summary>
+        /// Pushes a file to the device
+        /// </summary>
+        /// <param name="filePath">The path to the file on the computer you want to push</param>
+        /// <param name="destinationFilePath">The desired full path of the file after pushing to the device (including file name and extension)</param>
+        /// <returns>If the push was successful</returns>
+        public bool PushFile(string filePath, string destinationFilePath)
+        {
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"");
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+        }
+
+        /// <summary>
         /// Pulls a full directory recursively from the device
         /// </summary>
         /// <param name="location">Path to folder to pull from device</param>
