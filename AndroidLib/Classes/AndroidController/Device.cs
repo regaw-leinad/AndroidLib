@@ -239,7 +239,7 @@ namespace RegawMOD.Android
         /// <returns>True if install is successful, False if install fails for any reason</returns>
         public bool InstallApk(string location)
         {
-            return (Adb.ExecuteAdbCommandReturnExitCode(Adb.FormAdbCommand(this, "install", "\"" + location + "\"")) == 0);
+            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\""), true).Contains("Failure");
         }
 
         /// <summary>

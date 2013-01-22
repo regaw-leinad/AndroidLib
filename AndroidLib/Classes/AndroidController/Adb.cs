@@ -141,14 +141,15 @@ namespace RegawMOD.Android
         /// </summary>
         /// <remarks>This should be used if you want the output of the command returned</remarks>
         /// <param name="command">Instance of <see cref="AdbCommand"/></param>
+        /// <param name="forceRegular">Forces Output of stdout, not stderror if any</param>
         /// <returns>Output of <paramref name="command"/> run on server</returns>
-        public static string ExecuteAdbCommand(AdbCommand command)
+        public static string ExecuteAdbCommand(AdbCommand command, bool forceRegular = false)
         {
             string result = "";
 
             lock (_lock)
             {
-                result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+                result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, forceRegular);
             }
 
             return result;
