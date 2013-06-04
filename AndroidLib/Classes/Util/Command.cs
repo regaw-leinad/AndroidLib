@@ -46,7 +46,10 @@ namespace RegawMOD
                 regular = p.StandardOutput.ReadToEnd();
                 error = p.StandardError.ReadToEnd();
 
-                if (error.Trim() == "")
+		/* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+                 */
+                if (error.Trim().Length.Equals(0))
                     output = regular;
                 else
                     output = error;
@@ -75,7 +78,10 @@ namespace RegawMOD
                 regular = p.StandardOutput.ReadToEnd();
                 error = p.StandardError.ReadToEnd();
 
-                if (error.Trim() == "" || forceRegular)
+		/* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+                 */
+                if (error.Trim().Length.Equals(0) || forceRegular)
                     output = regular;
                 else
                     output = error;
@@ -124,7 +130,10 @@ namespace RegawMOD
                 regular = p.StandardOutput.ReadToEnd();
                 error = p.StandardError.ReadToEnd();
 
-                if (error.Trim() == "")
+		/* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+                 */
+                if (error.Trim().Length.Equals(0))
                     output = regular;
                 else
                     output = error;
