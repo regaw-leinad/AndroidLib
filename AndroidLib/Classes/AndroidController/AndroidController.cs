@@ -306,7 +306,13 @@ namespace RegawMOD.Android
         /// <remarks>Do Not Use in Windows Forms applications, as this method pauses the current thread.  Works fine in Console Applications</remarks>
         public void WaitForDevice()
         {
-            while (!this.HasConnectedDevices) { }
+		/* Entering an endless loop will exaust CPU. 
+		 * Since this method must be called in a child thread in Windows Presentation Foundation (WPF) or Windows Form Apps,
+		 * sleeping thread for 250 miliSecond (1/4 of a second)
+		 * will be more friendly to the CPU. Nontheless checking 4 times for a connected device in each second is more than enough,
+		 * and will not result in late response from the app if a device gets connected. 
+	         */
+            while (!this.HasConnectedDevices) { Thread.Sleep(250); }
         }
         #endregion
     }
