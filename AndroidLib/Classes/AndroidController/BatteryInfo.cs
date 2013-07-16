@@ -55,9 +55,31 @@ namespace RegawMOD.Android
         /// <summary>
         /// Gets a value indicating the status of the battery
         /// </summary>
-        public int Status
+        public string Status
         {
-            get { Update(); return status; }
+		/* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
+		 * Property "Status" is changed from type "int" to type "string" to give a string representation
+		 * of the value obtained from dumpsys regarding battery status.
+		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+		 */
+            get { 
+		  Update(); 
+		switch (status)
+                 {
+                    case 1:
+			return "Unknown Battery Status: " + status;
+                    case 2:
+                        return "Charging";
+                    case 3:
+                        return "Discharging";
+                    case 4:
+                        return "Not charging";
+                    case 5:
+			return "Full";
+                    default:
+			return "Unknown Value: " + status;
+                }
+		}
         }
 
         /// <summary>
