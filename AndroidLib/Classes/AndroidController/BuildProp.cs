@@ -2,6 +2,7 @@
  * BuildProp.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
+using RegawMOD.Android.Classes.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -167,7 +168,7 @@ namespace RegawMOD.Android
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(String.Join(" ", new string[] { "Failede to read prop values", Environment.NewLine, "Error:", ex.Message }), "AndroidLib", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                Logger.WriteLog(ex.Message, "Using: getprop in BuildProp.cs", ex.StackTrace);
             }
         }
     }
