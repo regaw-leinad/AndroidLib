@@ -141,7 +141,7 @@ namespace RegawMOD.Android
                     {
                         string temp = s.ReadLine();
 
-                        if (temp == "" || temp.StartsWith("*"))
+                        if (temp.Trim().Length.Equals(0) || temp.StartsWith("*"))
                             continue;
 
                         splitPropLine = temp.Split(':');
