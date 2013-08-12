@@ -55,17 +55,67 @@ namespace RegawMOD.Android
         /// <summary>
         /// Gets a value indicating the status of the battery
         /// </summary>
-        public int Status
+        public string Status
         {
-            get { Update(); return status; }
+		/* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
+		 * Property "Status" is changed from type "int" to type "string" to give a string representation
+		 * of the value obtained from dumpsys regarding battery status.
+		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+		 */
+            get { 
+		  Update(); 
+		switch (status)
+                 {
+                    case 1:
+			return "Unknown Battery Status: " + status;
+                    case 2:
+                        return "Charging";
+                    case 3:
+                        return "Discharging";
+                    case 4:
+                        return "Not charging";
+                    case 5:
+			return "Full";
+                    default:
+			return "Unknown Value: " + status;
+                }
+		}
         }
 
         /// <summary>
         /// Gets a value indicating the health of the battery
         /// </summary>
-        public int Health
+        public string Health
         {
-            get { Update(); return health; }
+		
+		/* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
+		 * Property "Health" is changed from type "int" to type "string" to give a string representation
+		 * of the value obtained from dumpsys regarding battery health.
+		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+		 */
+            get { 
+		    Update();
+		    switch (health)
+                 {
+                    case 1:
+			return "Unknown Health State: " + health;
+                    case 2:
+                        return "Good";
+                    case 3:
+                        return "Over Heat";
+                    case 4:
+                        return "Dead";
+                    case 5:
+			return "Over Voltage";
+                    case 6:
+                        return "Unknown Failure";
+		    case 7:
+			return "Cold Battery";
+                    default:
+			return "Unknown Value: " + health;
+                }
+		
+	    }
         }
 
         /// <summary>
