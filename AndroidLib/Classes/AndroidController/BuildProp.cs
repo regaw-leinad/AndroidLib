@@ -69,7 +69,7 @@ namespace RegawMOD.Android
             Update();
 
             string tmp;
-                
+
             this.prop.TryGetValue(key, out tmp);
 
             return tmp;
@@ -124,43 +124,50 @@ namespace RegawMOD.Android
 
         private void Update()
         {
-            this.prop.Clear();
-
-            if (this.device.State != DeviceState.ONLINE)
-                return;
-
-            string[] splitPropLine;
-            AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, "getprop");
-            string prop = Adb.ExecuteAdbCommand(adbCmd);
-
-            using (StringReader s = new StringReader(prop))
+            try
             {
-                while (s.Peek() != -1)
+                this.prop.Clear();
+
+                if (this.device.State != DeviceState.ONLINE)
+                    return;
+
+                string[] splitPropLine;
+                AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, "getprop");
+                string prop = Adb.ExecuteAdbCommand(adbCmd);
+
+                using (StringReader s = new StringReader(prop))
                 {
-                    string temp = s.ReadLine();
-
-                    if (temp == "" || temp.StartsWith("*"))
-                        continue;
-
-                    splitPropLine = temp.Split(':');
-
-                    //In case there is a line with ':' in the value, combine it
-                    if (splitPropLine.Length > 2)
-                        for (int i = 2; i < splitPropLine.Length; i++)
-                            splitPropLine[1] += ":" + splitPropLine[i];
-
-                    for (int i = 0; i < 2; i++)
+                    while (s.Peek() != -1)
                     {
-                        if (i == 0)
-                            splitPropLine[i] = splitPropLine[i].Replace("[", "");
-                        else
-                            splitPropLine[i] = splitPropLine[i].Replace(" [", "");
+                        string temp = s.ReadLine();
 
-                        splitPropLine[i] = splitPropLine[i].Replace("]", "");
+                        if (temp == "" || temp.StartsWith("*"))
+                            continue;
+
+                        splitPropLine = temp.Split(':');
+
+                        //In case there is a line with ':' in the value, combine it
+                        if (splitPropLine.Length > 2)
+                            for (int i = 2; i < splitPropLine.Length; i++)
+                                splitPropLine[1] += ":" + splitPropLine[i];
+
+                        for (int i = 0; i < 2; i++)
+                        {
+                            if (i == 0)
+                                splitPropLine[i] = splitPropLine[i].Replace("[", "");
+                            else
+                                splitPropLine[i] = splitPropLine[i].Replace(" [", "");
+
+                            splitPropLine[i] = splitPropLine[i].Replace("]", "");
+                        }
+
+                        this.prop.Add(splitPropLine[0], splitPropLine[1]);
                     }
-
-                    this.prop.Add(splitPropLine[0], splitPropLine[1]);
                 }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(String.Join(" ", new string[] { "Failede to read prop values", Environment.NewLine, "Error:", ex.Message }), "AndroidLib", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
     }
