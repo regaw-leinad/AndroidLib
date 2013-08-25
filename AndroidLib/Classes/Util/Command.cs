@@ -4,6 +4,7 @@
 
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 
 namespace RegawMOD
 {
@@ -35,20 +36,21 @@ namespace RegawMOD
                 p.StartInfo.FileName = executable;
                 p.StartInfo.Arguments = arguments;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 p.StartInfo.CreateNoWindow = true;
                 p.StartInfo.UseShellExecute = false;
-                
+
                 p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardOutput = true;
-                
+
                 p.Start();
 
                 regular = p.StandardOutput.ReadToEnd();
                 error = p.StandardError.ReadToEnd();
 
-		/* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
-		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
-                 */
+                /* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+                 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+                         */
                 if (error.Trim().Length.Equals(0))
                     output = regular;
                 else
@@ -67,6 +69,7 @@ namespace RegawMOD
                 p.StartInfo.FileName = executable;
                 p.StartInfo.Arguments = arguments;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 p.StartInfo.CreateNoWindow = true;
                 p.StartInfo.UseShellExecute = false;
 
@@ -78,9 +81,9 @@ namespace RegawMOD
                 regular = p.StandardOutput.ReadToEnd();
                 error = p.StandardError.ReadToEnd();
 
-		/* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
-		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
-                 */
+                /* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+                 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+                         */
                 if (error.Trim().Length.Equals(0) || forceRegular)
                     output = regular;
                 else
@@ -119,6 +122,7 @@ namespace RegawMOD
                 p.StartInfo.FileName = executable;
                 p.StartInfo.Arguments = arguments;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 p.StartInfo.CreateNoWindow = true;
                 p.StartInfo.UseShellExecute = false;
 
@@ -130,9 +134,9 @@ namespace RegawMOD
                 regular = p.StandardOutput.ReadToEnd();
                 error = p.StandardError.ReadToEnd();
 
-		/* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
-		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
-                 */
+                /* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+                 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+                         */
                 if (error.Trim().Length.Equals(0))
                     output = regular;
                 else
