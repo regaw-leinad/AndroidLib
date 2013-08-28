@@ -95,7 +95,7 @@ namespace RegawMOD.Android
         /// //Notice how in the formation, you don't supply the prefix "adb", because the method takes care of it for you.
         /// //This example also assumes you have a Device instance named device.
         /// 
-        /// AdbCommand adbCmd = Adb.FormAdbCommand(device, "input", "keyevent", (int)KeyEventCode.HOME);
+        /// AdbCommand adbCmd = Adb.FormAdbCommand(device, true, "input", "keyevent", (int)KeyEventCode.HOME);
         /// 
         /// </code>
         /// </example>

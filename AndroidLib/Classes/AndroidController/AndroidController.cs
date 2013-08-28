@@ -33,14 +33,14 @@ namespace RegawMOD.Android
     ///         
     ///         Console.WriteLine("Waiting For Device...");
     ///
-    ///         //This will wait until a device is connected to the computer
-    ///         //Should ONLY be used in Console applications though, as it freezes WinForm apps
+    ///         // This will wait until a device is connected to the computer
+    ///         // Should ONLY be used in Console applications though, as it freezes WinForm apps
     ///         android.WaitForDevice();
     ///
-    ///         //Gets first serial number of Device in collection
+    ///         // Gets first serial number of Device in collection
     ///         serialNumber = android.ConnectedDevices[0];
     ///
-    ///         //New way to set 'device' to the first Device in the collection
+    ///         // New way to set 'device' to the first Device in the collection
     ///         device = android.GetConnectedDevice(serialNumber);
     ///
     ///         Console.WriteLine("Connected Device - {0}", device.SerialNumber);

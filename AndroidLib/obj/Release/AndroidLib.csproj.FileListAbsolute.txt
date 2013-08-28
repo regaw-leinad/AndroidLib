@@ -1,0 +1,5 @@
+C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\bin\Release\AndroidLib.XML
+C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\bin\Release\AndroidLib.dll
+C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\bin\Release\AndroidLib.pdb
+C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\obj\Release\AndroidLib.dll
+C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\obj\Release\AndroidLib.pdb
