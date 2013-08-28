@@ -1,6 +1,0 @@
-C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\obj\Debug\AndroidLib.csprojResolveAssemblyReference.cache
-C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\bin\Debug\AndroidLib.XML
-C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\bin\Debug\AndroidLib.dll
-C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\bin\Debug\AndroidLib.pdb
-C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\obj\Debug\AndroidLib.dll
-C:\Users\Dan\Downloads\AndroidLib\AndroidLib\AndroidLib\obj\Debug\AndroidLib.pdb
