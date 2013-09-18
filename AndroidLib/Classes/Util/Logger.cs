@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace RegawMOD.Android.Classes.Util
+namespace RegawMOD.Util
 {
     class Logger
     {
