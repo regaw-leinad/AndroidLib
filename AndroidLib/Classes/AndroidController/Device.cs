@@ -294,6 +294,27 @@ namespace RegawMOD.Android
         public bool CreateDirectory(string Directory) {
             return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "shell", "mkdir " + Directory), true).Contains("Failure");
         }
+        /// <summary>
+        /// Get Device name 
+        /// </summary>
+        public string GetDeviceName() {
+            string build = Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "shell", "cat /system/build.prop"), true);
+            if (!build.Contains("Failure"))
+            {
+                Match matchResults = null;
+                string result = null;
+                matchResults = Regex.Match(build, "(?<=ro.usbdevice.volumelabel=).+");
+                if (matchResults.Success)
+                {
+                    result = matchResults.Value;
+                }
+                return result;
+            }
+            else
+            {
+                return null;
+            }
 
+        }
     }
 }
