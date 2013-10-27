@@ -3,6 +3,7 @@
  */
 
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace RegawMOD.Android
@@ -256,5 +257,43 @@ namespace RegawMOD.Android
             this.phone = new Phone(this);
             this.fileSystem = new FileSystem(this);
         }
+
+        /// <summary>
+        /// Get wifi mac address
+        /// </summary>
+        public string getWifiMacAddress()
+        {
+            string re = Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "shell netcfg"), true);
+            if (!re.Contains("Failure"))
+            {
+                Match matchResults = null;
+                string result = null;
+                matchResults = Regex.Match(re, "(?<=wlan.+)([0-9a-zA-z]{2}[:]){5}([0-9a-zA-Z]{2})");
+                if (matchResults.Success)
+                {
+                    result = matchResults.Value;
+                }
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        /// <summary>
+        /// open wifi
+        /// </summary>
+        public bool OpenWifi()
+        {
+            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "svc", "wifi enable"), true).Contains("Failure");
+        }
+        /// <summary>
+        /// Create Directory 
+        /// eg: Directory = /sdcard/test
+        /// </summary>
+        public bool CreateDirectory(string Directory) {
+            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "shell", "mkdir " + Directory), true).Contains("Failure");
+        }
+
     }
 }
