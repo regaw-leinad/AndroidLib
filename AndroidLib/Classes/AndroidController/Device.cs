@@ -316,5 +316,25 @@ namespace RegawMOD.Android
             }
 
         }
+
+        public string GetAndroidId(){
+            string build = Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "shell", "content query --uri content://settings/secure --projection name:value"), true);
+
+            if (!build.Contains("Failure"))
+            {
+                Match matchResults = null;
+                string result = null;
+                matchResults = Regex.Match(build, "(?<=android_id.+value=).+");
+                if (matchResults.Success)
+                {
+                    result = matchResults.Value;
+                }
+                return result;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
