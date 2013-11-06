@@ -300,19 +300,33 @@ namespace RegawMOD.Android
             }
         }
 
+        private bool _CancelRequest;
+        public bool CancelWait
+        {
+            get { return _CancelRequest; }
+            set { _CancelRequest = value; }
+        }
+
         /// <summary>
         /// Pauses thread until 1 or more Android devices are connected
         /// </summary>
         /// <remarks>Do Not Use in Windows Forms applications, as this method pauses the current thread.  Works fine in Console Applications</remarks>
         public void WaitForDevice()
         {
-		/* Entering an endless loop will exaust CPU. 
-		 * Since this method must be called in a child thread in Windows Presentation Foundation (WPF) or Windows Form Apps,
-		 * sleeping thread for 250 miliSecond (1/4 of a second)
-		 * will be more friendly to the CPU. Nontheless checking 4 times for a connected device in each second is more than enough,
-		 * and will not result in late response from the app if a device gets connected. 
-	         */
-            while (!this.HasConnectedDevices) { Thread.Sleep(250); }
+            /* Entering an endless loop will exhaust CPU. 
+             * Since this method must be called in a child thread in Windows Presentation Foundation (WPF) or Windows Form Apps,
+             * sleeping thread for 250 miliSecond (1/4 of a second)
+             * will be more friendly to the CPU. Nonetheless checking 4 times for a connected device in each second is more than enough,
+             * and will not result in late response from the app if a device gets connected. 
+                 */
+            while (!this.HasConnectedDevices)
+            {
+                if (this.CancelWait)
+                {
+                    break;
+                }
+                Thread.Sleep(250);
+            }
         }
         #endregion
     }
