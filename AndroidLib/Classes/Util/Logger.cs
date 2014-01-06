@@ -4,27 +4,26 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace RegawMOD.Util
+namespace RegawMOD
 {
-    class Logger
+    internal static class Logger
     {
-        public static string ErrorLogPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Path.Combine("AndroidLib", "ErrorLog.txt"));
+        private static string ErrorLogPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Path.Combine("AndroidLib", "ErrorLog.txt"));
 
-        public static bool WriteLog(string Message, string Title, string StackTrace)
+        internal static bool WriteLog(string Message, string Title, string StackTrace)
         {
             try
             {
                 using (FileStream fs = new FileStream(ErrorLogPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
-                using (StreamWriter sw = new StreamWriter(fs))
-                {
-                    sw.WriteLine(String.Join(" ", new string[] { Title, Message, StackTrace }));
-                }
-                return true;
+                    using (StreamWriter sw = new StreamWriter(fs))
+                        sw.WriteLine(String.Join(" ", new string[] { Title, Message, StackTrace }));
             }
             catch (Exception)
             {
                 return false;
             }
+
+            return true;
         }
     }
 }
