@@ -5,6 +5,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace RegawMOD
 {
@@ -29,68 +30,138 @@ namespace RegawMOD
 
         internal static string RunProcessReturnOutput(string executable, string arguments)
         {
-            string output, error, regular;
-
             using (Process p = new Process())
             {
                 p.StartInfo.FileName = executable;
                 p.StartInfo.Arguments = arguments;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 p.StartInfo.CreateNoWindow = true;
                 p.StartInfo.UseShellExecute = false;
-
-                p.StartInfo.RedirectStandardError = true;
                 p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.RedirectStandardError = true;
 
-                p.Start();
+                StringBuilder output = new StringBuilder();
+                StringBuilder error = new StringBuilder();
 
-                regular = p.StandardOutput.ReadToEnd();
-                error = p.StandardError.ReadToEnd();
+                using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
+                using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
+                {
+                    p.OutputDataReceived += (sender, e) =>
+                    {
+                        if (e.Data == null)
+                        {
+                            outputWaitHandle.Set();
+                        }
+                        else
+                        {
+                            output.AppendLine(e.Data);
+                        }
+                    };
+                    p.ErrorDataReceived += (sender, e) =>
+                    {
+                        if (e.Data == null)
+                        {
+                            errorWaitHandle.Set();
+                        }
+                        else
+                        {
+                            error.AppendLine(e.Data);
+                        }
+                    };
 
-                /* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
-                 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
-                         */
-                if (error.Trim().Length.Equals(0))
-                    output = regular;
+                    p.Start();
+
+                    p.BeginOutputReadLine();
+                    p.BeginErrorReadLine();
+
+                    int timeout = 500;
+                    if (p.WaitForExit(timeout) &&
+                        outputWaitHandle.WaitOne(timeout) &&
+                        errorWaitHandle.WaitOne(timeout))
+                    {
+                        // Process completed. Check process.ExitCode here.
+                    }
+                    else
+                    {
+                        // Timed out.
+                    }
+                }
+                string strReturn = "";
+                if (error.ToString().Trim().Length.Equals(0))
+                    strReturn = output.ToString().Trim();
                 else
-                    output = error;
-            }
+                    strReturn = error.ToString().Trim();
 
-            return output;
+                return strReturn;
+            }
         }
 
         internal static string RunProcessReturnOutput(string executable, string arguments, bool forceRegular)
         {
-            string output, error, regular;
-
             using (Process p = new Process())
             {
                 p.StartInfo.FileName = executable;
                 p.StartInfo.Arguments = arguments;
                 p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 p.StartInfo.CreateNoWindow = true;
                 p.StartInfo.UseShellExecute = false;
-
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
 
-                p.Start();
+                StringBuilder output = new StringBuilder();
+                StringBuilder error = new StringBuilder();
 
-                regular = p.StandardOutput.ReadToEnd();
-                error = p.StandardError.ReadToEnd();
+                using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
+                using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
+                {
+                    p.OutputDataReceived += (sender, e) =>
+                    {
+                        if (e.Data == null)
+                        {
+                            outputWaitHandle.Set();
+                        }
+                        else
+                        {
+                            output.AppendLine(e.Data);
+                        }
+                    };
+                    p.ErrorDataReceived += (sender, e) =>
+                    {
+                        if (e.Data == null)
+                        {
+                            errorWaitHandle.Set();
+                        }
+                        else
+                        {
+                            error.AppendLine(e.Data);
+                        }
+                    };
 
-                /* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
-                 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
-                         */
-                if (error.Trim().Length.Equals(0) || forceRegular)
-                    output = regular;
-                else
-                    output = error;
+                    p.Start();
+
+                    p.BeginOutputReadLine();
+                    p.BeginErrorReadLine();
+
+                    int timeout = 500;
+                    if (p.WaitForExit(timeout) &&
+                        outputWaitHandle.WaitOne(timeout) &&
+                        errorWaitHandle.WaitOne(timeout))
+                    {
+                        // Process completed. Check process.ExitCode here.
+                    }
+                    else
+                    {
+                        // Timed out.
+                    }
+                }
+                string strReturn = "";
+                if (error.ToString().Trim().Length.Equals(0) || forceRegular)
+                    strReturn = output.ToString().Trim();
+                else                
+                    strReturn = error.ToString().Trim();
+
+                return strReturn;
             }
-
-            return output;
         }
 
         internal static int RunProcessReturnExitCode(string executable, string arguments)
