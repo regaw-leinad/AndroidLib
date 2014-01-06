@@ -75,7 +75,7 @@ namespace RegawMOD.Android
 
                 this.version = check.Split(' ')[1].Substring(1);
 
-                while (s.ReadLine() != "Currently defined functions:") { }
+                while (s.Peek() != -1 && s.ReadLine() != "Currently defined functions:") { }
 
                 string[] cmds = s.ReadToEnd().Replace(" ", "").Replace("\r\r\n\t", "").Trim('\t', '\r', '\n').Split(',');
 
