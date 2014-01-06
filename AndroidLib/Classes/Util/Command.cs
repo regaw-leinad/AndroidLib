@@ -87,6 +87,9 @@ namespace RegawMOD
                     }
                 }
                 string strReturn = "";
+                /* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+ -               * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+ -               */
                 if (error.ToString().Trim().Length.Equals(0))
                     strReturn = output.ToString().Trim();
                 else
@@ -155,6 +158,9 @@ namespace RegawMOD
                     }
                 }
                 string strReturn = "";
+                /* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+ -               * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+ -               */
                 if (error.ToString().Trim().Length.Equals(0) || forceRegular)
                     strReturn = output.ToString().Trim();
                 else                
