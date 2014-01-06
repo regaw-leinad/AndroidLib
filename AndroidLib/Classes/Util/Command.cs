@@ -42,7 +42,7 @@ namespace RegawMOD
 
                 using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
                     using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
-                        return HandleOutput(p, outputWaitHandle, errorWaitHandle, timeout);
+                        return HandleOutput(p, outputWaitHandle, errorWaitHandle, timeout, false);
             }
         }
 
@@ -62,11 +62,11 @@ namespace RegawMOD
 
                 using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
                     using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
-                        return HandleOutput(p, outputWaitHandle, errorWaitHandle, timeout);
+                        return HandleOutput(p, outputWaitHandle, errorWaitHandle, timeout, forceRegular);
             }
         }
 
-        private static string HandleOutput(Process p, AutoResetEvent outputWaitHandle, AutoResetEvent errorWaitHandle, int timeout)
+        private static string HandleOutput(Process p, AutoResetEvent outputWaitHandle, AutoResetEvent errorWaitHandle, int timeout, bool forceRegular)
         {
             StringBuilder output = new StringBuilder();
             StringBuilder error = new StringBuilder();
@@ -95,7 +95,7 @@ namespace RegawMOD
             {
                 string strReturn = "";
 
-                if (error.ToString().Trim().Length.Equals(0))
+                if (error.ToString().Trim().Length.Equals(0) || forceRegular)
                     strReturn = output.ToString().Trim();
                 else
                     strReturn = error.ToString().Trim();
