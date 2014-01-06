@@ -74,6 +74,7 @@ namespace RegawMOD.Android
         #region MEMBER VARIABLES
         private string resourceDirectory;
         private List<string> connectedDevices;
+        private bool Extract_Resources = false;
         #endregion
 
         #region PROPERTIES
@@ -126,25 +127,24 @@ namespace RegawMOD.Android
         #region PRIVATE METHODS
         private void CreateResourceDirectories()
         {
-            if (!ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER))
+            if (!Adb.ExecuteAdbCommand(new AdbCommand("version")).Contains(Adb.ADB_VERSION))
             {
-                if (File.Exists(this.resourceDirectory + Adb.ADB_EXE) && Adb.ServerRunning)
-                {
-                    Adb.KillServer();
-                    Thread.Sleep(1000);
-                }
-
+                Adb.KillServer();
+                Thread.Sleep(1000);
                 ResourceFolderManager.Unregister(ANDROID_CONTROLLER_TMP_FOLDER);
+                Extract_Resources = true;
             }
-
             ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
         }
 
         private void ExtractResources()
         {
-            string[] res = new string[RESOURCES.Count];
-            RESOURCES.Keys.CopyTo(res, 0);
-            Extract.Resources(this, this.resourceDirectory, "Resources.AndroidController", res);
+            if (this.Extract_Resources)
+            {
+                string[] res = new string[RESOURCES.Count];
+                RESOURCES.Keys.CopyTo(res, 0);
+                Extract.Resources(this, this.resourceDirectory, "Resources.AndroidController", res);
+            }
         }
         #endregion
 
@@ -160,8 +160,6 @@ namespace RegawMOD.Android
                 Adb.KillServer();
                 Thread.Sleep(1000);
             }
-
-            ResourceFolderManager.Unregister(ANDROID_CONTROLLER_TMP_FOLDER);
             AndroidController.instance = null;
         }
 
