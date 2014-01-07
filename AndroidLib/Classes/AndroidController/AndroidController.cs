@@ -316,15 +316,13 @@ namespace RegawMOD.Android
              * sleeping thread for 250 miliSecond (1/4 of a second)
              * will be more friendly to the CPU. Nonetheless checking 4 times for a connected device in each second is more than enough,
              * and will not result in late response from the app if a device gets connected. 
-                 */
-            while (!this.HasConnectedDevices)
+             */
+            while (!this.HasConnectedDevices && !this.CancelWait)
             {
-                if (this.CancelWait)
-                {
-                    break;
-                }
                 Thread.Sleep(250);
             }
+
+            this.CancelWait = false;
         }
         #endregion
     }
