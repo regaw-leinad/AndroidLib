@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Fastboot.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
@@ -12,9 +12,19 @@ namespace RegawMOD.Android
     public class FastbootCommand
     {
         private string command;
+        private int timeout;
         internal string Command { get { return this.command; } }
-        internal FastbootCommand(string command) { this.command = command; }
+        internal int Timeout { get { return this.timeout; } }
+        internal FastbootCommand(string command) { this.command = command; this.timeout = RegawMOD.Command.DEFAULT_TIMEOUT; }
+        
+        /// <summary>
+        /// Sets the timeout for the AdbCommand
+        /// </summary>
+        /// <param name="timeout">The timeout for the command in milliseconds</param>
+        public FastbootCommand WithTimeout(int timeout) { this.timeout = timeout; return this; }
     }
+
+    
 
     /// <summary>
     /// Controls all commands sent to Fastboot
@@ -91,7 +101,7 @@ namespace RegawMOD.Android
         /// <returns>Output of <paramref name="command"/> run in fastboot</returns>
         public static string ExecuteFastbootCommand(FastbootCommand command)
         {
-            return Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + FASTBOOT_EXE, command.Command);
+            return Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + FASTBOOT_EXE, command.Command, command.Timeout);
         }
 
         /// <summary>
