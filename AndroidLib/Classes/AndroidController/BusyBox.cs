@@ -54,8 +54,7 @@ namespace RegawMOD.Android
 
             if (!this.device.HasRoot || this.device.State != DeviceState.ONLINE)
             {
-                this.isInstalled = false;
-                this.version = null;
+                SetNoBusybox();
                 return;
             }
 
@@ -66,8 +65,7 @@ namespace RegawMOD.Android
 
                 if (check.Contains(string.Format("{0}: not found", EXECUTABLE)))
                 {
-                    this.isInstalled = false;
-                    this.version = null;
+                    SetNoBusybox();
                     return;
                 }
 
@@ -75,13 +73,26 @@ namespace RegawMOD.Android
 
                 this.version = check.Split(' ')[1].Substring(1);
 
-                while (s.ReadLine() != "Currently defined functions:") { }
+                while (s.Peek() != -1 && s.ReadLine() != "Currently defined functions:") { }
 
                 string[] cmds = s.ReadToEnd().Replace(" ", "").Replace("\r\r\n\t", "").Trim('\t', '\r', '\n').Split(',');
 
-                foreach (string cmd in cmds)
-                    this.commands.Add(cmd);
+                if (cmds.Length.Equals(0))
+                {
+                    SetNoBusybox();
+                }
+                else
+                {
+                    foreach (string cmd in cmds)
+                        this.commands.Add(cmd);
+                }
             }
+        }
+
+        private void SetNoBusybox()
+        {
+            this.isInstalled = false;
+            this.version = null;
         }
     }
 }

@@ -74,6 +74,7 @@ namespace RegawMOD.Android
         #region MEMBER VARIABLES
         private string resourceDirectory;
         private List<string> connectedDevices;
+        private bool Extract_Resources = false;
         #endregion
 
         #region PROPERTIES
@@ -126,25 +127,24 @@ namespace RegawMOD.Android
         #region PRIVATE METHODS
         private void CreateResourceDirectories()
         {
-            if (!ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER))
+            if (!Adb.ExecuteAdbCommand(new AdbCommand("version")).Contains(Adb.ADB_VERSION))
             {
-                if (File.Exists(this.resourceDirectory + Adb.ADB_EXE) && Adb.ServerRunning)
-                {
-                    Adb.KillServer();
-                    Thread.Sleep(1000);
-                }
-
+                Adb.KillServer();
+                Thread.Sleep(1000);
                 ResourceFolderManager.Unregister(ANDROID_CONTROLLER_TMP_FOLDER);
+                Extract_Resources = true;
             }
-
             ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
         }
 
         private void ExtractResources()
         {
-            string[] res = new string[RESOURCES.Count];
-            RESOURCES.Keys.CopyTo(res, 0);
-            Extract.Resources(this, this.resourceDirectory, "Resources.AndroidController", res);
+            if (this.Extract_Resources)
+            {
+                string[] res = new string[RESOURCES.Count];
+                RESOURCES.Keys.CopyTo(res, 0);
+                Extract.Resources(this, this.resourceDirectory, "Resources.AndroidController", res);
+            }
         }
         #endregion
 
@@ -160,8 +160,6 @@ namespace RegawMOD.Android
                 Adb.KillServer();
                 Thread.Sleep(1000);
             }
-
-            ResourceFolderManager.Unregister(ANDROID_CONTROLLER_TMP_FOLDER);
             AndroidController.instance = null;
         }
 
@@ -300,19 +298,34 @@ namespace RegawMOD.Android
             }
         }
 
+        private bool _CancelRequest;
+        /// <summary>
+        /// Set to true to cancel a WaitForDevice() method call
+        /// </summary>
+        public bool CancelWait
+        {
+            get { return _CancelRequest; }
+            set { _CancelRequest = value; }
+        }
+
         /// <summary>
         /// Pauses thread until 1 or more Android devices are connected
         /// </summary>
         /// <remarks>Do Not Use in Windows Forms applications, as this method pauses the current thread.  Works fine in Console Applications</remarks>
         public void WaitForDevice()
         {
-		/* Entering an endless loop will exaust CPU. 
-		 * Since this method must be called in a child thread in Windows Presentation Foundation (WPF) or Windows Form Apps,
-		 * sleeping thread for 250 miliSecond (1/4 of a second)
-		 * will be more friendly to the CPU. Nontheless checking 4 times for a connected device in each second is more than enough,
-		 * and will not result in late response from the app if a device gets connected. 
-	         */
-            while (!this.HasConnectedDevices) { Thread.Sleep(250); }
+            /* Entering an endless loop will exhaust CPU. 
+             * Since this method must be called in a child thread in Windows Presentation Foundation (WPF) or Windows Form Apps,
+             * sleeping thread for 250 miliSecond (1/4 of a second)
+             * will be more friendly to the CPU. Nonetheless checking 4 times for a connected device in each second is more than enough,
+             * and will not result in late response from the app if a device gets connected. 
+             */
+            while (!this.HasConnectedDevices && !this.CancelWait)
+            {
+                Thread.Sleep(250);
+            }
+
+            this.CancelWait = false;
         }
         #endregion
     }
