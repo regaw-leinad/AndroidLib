@@ -299,6 +299,9 @@ namespace RegawMOD.Android
         }
 
         private bool _CancelRequest;
+        /// <summary>
+        /// Set to true to cancel a WaitForDevice() method call
+        /// </summary>
         public bool CancelWait
         {
             get { return _CancelRequest; }

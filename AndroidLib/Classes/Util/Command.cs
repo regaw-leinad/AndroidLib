@@ -11,6 +11,8 @@ namespace RegawMOD
 {
     internal static class Command
     {
+        public const int DEFAULT_TIMEOUT = 1000;
+
         internal static void RunProcessNoReturn(string executable, string arguments, bool waitForExit = true)
         {
             using (Process p = new Process())
@@ -28,7 +30,7 @@ namespace RegawMOD
             }
         }
 
-        internal static string RunProcessReturnOutput(string executable, string arguments, int timeout = 1000)
+        internal static string RunProcessReturnOutput(string executable, string arguments, int timeout = DEFAULT_TIMEOUT)
         {
             using (Process p = new Process())
             {
@@ -46,9 +48,9 @@ namespace RegawMOD
             }
         }
 
-        
 
-        internal static string RunProcessReturnOutput(string executable, string arguments, bool forceRegular, int timeout = 1000)
+
+        internal static string RunProcessReturnOutput(string executable, string arguments, bool forceRegular, int timeout = DEFAULT_TIMEOUT)
         {
             using (Process p = new Process())
             {
@@ -109,7 +111,7 @@ namespace RegawMOD
             }
         }
 
-        internal static int RunProcessReturnExitCode(string executable, string arguments, int timeout = 500)
+        internal static int RunProcessReturnExitCode(string executable, string arguments, int timeout = DEFAULT_TIMEOUT)
         {
             int exitCode;
 

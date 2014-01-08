@@ -14,8 +14,16 @@ namespace RegawMOD.Android
     public class AdbCommand
     {
         private string command;
+        private int timeout;
         internal string Command { get { return this.command; } }
-        internal AdbCommand(string command) { this.command = command; }
+        internal int Timeout { get { return this.timeout; } }
+        internal AdbCommand(string command) { this.command = command; this.timeout = RegawMOD.Command.DEFAULT_TIMEOUT; }
+
+        /// <summary>
+        /// Sets the timeout for the AdbCommand
+        /// </summary>
+        /// <param name="timeout">The timeout for the command in milliseconds</param>
+        public AdbCommand WithTimeout(int timeout) { this.timeout = timeout; return this; }
     }
 
     /// <summary>
@@ -150,7 +158,7 @@ namespace RegawMOD.Android
 
             lock (_lock)
             {
-                result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, forceRegular);
+                result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, forceRegular, command.Timeout);
             }
 
             return result;
@@ -181,7 +189,7 @@ namespace RegawMOD.Android
 
             lock (_lock)
             {
-                result = Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+                result = Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
             }
 
             return result;
