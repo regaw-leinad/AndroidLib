@@ -18,7 +18,7 @@ namespace RegawMOD.Android
         internal FastbootCommand(string command) { this.command = command; this.timeout = RegawMOD.Command.DEFAULT_TIMEOUT; }
         
         /// <summary>
-        /// Sets the timeout for the AdbCommand
+        /// Sets the timeout for the FastbootCommand
         /// </summary>
         /// <param name="timeout">The timeout for the command in milliseconds</param>
         public FastbootCommand WithTimeout(int timeout) { this.timeout = timeout; return this; }
