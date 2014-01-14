@@ -127,11 +127,18 @@ namespace RegawMOD.Android
         #region PRIVATE METHODS
         private void CreateResourceDirectories()
         {
-            if (!Adb.ExecuteAdbCommand(new AdbCommand("version")).Contains(Adb.ADB_VERSION))
+            try
             {
-                Adb.KillServer();
-                Thread.Sleep(1000);
-                ResourceFolderManager.Unregister(ANDROID_CONTROLLER_TMP_FOLDER);
+                if (!Adb.ExecuteAdbCommand(new AdbCommand("version")).Contains(Adb.ADB_VERSION))
+                {
+                    Adb.KillServer();
+                    Thread.Sleep(1000);
+                    ResourceFolderManager.Unregister(ANDROID_CONTROLLER_TMP_FOLDER);
+                    Extract_Resources = true;
+                }
+            }
+            catch (Exception)
+            {
                 Extract_Resources = true;
             }
             ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
