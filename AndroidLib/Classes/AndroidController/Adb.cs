@@ -174,7 +174,7 @@ namespace RegawMOD.Android
         {
             lock (_lock)
             {
-                Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+                Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
             }
         }
 

@@ -57,17 +57,18 @@ namespace RegawMOD.Android
         /// </summary>
         public string Status
         {
-		/* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
-		 * Property "Status" is changed from type "int" to type "string" to give a string representation
-		 * of the value obtained from dumpsys regarding battery status.
-		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
-		 */
-            get { 
-		  Update(); 
-		switch (status)
-                 {
+            /* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
+             * Property "Status" is changed from type "int" to type "string" to give a string representation
+             * of the value obtained from dumpsys regarding battery status.
+             * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+             */
+            get
+            {
+                Update();
+                switch (status)
+                {
                     case 1:
-			return "Unknown Battery Status: " + status;
+                        return "Unknown Battery Status: " + status;
                     case 2:
                         return "Charging";
                     case 3:
@@ -75,11 +76,11 @@ namespace RegawMOD.Android
                     case 4:
                         return "Not charging";
                     case 5:
-			return "Full";
+                        return "Full";
                     default:
-			return "Unknown Value: " + status;
+                        return "Unknown Value: " + status;
                 }
-		}
+            }
         }
 
         /// <summary>
@@ -87,18 +88,19 @@ namespace RegawMOD.Android
         /// </summary>
         public string Health
         {
-		
-		/* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
-		 * Property "Health" is changed from type "int" to type "string" to give a string representation
-		 * of the value obtained from dumpsys regarding battery health.
-		 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
-		 */
-            get { 
-		    Update();
-		    switch (health)
-                 {
+        
+            /* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
+             * Property "Health" is changed from type "int" to type "string" to give a string representation
+             * of the value obtained from dumpsys regarding battery health.
+             * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+             */
+            get
+            {
+                Update();
+                switch (health)
+                {
                     case 1:
-			return "Unknown Health State: " + health;
+                        return "Unknown Health State: " + health;
                     case 2:
                         return "Good";
                     case 3:
@@ -106,16 +108,16 @@ namespace RegawMOD.Android
                     case 4:
                         return "Dead";
                     case 5:
-			return "Over Voltage";
+                        return "Over Voltage";
                     case 6:
                         return "Unknown Failure";
-		    case 7:
-			return "Cold Battery";
+                    case 7:
+                        return "Cold Battery";
                     default:
-			return "Unknown Value: " + health;
+                        return "Unknown Value: " + health;
                 }
-		
-	    }
+
+            }
         }
 
         /// <summary>
