@@ -206,7 +206,7 @@ namespace RegawMOD.Android
         public bool PullFile(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT)
         {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"");
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace RegawMOD.Android
         public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT)
         {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"");
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
 
         /// <summary>
@@ -232,7 +232,7 @@ namespace RegawMOD.Android
         public bool PullDirectory(string location, string destination, int timeout = Command.DEFAULT_TIMEOUT)
         {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"");
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace RegawMOD.Android
         /// <returns>True if install is successful, False if install fails for any reason</returns>
         public bool InstallApk(string location, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\""), true).Contains("Failure");
+            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\"").WithTimeout(timeout), true).Contains("Failure");
         }
 
         /// <summary>
