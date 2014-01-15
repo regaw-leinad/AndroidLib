@@ -205,8 +205,8 @@ namespace RegawMOD.Android
         /// <returns>True if file is pulled, false if pull failed</returns>
         public bool PullFile(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"").WithTimeout(timeout);
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"");
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
 
         /// <summary>
@@ -218,8 +218,8 @@ namespace RegawMOD.Android
         /// <returns>If the push was successful</returns>
         public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"").WithTimeout(timeout);
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"");
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
 
         /// <summary>
@@ -231,8 +231,8 @@ namespace RegawMOD.Android
         /// <returns>True if directory is pulled, false if pull failed</returns>
         public bool PullDirectory(string location, string destination, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"").WithTimeout(timeout);
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"");
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
 
         /// <summary>
