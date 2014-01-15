@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Command.cs - Developed by Dan Wager for AndroidLib.dll - 04/12/12
  */
 
@@ -13,7 +13,7 @@ namespace RegawMOD
     internal static class Command
     {
         /// <summary>
-        /// The defualt timeout for commands. -1 implies infinite time
+        /// The default timeout for commands. -1 implies infinite time
         /// </summary>
         public const int DEFAULT_TIMEOUT = -1;
         
