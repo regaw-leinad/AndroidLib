@@ -217,7 +217,7 @@ namespace RegawMOD
             return exitCode;
         }
 
-        // TODO: Change to timeout implementation
+        [Obsolete("Method is deprecated, please use RunProcessWriteInput(string, string, int, string...) instead.")]
         internal static void RunProcessWriteInput(string executable, string arguments, params string[] input)
         {
             using (Process p = new Process())
@@ -237,6 +237,28 @@ namespace RegawMOD
                         w.WriteLine(input[i]);
 
                 p.WaitForExit();
+            }
+        }
+
+        internal static void RunProcessWriteInput(string executable, string arguments, int timeout, params string[] input)
+        {
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = false;
+
+                p.StartInfo.RedirectStandardInput = true;
+
+                p.Start();
+
+                using (StreamWriter w = p.StandardInput)
+                    for (int i = 0; i < input.Length; i++)
+                        w.WriteLine(input[i]);
+
+                p.WaitForExit(timeout);
             }
         }
 

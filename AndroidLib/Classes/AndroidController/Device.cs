@@ -201,7 +201,7 @@ namespace RegawMOD.Android
         /// </summary>
         /// <param name="fileOnDevice">Path to file to pull from device</param>
         /// <param name="destinationDirectory">Directory on local computer to pull file to</param>
-        /// /// <param name="timeout">The timeout for this operation (Default = -1)</param>
+        /// /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>True if file is pulled, false if pull failed</returns>
         public bool PullFile(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT)
         {
@@ -214,7 +214,7 @@ namespace RegawMOD.Android
         /// </summary>
         /// <param name="filePath">The path to the file on the computer you want to push</param>
         /// <param name="destinationFilePath">The desired full path of the file after pushing to the device (including file name and extension)</param>
-        /// <param name="timeout">The timeout for this operation (Default = -1)</param>
+        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>If the push was successful</returns>
         public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT)
         {
@@ -227,6 +227,7 @@ namespace RegawMOD.Android
         /// </summary>
         /// <param name="location">Path to folder to pull from device</param>
         /// <param name="destination">Directory on local computer to pull file to</param>
+        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>True if directory is pulled, false if pull failed</returns>
         public bool PullDirectory(string location, string destination, int timeout = Command.DEFAULT_TIMEOUT)
         {
@@ -238,6 +239,7 @@ namespace RegawMOD.Android
         /// Installs an application from the local computer to the Android device
         /// </summary>
         /// <param name="location">Full path of apk on computer</param>
+        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>True if install is successful, False if install fails for any reason</returns>
         public bool InstallApk(string location, int timeout = Command.DEFAULT_TIMEOUT)
         {
