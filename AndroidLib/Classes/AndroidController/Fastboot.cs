@@ -111,7 +111,7 @@ namespace RegawMOD.Android
         /// <param name="command">Instance of <see cref="FastbootCommand"/></param>
         public static void ExecuteFastbootCommandNoReturn(FastbootCommand command)
         {
-            Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + FASTBOOT_EXE, command.Command);
+            Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + FASTBOOT_EXE, command.Command, command.Timeout);
         }
     }
 }

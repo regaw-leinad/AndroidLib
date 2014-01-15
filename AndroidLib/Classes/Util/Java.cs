@@ -112,7 +112,7 @@ namespace RegawMOD
             for (int i = 0; i < arguments.Length; i++)
                 args += " " + arguments[i];
 
-            Command.RunProcessNoReturn(javaExecutable, args);
+            Command.RunProcessNoReturn(javaExecutable, args, Command.DEFAULT_TIMEOUT);
 
             return true;
         }

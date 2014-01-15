@@ -37,7 +37,7 @@ namespace RegawMOD.Android
             if (!source.Exists)
                 throw new FileNotFoundException();
 
-            return new Badging(source, Command.RunProcessReturnOutput(Path.Combine(this.resDir, "aapt.exe"), "dump badging \"" + source.FullName + "\"", true));
+            return new Badging(source, Command.RunProcessReturnOutput(Path.Combine(this.resDir, "aapt.exe"), "dump badging \"" + source.FullName + "\"", true, Command.DEFAULT_TIMEOUT));
         }
 
         private void ExtractResources(string path)

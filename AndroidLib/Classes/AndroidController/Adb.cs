@@ -2,6 +2,7 @@
  * Adb.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
+using System;
 using System.IO;
 
 namespace RegawMOD.Android
@@ -137,11 +138,27 @@ namespace RegawMOD.Android
         /// <remarks>Added specifically for RegawMOD CDMA Hero Rooter.  Always remember to pass "exit" as the last command or it will not return!</remarks>
         /// <param name="device">Specific <see cref="Device"/> to run the command on</param>
         /// <param name="inputLines">Lines of commands to send to shell</param>
+        [Obsolete("Method is deprecated, please use ExecuteAdbShellCommandInputString(Device, int, string...) instead.")]
         public static void ExecuteAdbShellCommandInputString(Device device, params string[] inputLines)
         {
             lock (_lock)
             {
                 Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", inputLines);
+            }
+        }
+
+        /// <summary>
+        /// Opens Adb Shell and allows input to be typed directly to the shell.  Experimental!
+        /// </summary>
+        /// <remarks>Added specifically for RegawMOD CDMA Hero Rooter.  Always remember to pass "exit" as the last command or it will not return!</remarks>
+        /// <param name="device">Specific <see cref="Device"/> to run the command on</param>
+        /// <param name="timeout">The timeout in milliseonds</param>
+        /// <param name="inputLines">Lines of commands to send to shell</param>
+        public static void ExecuteAdbShellCommandInputString(Device device, int timeout, params string[] inputLines)
+        {
+            lock (_lock)
+            {
+                Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", timeout, inputLines);
             }
         }
 
@@ -174,7 +191,7 @@ namespace RegawMOD.Android
         {
             lock (_lock)
             {
-                Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command);
+                Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
             }
         }
 
