@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Device.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
@@ -205,7 +205,7 @@ namespace RegawMOD.Android
         /// <returns>True if file is pulled, false if pull failed</returns>
         public bool PullFile(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"");
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"").WithTimeout(timeout);
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
@@ -218,7 +218,7 @@ namespace RegawMOD.Android
         /// <returns>If the push was successful</returns>
         public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"");
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"").WithTimeout(timeout);
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
@@ -231,7 +231,7 @@ namespace RegawMOD.Android
         /// <returns>True if directory is pulled, false if pull failed</returns>
         public bool PullDirectory(string location, string destination, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"");
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"").WithTimeout(timeout);
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
@@ -243,7 +243,7 @@ namespace RegawMOD.Android
         /// <returns>True if install is successful, False if install fails for any reason</returns>
         public bool InstallApk(string location, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\""), true).Contains("Failure");
+            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\"").WithTimeout(timeout), true).Contains("Failure");
         }
 
         /// <summary>
