@@ -1,264 +1,290 @@
 /*
- * Device.cs - Developed by Dan Wager for AndroidLib.dll
+ * Command.cs - Developed by Dan Wager for AndroidLib.dll - 04/12/12
  */
 
+using System;
+using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Threading;
 
-namespace RegawMOD.Android
+namespace RegawMOD
 {
-    /// <summary>
-    /// Manages connected Android device's info and commands
-    /// </summary>
-    public partial class Device
+    internal static class Command
     {
-        private BatteryInfo battery;
-        private BuildProp buildProp;
-        private BusyBox busyBox;
-        private FileSystem fileSystem;
-        //private PackageManager packageManager;
-        private Phone phone;
-        //private Processes processes;
-        private Su su;
-        private string serialNumber;
-        private DeviceState state;
-
         /// <summary>
-        /// Initializes a new instance of the Device class
+        /// The default timeout for commands. -1 implies infinite time
         /// </summary>
-        /// <param name="deviceSerial">Serial number of Android device</param>
-        internal Device(string deviceSerial)
-        {
-            this.serialNumber = deviceSerial;
-            Update();
-        }
-
-        private DeviceState SetState()
-        {
-            string state = null;
-
-            using (StringReader r = new StringReader(Adb.Devices()))
-            {
-                string line;
-
-                while (r.Peek() != -1)
-                {
-                    line = r.ReadLine();
-
-                    if (line.Contains(this.serialNumber))
-                        state = line.Substring(line.IndexOf('\t') + 1);
-                }
-            }
-
-            if (state == null)
-            {
-                using (StringReader r = new StringReader(Fastboot.Devices()))
-                {
-                    string line;
-
-                    while (r.Peek() != -1)
-                    {
-                        line = r.ReadLine();
-
-                        if (line.Contains(this.serialNumber))
-                            state = line.Substring(line.IndexOf('\t') + 1);
-                    }
-                }
-            }
-
-            switch (state)
-            {
-                case "device":
-                    return DeviceState.ONLINE;
-                case "recovery":
-                    return DeviceState.RECOVERY;
-                case "fastboot":
-                    return DeviceState.FASTBOOT;
-                default:
-                    return DeviceState.UNKNOWN;
-            }
-        }
-
-        /// <summary>
-        /// Gets the device's <see cref="BatteryInfo"/> instance
-        /// </summary>
-        /// <remarks>See <see cref="BatteryInfo"/> for more details</remarks>
-        public BatteryInfo Battery { get { return this.battery; } }
-
-        /// <summary>
-        /// Gets the device's <see cref="BuildProp"/> instance
-        /// </summary>
-        /// <remarks>See <see cref="BuildProp"/> for more details</remarks>
-        public BuildProp BuildProp { get { return this.buildProp; } }
-
-        /// <summary>
-        /// Gets the device's <see cref="BusyBox"/> instance
-        /// </summary>
-        /// <remarks>See <see cref="BusyBox"/> for more details</remarks>
-        public BusyBox BusyBox { get { return this.busyBox; } }
-
-        /// <summary>
-        /// Gets the device's <see cref="FileSystem"/> instance
-        /// </summary>
-        /// <remarks>See <see cref="FileSystem"/> for more details</remarks>
-        public FileSystem FileSystem { get { return this.fileSystem; } }
+        public const int DEFAULT_TIMEOUT = -1;
         
-        ///// <summary>
-        ///// Gets the device's <see cref="PackageManager"/> instance
-        ///// </summary>
-        ///// <remarks>See <see cref="PackageManager"/> for more details</remarks>
-        //public PackageManager PackageManager { get { return this.packageManager; } }
-
-        /// <summary>
-        /// Gets the device's <see cref="Phone"/> instance
-        /// </summary>
-        /// <remarks>See <see cref="Phone"/> for more details</remarks>
-        public Phone Phone { get { return this.phone; } }
-
-        ///// <summary>
-        ///// Gets the device's <see cref="Processes"/> instance
-        ///// </summary>
-        ///// <remarks>See <see cref="Processes"/> for more details</remarks>
-        //public Processes Processes { get { return this.processes; } }
-
-        /// <summary>
-        /// Gets the device's <see cref="Su"/> instance
-        /// </summary>
-        /// <remarks>See <see cref="Su"/> for more details</remarks>
-        public Su Su { get { return this.su; } }
-
-        /// <summary>
-        /// Gets the device's serial number
-        /// </summary>
-        public string SerialNumber { get { return this.serialNumber; } }
-
-        /// <summary>
-        /// Gets a value indicating the device's current state
-        /// </summary>
-        /// <remarks>See <see cref="DeviceState"/> for more details</remarks>
-        public DeviceState State { get { return this.state; } internal set { this.state = value; } }
-
-        /// <summary>
-        /// Gets a value indicating if the device has root
-        /// </summary>
-        public bool HasRoot { get { return this.su.Exists; } }
-
-        /// <summary>
-        /// Reboots the device regularly from fastboot
-        /// </summary>
-        public void FastbootReboot()
+        [Obsolete("Method is deprecated, please use RunProcessNoReturn(string, string, int) instead.")]
+        internal static void RunProcessNoReturn(string executable, string arguments, bool waitForExit = true)
         {
-            if (this.State == DeviceState.FASTBOOT)
-                new Thread(new ThreadStart(FastbootRebootThread)).Start();
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = true;
+
+                p.Start();
+
+                if (waitForExit)
+                    p.WaitForExit();
+            }
         }
 
-        private void FastbootRebootThread()
+        internal static void RunProcessNoReturn(string executable, string arguments, int timeout)
         {
-            Fastboot.ExecuteFastbootCommandNoReturn(Fastboot.FormFastbootCommand(this, "reboot"));
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = true;
+
+                p.Start();
+
+                p.WaitForExit(timeout);
+            }
         }
 
-        /// <summary>
-        /// Reboots the device regularly
-        /// </summary>
-        public void Reboot()
+        internal static string RunProcessReturnOutput(string executable, string arguments, int timeout)
         {
-            new Thread(new ThreadStart(RebootThread)).Start();
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.RedirectStandardError = true;
+
+                using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
+                    using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
+                        return HandleOutput(p, outputWaitHandle, errorWaitHandle, timeout, false);
+            }
         }
 
-        private void RebootThread()
+
+
+        internal static string RunProcessReturnOutput(string executable, string arguments, bool forceRegular, int timeout)
         {
-            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot"));
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.RedirectStandardError = true;
+
+                using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
+                    using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
+                        return HandleOutput(p, outputWaitHandle, errorWaitHandle, timeout, forceRegular);
+            }
         }
 
-        /// <summary>
-        /// Reboots the device into recovery
-        /// </summary>
-        public void RebootRecovery()
+        [Obsolete("Method is deprecated, please use RunProcessOutputContains(string, string, string, int, [bool]) instead.")]
+        internal static bool RunProcessOutputContains(string executable, string arguments, string containsString, bool ignoreCase = false)
         {
-            new Thread(new ThreadStart(RebootRecoveryThread)).Start();
+            string output, error, regular;
+
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = false;
+
+                p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.RedirectStandardOutput = true;
+
+                p.Start();
+
+                regular = p.StandardOutput.ReadToEnd();
+                error = p.StandardError.ReadToEnd();
+
+                /* It's more accurate to check for length of a string when we are expecting an empty string after calling Trim().
+                 * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
+                 */
+                if (error.Trim().Length.Equals(0))
+                    output = regular;
+                else
+                    output = error;
+            }
+
+            if (ignoreCase)
+                return output.ContainsIgnoreCase(containsString);
+
+            return output.Contains(containsString);
         }
 
-        private void RebootRecoveryThread()
+
+        internal static bool RunProcessOutputContains(string executable, string arguments, string containsString, int timeout, bool ignoreCase = false)
         {
-            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot", "recovery"));
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.StandardOutputEncoding = Encoding.UTF8;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = false;
+
+                p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.RedirectStandardOutput = true;
+
+                string output = "";
+
+                using (AutoResetEvent outputWaitHandle = new AutoResetEvent(false))
+                using (AutoResetEvent errorWaitHandle = new AutoResetEvent(false))
+                    output = HandleOutput(p, outputWaitHandle, errorWaitHandle, timeout, false);
+
+                if (ignoreCase)
+                    return output.ContainsIgnoreCase(containsString);
+
+                return output.Contains(containsString);
+            }
         }
 
-        /// <summary>
-        /// Reboots the device into the bootloader
-        /// </summary>
-        public void RebootBootloader()
+        private static string HandleOutput(Process p, AutoResetEvent outputWaitHandle, AutoResetEvent errorWaitHandle, int timeout, bool forceRegular)
         {
-            new Thread(new ThreadStart(RebootBootloaderThread)).Start();
+            StringBuilder output = new StringBuilder();
+            StringBuilder error = new StringBuilder();
+
+            p.OutputDataReceived += (sender, e) =>
+            {
+                if (e.Data == null)
+                    outputWaitHandle.Set();
+                else
+                    output.AppendLine(e.Data);
+            };
+            p.ErrorDataReceived += (sender, e) =>
+            {
+                if (e.Data == null)
+                    errorWaitHandle.Set();
+                else
+                    error.AppendLine(e.Data);
+            };
+
+            p.Start();
+
+            p.BeginOutputReadLine();
+            p.BeginErrorReadLine();
+
+            if (p.WaitForExit(timeout) && outputWaitHandle.WaitOne(timeout) && errorWaitHandle.WaitOne(timeout))
+            {
+                string strReturn = "";
+
+                if (error.ToString().Trim().Length.Equals(0) || forceRegular)
+                    strReturn = output.ToString().Trim();
+                else
+                    strReturn = error.ToString().Trim();
+
+                return strReturn;
+            }
+            else
+            {
+                // Timed out.
+                return "PROCESS TIMEOUT";
+            }
         }
 
-        private void RebootBootloaderThread()
+        internal static int RunProcessReturnExitCode(string executable, string arguments, int timeout)
         {
-            Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot", "bootloader"));
+            int exitCode;
+
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = true;
+
+                p.Start();
+                p.WaitForExit(timeout);
+                exitCode = p.ExitCode;
+            }
+
+            return exitCode;
         }
 
-        /// <summary>
-        /// Pulls a file from the device
-        /// </summary>
-        /// <param name="fileOnDevice">Path to file to pull from device</param>
-        /// <param name="destinationDirectory">Directory on local computer to pull file to</param>
-        /// /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
-        /// <returns>True if file is pulled, false if pull failed</returns>
-        public bool PullFile(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT)
+        [Obsolete("Method is deprecated, please use RunProcessWriteInput(string, string, int, string...) instead.")]
+        internal static void RunProcessWriteInput(string executable, string arguments, params string[] input)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"").WithTimeout(timeout);
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = false;
+
+                p.StartInfo.RedirectStandardInput = true;
+
+                p.Start();
+
+                using (StreamWriter w = p.StandardInput)
+                    for (int i = 0; i < input.Length; i++)
+                        w.WriteLine(input[i]);
+
+                p.WaitForExit();
+            }
         }
 
-        /// <summary>
-        /// Pushes a file to the device
-        /// </summary>
-        /// <param name="filePath">The path to the file on the computer you want to push</param>
-        /// <param name="destinationFilePath">The desired full path of the file after pushing to the device (including file name and extension)</param>
-        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
-        /// <returns>If the push was successful</returns>
-        public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT)
+        internal static void RunProcessWriteInput(string executable, string arguments, int timeout, params string[] input)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"").WithTimeout(timeout);
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            using (Process p = new Process())
+            {
+                p.StartInfo.FileName = executable;
+                p.StartInfo.Arguments = arguments;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.UseShellExecute = false;
+
+                p.StartInfo.RedirectStandardInput = true;
+
+                p.Start();
+
+                using (StreamWriter w = p.StandardInput)
+                    for (int i = 0; i < input.Length; i++)
+                        w.WriteLine(input[i]);
+
+                p.WaitForExit(timeout);
+            }
         }
 
-        /// <summary>
-        /// Pulls a full directory recursively from the device
-        /// </summary>
-        /// <param name="location">Path to folder to pull from device</param>
-        /// <param name="destination">Directory on local computer to pull file to</param>
-        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
-        /// <returns>True if directory is pulled, false if pull failed</returns>
-        public bool PullDirectory(string location, string destination, int timeout = Command.DEFAULT_TIMEOUT)
+        internal static bool IsProcessRunning(string processName)
         {
-            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"").WithTimeout(timeout);
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
+            Process[] processes = Process.GetProcesses();
+
+            foreach (Process p in processes)
+                if (p.ProcessName.ToLower().Contains(processName.ToLower()))
+                    return true;
+
+            return false;
         }
 
-        /// <summary>
-        /// Installs an application from the local computer to the Android device
-        /// </summary>
-        /// <param name="location">Full path of apk on computer</param>
-        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
-        /// <returns>True if install is successful, False if install fails for any reason</returns>
-        public bool InstallApk(string location, int timeout = Command.DEFAULT_TIMEOUT)
+        internal static void KillProcess(string processName)
         {
-            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\"").WithTimeout(timeout), true).Contains("Failure");
-        }
+            Process[] processes = Process.GetProcesses();
 
-        /// <summary>
-        /// Updates all values in current instance of <see cref="Device"/>
-        /// </summary>
-        public void Update()
-        {
-            this.state = SetState();
-
-            this.su = new Su(this);
-            this.battery = new BatteryInfo(this);
-            this.buildProp = new BuildProp(this);
-            this.busyBox = new BusyBox(this);
-            this.phone = new Phone(this);
-            this.fileSystem = new FileSystem(this);
+            foreach (Process p in processes)
+            {
+                if (p.ProcessName.ToLower().Contains(processName.ToLower()))
+                {
+                    p.Kill();
+                    return;
+                }
+            }
         }
     }
 }
