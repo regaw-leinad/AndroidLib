@@ -218,7 +218,6 @@ namespace RegawMOD.Android
                         this.dump = Adb.ExecuteAdbCommand(adbCmd);
                     }
                 }
-            
             }
             while(true);
 
