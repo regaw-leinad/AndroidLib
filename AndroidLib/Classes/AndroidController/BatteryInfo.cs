@@ -201,6 +201,27 @@ namespace RegawMOD.Android
             AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, "dumpsys", "battery");
             this.dump = Adb.ExecuteAdbCommand(adbCmd);
 
+             do
+            {
+                using (StringReader r = new StringReader(this.dump))
+                {
+                    string line;
+
+                    line = r.ReadLine();
+                    
+                    if (!line.Contains("Can't find service: battery"))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        this.dump = Adb.ExecuteAdbCommand(adbCmd);
+                    }
+                }
+            
+            }
+            while(true);
+
             using (StringReader r = new StringReader(this.dump))
             {
                 string line;
