@@ -201,7 +201,7 @@ namespace RegawMOD.Android
             AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, "dumpsys", "battery");
             this.dump = Adb.ExecuteAdbCommand(adbCmd);
 
-             do
+            do
             {
                 using (StringReader r = new StringReader(this.dump))
                 {
