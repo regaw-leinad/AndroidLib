@@ -201,6 +201,12 @@ namespace RegawMOD.Android
             AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, "dumpsys", "battery");
             this.dump = Adb.ExecuteAdbCommand(adbCmd);
 
+            //We want to run this because the device may connect after a reboot/bootup
+            //What happens is the shell won't be accessible and neither will the device 
+            //Service, and we will get "Can't find service: batter" causing an exception
+            //If we spam the console to keep getting the dump until we can get to the service
+            //We can then get what we need and there won't be any exceptions thrown.
+            //If we want we can add a Thread.Sleep(/* milliseconds */) as to not bog down the CPU/Console.
             do
             {
                 using (StringReader r = new StringReader(this.dump))
