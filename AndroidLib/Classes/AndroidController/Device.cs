@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Device.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
@@ -102,7 +102,7 @@ namespace RegawMOD.Android
         /// </summary>
         /// <remarks>See <see cref="FileSystem"/> for more details</remarks>
         public FileSystem FileSystem { get { return this.fileSystem; } }
-        
+
         ///// <summary>
         ///// Gets the device's <see cref="PackageManager"/> instance
         ///// </summary>
@@ -155,6 +155,20 @@ namespace RegawMOD.Android
         private void FastbootRebootThread()
         {
             Fastboot.ExecuteFastbootCommandNoReturn(Fastboot.FormFastbootCommand(this, "reboot"));
+        }
+
+        /// <summary>
+        /// Reboots the Bootloader from fastboot
+        /// </summary>
+        public void FastbootRebootBootloader()
+        {
+            if (this.State == DeviceState.FASTBOOT)
+                new Thread(new ThreadStart(FastbootRebootBootloaderThread)).Start();
+        }
+
+        private void FastbootRebootBootloaderThread()
+        {
+            Fastboot.ExecuteFastbootCommandNoReturn(Fastboot.FormFastbootCommand(this, "reboot-bootloader"));
         }
 
         /// <summary>
