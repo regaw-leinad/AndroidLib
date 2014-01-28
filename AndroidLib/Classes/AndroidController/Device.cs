@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Device.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
@@ -158,6 +158,20 @@ namespace RegawMOD.Android
         }
 
         /// <summary>
+        /// Reboots the Bootloader from fastboot
+        /// </summary>
+        public void FastbootRebootBootloader()
+        {
+            if (this.State == DeviceState.FASTBOOT)
+                new Thread(new ThreadStart(FastbootRebootBootloaderThread)).Start();
+        }
+
+        private void FastbootRebootBootloaderThread()
+        {
+            Fastboot.ExecuteFastbootCommandNoReturn(Fastboot.FormFastbootCommand(this, "reboot-bootloader"));
+        }
+
+        /// <summary>
         /// Reboots the device regularly
         /// </summary>
         public void Reboot()
@@ -201,12 +215,12 @@ namespace RegawMOD.Android
         /// </summary>
         /// <param name="fileOnDevice">Path to file to pull from device</param>
         /// <param name="destinationDirectory">Directory on local computer to pull file to</param>
-        /// /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
+        /// /// <param name="timeout">The timeout for this operation (Default = -1)</param>
         /// <returns>True if file is pulled, false if pull failed</returns>
         public bool PullFile(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT)
         {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"");
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
         /// <summary>
@@ -214,12 +228,12 @@ namespace RegawMOD.Android
         /// </summary>
         /// <param name="filePath">The path to the file on the computer you want to push</param>
         /// <param name="destinationFilePath">The desired full path of the file after pushing to the device (including file name and extension)</param>
-        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
+        /// <param name="timeout">The timeout for this operation (Default = -1)</param>
         /// <returns>If the push was successful</returns>
         public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT)
         {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"");
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
         /// <summary>
@@ -227,23 +241,21 @@ namespace RegawMOD.Android
         /// </summary>
         /// <param name="location">Path to folder to pull from device</param>
         /// <param name="destination">Directory on local computer to pull file to</param>
-        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>True if directory is pulled, false if pull failed</returns>
         public bool PullDirectory(string location, string destination, int timeout = Command.DEFAULT_TIMEOUT)
         {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"");
-            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
+            return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd) == 0);
         }
 
         /// <summary>
         /// Installs an application from the local computer to the Android device
         /// </summary>
         /// <param name="location">Full path of apk on computer</param>
-        /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>True if install is successful, False if install fails for any reason</returns>
         public bool InstallApk(string location, int timeout = Command.DEFAULT_TIMEOUT)
         {
-            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\"").WithTimeout(timeout), true).Contains("Failure");
+            return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\""), true).Contains("Failure");
         }
 
         /// <summary>
