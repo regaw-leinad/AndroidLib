@@ -100,10 +100,7 @@ namespace RegawMOD.Android
             if (!this.prop.TryGetValue(key, out after))
                 return false;
 
-            if (newValue == after)
-                return true;
-
-            return false;
+            return newValue == after;
         }
 
         /// <summary>
