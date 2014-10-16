@@ -197,13 +197,13 @@ namespace RegawMOD.Android
         }
 
         /// <summary>
-        /// Gets a <see cref="List<string>"/> containing all the files and folders in the directory added as a parameter.
+        /// Gets a <see cref="Dictionary<string, ListingType>"/> containing all the files and folders in the directory added as a parameter.
         /// </summary>
         /// <param name="rootDir">
         /// The directory you'd like to list the files and folders from.
         /// E.G.: /system/bin/
         /// </param>
-        /// <returns>See <see cref="List"/></returns>
+        /// <returns>See <see cref="Dictionary"/></returns>
         public Dictionary<string, ListingType> GetFilesAndDirectories(string rootDir) {
             if (rootDir == null || string.IsNullOrEmpty(rootDir) || Regex.IsMatch(rootDir, @"\s"))
                 throw new ArgumentException("rootDir must not be null or empty!");
