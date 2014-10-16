@@ -204,11 +204,11 @@ namespace RegawMOD.Android
         /// E.G.: /system/bin/
         /// </param>
         /// <returns>See <see cref="List"/></returns>
-        public List<string> GetFilesAndDirectories(string rootDir) {
+        public Dictionary<string, ListingType> GetFilesAndDirectories(string rootDir) {
             if (rootDir == null || string.IsNullOrEmpty(rootDir) || Regex.IsMatch(rootDir, @"\s"))
                 throw new ArgumentException("rootDir must not be null or empty!");
 
-            List<string> filesAndDirs = new List<string>();
+            Dictionary<string, ListingType> filesAndDirs = new Dictionary<string, ListingType>();
             AdbCommand cmd = null;
 
             if (device.BusyBox.IsInstalled)
@@ -221,7 +221,7 @@ namespace RegawMOD.Android
                 while (reader.Peek() != -1) {
                     line = reader.ReadLine();
                     if (!string.IsNullOrEmpty(line) && !Regex.IsMatch(line, @"\s"))
-                        filesAndDirs.Add(line);
+                        filesAndDirs.Add(line, FileOrDirectory(line));
                 }
             }
             
