@@ -215,7 +215,7 @@ namespace RegawMOD.Android
             if (device.BusyBox.IsInstalled)
                 cmd = Adb.FormAdbShellCommand(device, true, "busybox", "ls", "-a", "-p", "-l", rootDir);
             else
-                cmd = Adb.FormAdbShellCommand(device, true, "ls", "-a", "-p", "-l");
+                cmd = Adb.FormAdbShellCommand(device, true, "ls", "-a", "-p", "-l", rootDir);
 
             using (StringReader reader = new StringReader(Adb.ExecuteAdbCommand(cmd)))
             {
