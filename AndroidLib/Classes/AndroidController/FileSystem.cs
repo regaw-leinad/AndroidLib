@@ -225,7 +225,7 @@ namespace RegawMOD.Android
                     line = reader.ReadLine();
                     if (!string.IsNullOrEmpty(line) && !Regex.IsMatch(line, @"\s"))
                     {
-                        filesAndDirs.Add(line, FileOrDirectory(line));
+                        filesAndDirs.Add(line, line.EndsWith("/") ? ListingType.DIRECTORY : ListingType.FILE);
                     }
                 }
             }
