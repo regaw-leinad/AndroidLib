@@ -100,10 +100,7 @@ namespace RegawMOD.Android
             if (!this.prop.TryGetValue(key, out after))
                 return false;
 
-            if (newValue == after)
-                return true;
-
-            return false;
+            return newValue == after;
         }
 
         /// <summary>
@@ -131,38 +128,17 @@ namespace RegawMOD.Android
                 if (this.device.State != DeviceState.ONLINE)
                     return;
 
-                string[] splitPropLine;
                 AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, "getprop");
                 string prop = Adb.ExecuteAdbCommand(adbCmd);
 
-                using (StringReader s = new StringReader(prop))
+                string[] lines = prop.Split(new string[] { "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    while (s.Peek() != -1)
-                    {
-                        string temp = s.ReadLine();
+                    string[] entry = lines[i].Split(new string[] { "[", "]: [", "]" }, StringSplitOptions.RemoveEmptyEntries);
 
-                        if (temp.Trim().Length.Equals(0) || temp.StartsWith("*"))
-                            continue;
-
-                        splitPropLine = temp.Split(':');
-
-                        //In case there is a line with ':' in the value, combine it
-                        if (splitPropLine.Length > 2)
-                            for (int i = 2; i < splitPropLine.Length; i++)
-                                splitPropLine[1] += ":" + splitPropLine[i];
-
-                        for (int i = 0; i < 2; i++)
-                        {
-                            if (i == 0)
-                                splitPropLine[i] = splitPropLine[i].Replace("[", "");
-                            else
-                                splitPropLine[i] = splitPropLine[i].Replace(" [", "");
-
-                            splitPropLine[i] = splitPropLine[i].Replace("]", "");
-                        }
-
-                        this.prop.Add(splitPropLine[0], splitPropLine[1]);
-                    }
+                    if (entry.Length == 2)
+                        this.prop.Add(entry[0], entry[1]);
                 }
             }
             catch (Exception ex)

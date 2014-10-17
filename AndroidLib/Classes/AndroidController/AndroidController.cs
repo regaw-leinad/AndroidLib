@@ -56,7 +56,6 @@ namespace RegawMOD.Android
     /// </example>
     public sealed class AndroidController
     {
-        #region CONSTANT VARIABLES
         private const string ANDROID_CONTROLLER_TMP_FOLDER = "AndroidLib\\";
         private static readonly Dictionary<string, string> RESOURCES = new Dictionary<string, string>
         {
@@ -65,19 +64,13 @@ namespace RegawMOD.Android
             {"AdbWinUsbApi.dll", "5f23f2f936bdfac90bb0a4970ad365cf"},
             {"fastboot.exe", "35792abb2cafdf2e6844b61e993056e2"},
         };
-        #endregion
 
-        #region STATIC VARIABLES
         private static AndroidController instance;
-        #endregion
 
-        #region MEMBER VARIABLES
         private string resourceDirectory;
         private List<string> connectedDevices;
         private bool Extract_Resources = false;
-        #endregion
 
-        #region PROPERTIES
         /// <summary>
         /// Gets the current AndroidController Instance.
         /// </summary>
@@ -113,18 +106,14 @@ namespace RegawMOD.Android
         {
             get { return this.resourceDirectory; }
         }
-        #endregion
 
-        #region CONSTRUCTORS
         private AndroidController()
         {
             this.connectedDevices = new List<string>();
             ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
             this.resourceDirectory = ResourceFolderManager.GetRegisteredFolderPath(ANDROID_CONTROLLER_TMP_FOLDER);
         }
-        #endregion
 
-        #region PRIVATE METHODS
         private void CreateResourceDirectories()
         {
             try
@@ -153,9 +142,7 @@ namespace RegawMOD.Android
                 Extract.Resources(this, this.resourceDirectory, "Resources.AndroidController", res);
             }
         }
-        #endregion
 
-        #region PUBLIC METHODS
         /// <summary>
         /// Releases all resources used by <see cref="AndroidController"/>        
         /// </summary>
@@ -178,8 +165,8 @@ namespace RegawMOD.Android
         {
             if (this.HasConnectedDevices)
                 return new Device(this.connectedDevices[0]);
-            else
-                return null;
+                
+            return null;
         }
 
         /// <summary>
@@ -194,8 +181,8 @@ namespace RegawMOD.Android
 
             if (this.connectedDevices.Contains(deviceSerial))
                 return new Device(deviceSerial);
-            else
-                return null;
+
+            return null;
         }
 
         /// <summary>
@@ -334,6 +321,5 @@ namespace RegawMOD.Android
 
             this.CancelWait = false;
         }
-        #endregion
     }
 }
