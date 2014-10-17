@@ -166,7 +166,7 @@ namespace RegawMOD.Android
 
             if (this.systemMount.MountType == type)
                 return true;
-            
+
             return false;
         }
 
@@ -204,7 +204,8 @@ namespace RegawMOD.Android
         /// E.G.: /system/bin/
         /// </param>
         /// <returns>See <see cref="Dictionary"/></returns>
-        public Dictionary<string, ListingType> GetFilesAndDirectories(string rootDir) {
+        public Dictionary<string, ListingType> GetFilesAndDirectories(string rootDir)
+        {
             if (rootDir == null || string.IsNullOrEmpty(rootDir) || Regex.IsMatch(rootDir, @"\s"))
                 throw new ArgumentException("rootDir must not be null or empty!");
 
@@ -216,15 +217,19 @@ namespace RegawMOD.Android
             else
                 cmd = Adb.FormAdbShellCommand(device, true, "ls", "-a", "-p", "-l");
 
-            using (StringReader reader = new StringReader(Adb.ExecuteAdbCommand(cmd))) {
+            using (StringReader reader = new StringReader(Adb.ExecuteAdbCommand(cmd)))
+            {
                 string line = null;
-                while (reader.Peek() != -1) {
+                while (reader.Peek() != -1)
+                {
                     line = reader.ReadLine();
                     if (!string.IsNullOrEmpty(line) && !Regex.IsMatch(line, @"\s"))
+                    {
                         filesAndDirs.Add(line, FileOrDirectory(line));
+                    }
                 }
             }
-            
+
 
             return filesAndDirs;
         }
