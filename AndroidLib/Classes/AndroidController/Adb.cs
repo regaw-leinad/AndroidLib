@@ -32,7 +32,7 @@ namespace RegawMOD.Android
     /// </summary>
     public static class Adb
     {
-        private static object _lock = "U is lawked";
+        private static Object _lock = new Object();
         internal const string ADB = "adb";
         internal const string ADB_EXE = "adb.exe";
         internal const string ADB_VERSION = "1.0.31";
