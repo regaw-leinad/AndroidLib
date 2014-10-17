@@ -158,6 +158,20 @@ namespace RegawMOD.Android
         }
 
         /// <summary>
+        /// Reboots the bootloader from fastboot
+        /// </summary>
+        public void FastbootRebootBootloader()
+        {
+            if (this.State == DeviceState.FASTBOOT)
+                new Thread(new ThreadStart(FastbootRebootBootloaderThread)).Start();
+        }
+
+        private void FastbootRebootBootloaderThread()
+        {
+            Fastboot.ExecuteFastbootCommandNoReturn(Fastboot.FormFastbootCommand(this, "reboot-bootloader"));
+        }
+
+        /// <summary>
         /// Reboots the device regularly
         /// </summary>
         public void Reboot()
