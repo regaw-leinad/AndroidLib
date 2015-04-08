@@ -56,6 +56,11 @@ namespace RegawMOD.Android
         FASTBOOT,
 
         /// <summary>
+        /// <see cref="Device"/> is not authorized
+        /// </summary>
+        UNAUTHORIZED,
+
+        /// <summary>
         /// <see cref="Device"/> is in an unknown state
         /// </summary>
         UNKNOWN
