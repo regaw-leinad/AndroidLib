@@ -56,6 +56,11 @@ namespace RegawMOD.Android
         FASTBOOT,
 
         /// <summary>
+        /// <see cref="Device"/> is in sideload mode
+        /// </summary>
+        SIDELOAD,
+
+        /// <summary>
         /// <see cref="Device"/> is not authorized
         /// </summary>
         UNAUTHORIZED,
