@@ -35,7 +35,7 @@ namespace RegawMOD.Android
         private static Object _lock = new Object();
         internal const string ADB = "adb";
         internal const string ADB_EXE = "adb.exe";
-        internal const string ADB_VERSION = "1.0.31";
+        internal const string ADB_VERSION = "1.0.32";
 
         /// <summary>
         /// Forms an <see cref="AdbCommand"/> that is passed to <c>Adb.ExecuteAdbCommand()</c>
