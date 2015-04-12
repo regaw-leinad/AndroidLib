@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RegawMOD.Android</RootNamespace>
     <AssemblyName>AndroidLib</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -23,6 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\AndroidLib.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\AndroidLib.XML</DocumentationFile>
     <RegisterForComInterop>false</RegisterForComInterop>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -45,16 +47,21 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AAPT\AAPT.cs" />
     <Compile Include="Classes\AAPT\AAPT.Dump.cs" />
+    <Compile Include="Classes\AndroidController\ActivityManager.cs" />
     <Compile Include="Classes\AndroidController\Adb.cs" />
     <Compile Include="Classes\AndroidController\BusyBox.cs" />
     <Compile Include="Classes\AndroidController\BatteryInfo.cs" />
+    <Compile Include="Classes\AndroidController\Delegates.cs" />
     <Compile Include="Classes\AndroidController\Device.cs" />
     <Compile Include="Classes\AndroidController\AndroidController.cs" />
     <Compile Include="Classes\AndroidController\BuildProp.cs" />
+    <Compile Include="Classes\AndroidController\EventArgs.cs" />
+    <Compile Include="Classes\AndroidController\PackageManager.cs" />
     <Compile Include="Classes\Util\Extract.cs" />
     <Compile Include="Classes\Util\Hasher.cs" />
     <Compile Include="Classes\AndroidController\Fastboot.cs" />
@@ -64,6 +71,7 @@
     <Compile Include="Classes\AndroidController\Exceptions.cs" />
     <Compile Include="Classes\Util\Java.cs" />
     <Compile Include="Classes\Util\Logger.cs" />
+    <Compile Include="Classes\Util\StringEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Util\Util.cs" />
     <Compile Include="Classes\Util\Command.cs" />

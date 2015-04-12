@@ -204,18 +204,18 @@ namespace RegawMOD.Android
         /// E.G.: /system/bin/
         /// </param>
         /// <returns>See <see cref="Dictionary"/></returns>
-        public Dictionary<string, ListingType> GetFilesAndDirectories(string rootDir)
+        public Dictionary<string, ListingType> GetFilesAndDirectories(string location)
         {
-            if (rootDir == null || string.IsNullOrEmpty(rootDir) || Regex.IsMatch(rootDir, @"\s"))
+            if (location == null || string.IsNullOrEmpty(location) || Regex.IsMatch(location, @"\s"))
                 throw new ArgumentException("rootDir must not be null or empty!");
 
             Dictionary<string, ListingType> filesAndDirs = new Dictionary<string, ListingType>();
             AdbCommand cmd = null;
 
             if (device.BusyBox.IsInstalled)
-                cmd = Adb.FormAdbShellCommand(device, true, "busybox", "ls", "-a", "-p", "-l", rootDir);
+                cmd = Adb.FormAdbShellCommand(device, true, "busybox", "ls", "-a", "-p", "-l", location);
             else
-                cmd = Adb.FormAdbShellCommand(device, true, "ls", "-a", "-p", "-l", rootDir);
+                cmd = Adb.FormAdbShellCommand(device, true, "ls", "-a", "-p", "-l", location);
 
             using (StringReader reader = new StringReader(Adb.ExecuteAdbCommand(cmd)))
             {
