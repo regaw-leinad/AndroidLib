@@ -252,7 +252,7 @@ namespace RegawMOD.Android
                     else if (line.Contains("temp"))
                         int.TryParse(line.Substring(15), out this.temperature);
                     else if (line.Contains("tech"))
-                        this.technology = line.Substring(14);
+                        this.technology = line.Substring(13).Trim();
                 }
             }
 

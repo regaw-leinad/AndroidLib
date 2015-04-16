@@ -55,8 +55,6 @@
     <Compile Include="Classes\AndroidController\Device.cs" />
     <Compile Include="Classes\AndroidController\AndroidController.cs" />
     <Compile Include="Classes\AndroidController\BuildProp.cs" />
-    <Compile Include="Classes\Util\Extract.cs" />
-    <Compile Include="Classes\Util\Hasher.cs" />
     <Compile Include="Classes\AndroidController\Fastboot.cs" />
     <Compile Include="Classes\AndroidController\FileSystem.cs" />
     <Compile Include="Classes\AndroidController\Enums.cs" />
@@ -69,26 +67,48 @@
     <Compile Include="Classes\Util\Command.cs" />
     <Compile Include="Classes\AndroidController\Su.cs" />
     <Compile Include="Classes\Signer\Signer.cs" />
-    <Compile Include="Classes\Util\ResourceFolderManager.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\AndroidController\adb.exe" />
-    <EmbeddedResource Include="Resources\AndroidController\AdbWinApi.dll" />
-    <EmbeddedResource Include="Resources\AndroidController\AdbWinUsbApi.dll" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Other\" />
+    <Folder Include="_bin\Other\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Signer\testkey.pk8" />
-    <EmbeddedResource Include="Resources\Signer\testkey.x509.pem" />
+    <Content Include="_bin\AAPT\aapt.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_bin\AndroidController\adb.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_bin\AndroidController\AdbWinApi.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_bin\AndroidController\AdbWinUsbApi.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_bin\AndroidController\fastboot.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_bin\Signer\signapk.jar">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\AndroidController\fastboot.exe" />
-    <EmbeddedResource Include="Resources\Signer\signapk.jar" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\AAPT\aapt.exe" />
+    <Content Include="_bin\Signer\testkey.pk8">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_bin\Signer\testkey.x509.pem">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

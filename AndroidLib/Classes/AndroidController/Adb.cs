@@ -28,6 +28,42 @@ namespace RegawMOD.Android
     }
 
     /// <summary>
+    /// Adb Response
+    /// </summary>
+    public class AdbResponse
+    {
+        /// <summary>
+        /// stdOut data
+        /// </summary>
+        public string stdOut { get; private set; }
+
+        /// <summary>
+        /// stdError data
+        /// </summary>
+        public string stdError { get; private set; }
+
+        /// <summary>
+        /// Exit code
+        /// </summary>
+        public int retCode { get; internal set; }
+
+        internal void setStdOut(string content)
+        {
+            stdOut += content;
+        }
+
+        internal void setStdError(string content)
+        {
+            stdError += content;
+        }
+
+        internal void setRetCode(int retCode)
+        {
+            this.retCode = retCode;
+        }
+    }
+
+    /// <summary>
     /// Controls all commands sent to the currently running Android Debug Bridge Server
     /// </summary>
     public static class Adb
@@ -57,10 +93,10 @@ namespace RegawMOD.Android
         /// </example>
         public static AdbCommand FormAdbCommand(string command, params object[] args)
         {
-            string adbCommand = (args.Length > 0) ? command + " " : command;
+            string adbCommand = command + " ";
 
             for (int i = 0; i < args.Length; i++)
-                adbCommand += args[i] + " ";
+                adbCommand += " " + args[i];
 
             return new AdbCommand(adbCommand);
         }
@@ -85,7 +121,30 @@ namespace RegawMOD.Android
         /// </example>
         public static AdbCommand FormAdbCommand(Device device, string command, params object[] args)
         {
-            return FormAdbCommand("-s " + device.SerialNumber + " " + command, args);
+            return FormAdbCommand(device.SerialNumber, command, args);
+        }
+
+        /// <summary>
+        /// Forms an <see cref="AdbCommand"/> that is passed to <c>Adb.ExecuteAdbCommand()</c>
+        /// </summary>
+        /// <remarks>This should only be used for device-specific Adb commands, such as <c>adb push</c> or <c>adb pull</c>.</remarks>
+        /// <param name="deviceId">Specific the device to run the command on</param>
+        /// <param name="command">The command to run on the Adb Server</param>
+        /// <param name="args">Any arguments that need to be sent to <paramref name="command"/></param>
+        /// <returns><see cref="AdbCommand"/> that contains formatted command information</returns>
+        /// <example>This example demonstrates how to create an <see cref="AdbCommand"/>
+        /// <code>//This example shows how to create an AdbCommand object to execute on the running server.
+        /// //The command we will create is "adb pull /system/app C:\".  
+        /// //Notice how in the formation, you don't supply the prefix "adb", because the method takes care of it for you.
+        /// //This example also assumes you have a Device instance named device.
+        /// 
+        /// AdbCommand adbCmd = Adb.FormAdbCommand(device, "pull", "/system/app", @"C:\");
+        /// 
+        /// </code>
+        /// </example>
+        public static AdbCommand FormAdbCommand(string deviceId, string command, params object[] args)
+        {
+            return FormAdbCommand(String.Format("-s \"{0}\" {1}", deviceId, command), args);
         }
 
         /// <summary>
@@ -179,6 +238,24 @@ namespace RegawMOD.Android
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Executes an <see cref="AdbCommand"/> on the running Adb Server
+        /// </summary>
+        /// <remarks>This should be used if you want the output of the command returned</remarks>
+        /// <param name="command">Instance of <see cref="AdbCommand"/></param>
+        /// <returns>Output of <paramref name="command"/> run on server</returns>
+        public static AdbResponse ExecuteAdbCommandWithResponse(AdbCommand command)
+        {
+            AdbResponse r;
+
+            lock (_lock)
+            {
+                r = Command.RunProcessWithReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
+            }
+
+            return r;
         }
 
         /// <summary>
