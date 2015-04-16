@@ -51,6 +51,72 @@ namespace RegawMOD
             }
         }
 
+        /// <summary>
+        /// Run process with response.
+        /// </summary>
+        /// <param name="executable">exe name / full path</param>
+        /// <param name="arguments">arguments string</param>
+        /// <param name="timeout">timeout</param>
+        /// <returns></returns>
+        internal static Android.AdbResponse RunProcessWithReturn(string executable, string arguments, int timeout = 9000)
+        {
+            Process p = new Process();
+            p.StartInfo.FileName = executable;
+            p.StartInfo.Arguments = arguments;
+            p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            p.StartInfo.CreateNoWindow = true;
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.RedirectStandardError = true;
+
+            AutoResetEvent outputWaitHandle = new AutoResetEvent(false);
+            AutoResetEvent errorWaitHandle = new AutoResetEvent(false);
+
+            return HandleOutput(p, outputWaitHandle, errorWaitHandle, timeout);
+        }
+
+        private static Android.AdbResponse HandleOutput(Process p, AutoResetEvent outputWaitHandle, AutoResetEvent errorWaitHandle, int timeout)
+        {
+            StringBuilder output = new StringBuilder();
+            StringBuilder error = new StringBuilder();
+
+            p.OutputDataReceived += (sender, e) =>
+            {
+                if (e.Data == null)
+                    outputWaitHandle.Set();
+                else
+                    output.AppendLine(e.Data);
+            };
+            p.ErrorDataReceived += (sender, e) =>
+            {
+                if (e.Data == null)
+                    errorWaitHandle.Set();
+                else
+                    error.AppendLine(e.Data);
+            };
+
+            p.Start();
+
+            p.BeginOutputReadLine();
+            p.BeginErrorReadLine();
+
+            var r = new Android.AdbResponse();
+
+            if (p.WaitForExit(timeout))
+            {
+                r.setRetCode(p.ExitCode);
+                r.setStdOut(output.ToString().Trim());
+                r.setStdError(error.ToString().Trim());
+            }
+            else
+            {
+                r.setRetCode(-1);
+                r.setStdError("PROCESS TIMEOUT");
+            }
+            return r;
+        }
+
+
         internal static string RunProcessReturnOutput(string executable, string arguments, int timeout)
         {
             using (Process p = new Process())
