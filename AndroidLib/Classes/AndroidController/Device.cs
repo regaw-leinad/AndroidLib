@@ -2,47 +2,44 @@
  * Device.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
-using System.IO;
-using System.Threading;
+namespace RegawMOD.Android {
 
-namespace RegawMOD.Android
-{
+    using System.IO;
+    using System.Threading;
+
     /// <summary>
     /// Manages connected Android device's info and commands
     /// </summary>
-    public partial class Device
-    {
+    public partial class Device {
+
+        private ActivityManager activityManager;
         private BatteryInfo battery;
         private BuildProp buildProp;
         private BusyBox busyBox;
         private FileSystem fileSystem;
-        //private PackageManager packageManager;
+        private PackageManager packageManager;
         private Phone phone;
         //private Processes processes;
         private Su su;
         private string serialNumber;
-        private DeviceState state;
+        protected DeviceState state;
 
         /// <summary>
         /// Initializes a new instance of the Device class
         /// </summary>
         /// <param name="deviceSerial">Serial number of Android device</param>
-        internal Device(string deviceSerial)
-        {
+        protected internal Device(string deviceSerial) {
             this.serialNumber = deviceSerial;
             Update();
         }
 
-        private DeviceState SetState()
-        {
+        internal DeviceState SetState() {
             string state = null;
 
-            using (StringReader r = new StringReader(Adb.Devices()))
-            {
+            using (StringReader r = new StringReader(Adb.Devices())) {
                 string line;
 
-                while (r.Peek() != -1)
-                {
+                while (r.Peek() != -1) {
                     line = r.ReadLine();
 
                     if (line.Contains(this.serialNumber))
@@ -50,14 +47,11 @@ namespace RegawMOD.Android
                 }
             }
 
-            if (state == null)
-            {
-                using (StringReader r = new StringReader(Fastboot.Devices()))
-                {
+            if (state == null) {
+                using (StringReader r = new StringReader(Fastboot.Devices())) {
                     string line;
 
-                    while (r.Peek() != -1)
-                    {
+                    while (r.Peek() != -1) {
                         line = r.ReadLine();
 
                         if (line.Contains(this.serialNumber))
@@ -66,8 +60,7 @@ namespace RegawMOD.Android
                 }
             }
 
-            switch (state)
-            {
+            switch (state) {
                 case "device":
                     return DeviceState.ONLINE;
                 case "recovery":
@@ -82,6 +75,16 @@ namespace RegawMOD.Android
                     return DeviceState.UNKNOWN;
             }
         }
+
+#region Get Device Components
+
+        /// <summary>
+        /// Gets the activity manager.
+        /// </summary>
+        /// <value>
+        /// The activity manager.
+        /// </value>
+        public ActivityManager ActivityManager { get { return this.ActivityManager; } }
 
         /// <summary>
         /// Gets the device's <see cref="BatteryInfo"/> instance
@@ -106,12 +109,12 @@ namespace RegawMOD.Android
         /// </summary>
         /// <remarks>See <see cref="FileSystem"/> for more details</remarks>
         public FileSystem FileSystem { get { return this.fileSystem; } }
-        
+
         ///// <summary>
         ///// Gets the device's <see cref="PackageManager"/> instance
         ///// </summary>
         ///// <remarks>See <see cref="PackageManager"/> for more details</remarks>
-        //public PackageManager PackageManager { get { return this.packageManager; } }
+        public PackageManager PackageManager { get { return this.packageManager; } }
 
         /// <summary>
         /// Gets the device's <see cref="Phone"/> instance
@@ -130,6 +133,7 @@ namespace RegawMOD.Android
         /// </summary>
         /// <remarks>See <see cref="Su"/> for more details</remarks>
         public Su Su { get { return this.su; } }
+#endregion
 
         /// <summary>
         /// Gets the device's serial number
@@ -140,63 +144,55 @@ namespace RegawMOD.Android
         /// Gets a value indicating the device's current state
         /// </summary>
         /// <remarks>See <see cref="DeviceState"/> for more details</remarks>
-        public DeviceState State { get { return this.state; } internal set { this.state = value; } }
+        public virtual DeviceState State { get { return this.state; } protected set { this.state = value; } }
 
         /// <summary>
         /// Gets a value indicating if the device has root
         /// </summary>
-        public bool HasRoot { get { return this.su.Exists; } }
+        public virtual bool HasRoot { get { return this.su.Exists; } }
 
         /// <summary>
         /// Reboots the device regularly from fastboot
         /// </summary>
-        public void FastbootReboot()
-        {
+        public void FastbootReboot() {
             if (this.State == DeviceState.FASTBOOT)
                 new Thread(new ThreadStart(FastbootRebootThread)).Start();
         }
 
-        private void FastbootRebootThread()
-        {
+        private void FastbootRebootThread() {
             Fastboot.ExecuteFastbootCommandNoReturn(Fastboot.FormFastbootCommand(this, "reboot"));
         }
 
         /// <summary>
         /// Reboots the device regularly
         /// </summary>
-        public void Reboot()
-        {
+        public void Reboot() {
             new Thread(new ThreadStart(RebootThread)).Start();
         }
 
-        private void RebootThread()
-        {
+        private void RebootThread() {
             Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot"));
         }
 
         /// <summary>
         /// Reboots the device into recovery
         /// </summary>
-        public void RebootRecovery()
-        {
+        public void RebootRecovery() {
             new Thread(new ThreadStart(RebootRecoveryThread)).Start();
         }
 
-        private void RebootRecoveryThread()
-        {
+        private void RebootRecoveryThread() {
             Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot", "recovery"));
         }
 
         /// <summary>
         /// Reboots the device into the bootloader
         /// </summary>
-        public void RebootBootloader()
-        {
+        public void RebootBootloader() {
             new Thread(new ThreadStart(RebootBootloaderThread)).Start();
         }
 
-        private void RebootBootloaderThread()
-        {
+        private void RebootBootloaderThread() {
             Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot", "bootloader"));
         }
 
@@ -207,8 +203,7 @@ namespace RegawMOD.Android
         /// <param name="destinationDirectory">Directory on local computer to pull file to</param>
         /// /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>True if file is pulled, false if pull failed</returns>
-        public bool PullFile(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT)
-        {
+        public bool PullFile(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT) {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"");
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
@@ -220,8 +215,7 @@ namespace RegawMOD.Android
         /// <param name="destinationFilePath">The desired full path of the file after pushing to the device (including file name and extension)</param>
         /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>If the push was successful</returns>
-        public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT)
-        {
+        public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT) {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"");
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
@@ -233,8 +227,7 @@ namespace RegawMOD.Android
         /// <param name="destination">Directory on local computer to pull file to</param>
         /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>True if directory is pulled, false if pull failed</returns>
-        public bool PullDirectory(string location, string destination, int timeout = Command.DEFAULT_TIMEOUT)
-        {
+        public bool PullDirectory(string location, string destination, int timeout = Command.DEFAULT_TIMEOUT) {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + (location.EndsWith("/") ? location : location + "/") + "\"", "\"" + destination + "\"");
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
         }
@@ -245,24 +238,48 @@ namespace RegawMOD.Android
         /// <param name="location">Full path of apk on computer</param>
         /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
         /// <returns>True if install is successful, False if install fails for any reason</returns>
-        public bool InstallApk(string location, int timeout = Command.DEFAULT_TIMEOUT)
-        {
+        public bool InstallApk(string location, int timeout = Command.DEFAULT_TIMEOUT) {
             return !Adb.ExecuteAdbCommand(Adb.FormAdbCommand(this, "install", "\"" + location + "\"").WithTimeout(timeout), true).Contains("Failure");
         }
 
         /// <summary>
         /// Updates all values in current instance of <see cref="Device"/>
         /// </summary>
-        public void Update()
-        {
+        public virtual void Update() {
             this.state = SetState();
 
-            this.su = new Su(this);
             this.battery = new BatteryInfo(this);
             this.buildProp = new BuildProp(this);
             this.busyBox = new BusyBox(this);
-            this.phone = new Phone(this);
             this.fileSystem = new FileSystem(this);
+            this.packageManager = new PackageManager(this);
+            this.phone = new Phone(this);
+            this.su = new Su(this);
+        }
+
+        /// <summary>
+        /// Checks if the given parameter is equal to this object.
+        /// Namely, if the param is a string, it will check if the given param is equal to <see cref="SerialNumber"/>.
+        /// If, however, the param is another Device object, it will check if that device's <see cref="SerialNumber"/> is the same as this object's.
+        /// Should the param be neither string, nor Device, it will return false.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj) {
+            if (obj is string)
+                if (obj.ToString().Equals(SerialNumber))
+                    return true;
+                else return false;
+            else if (obj is Device)
+                if (((Device)obj).SerialNumber.Equals(SerialNumber))
+                    return true;
+                else return false;
+            else return false;
+
+        }
+
+        public override int GetHashCode() {
+            return base.GetHashCode();
         }
     }
 }

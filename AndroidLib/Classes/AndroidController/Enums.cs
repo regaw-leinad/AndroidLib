@@ -2,13 +2,11 @@
  * Enums.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
-namespace RegawMOD.Android
-{
+namespace RegawMOD.Android {
     /// <summary>
     /// Specifies a FileSystem Listing
     /// </summary>
-    public enum ListingType
-    {
+    public enum ListingType {
         /// <summary>
         /// Represents a File
         /// </summary>
@@ -33,8 +31,7 @@ namespace RegawMOD.Android
     /// <summary>
     /// Specifies current state of <see cref="Device"/>
     /// </summary>
-    public enum DeviceState
-    {
+    public enum DeviceState {
         /// <summary>
         /// <see cref="Device"/> is online
         /// </summary>
@@ -81,8 +78,7 @@ namespace RegawMOD.Android
     /// <summary>
     /// Specifies how to remount the file system
     /// </summary>
-    public enum MountType
-    {
+    public enum MountType {
         /// <summary>
         /// Read-Writable
         /// </summary>
@@ -102,8 +98,7 @@ namespace RegawMOD.Android
     /// <summary>
     /// Specifies a certain partition of the connected Android device
     /// </summary>
-    public enum DevicePartition
-    {
+    public enum DevicePartition {
         /// <summary>
         /// The boot partition
         /// </summary>
@@ -134,8 +129,7 @@ namespace RegawMOD.Android
     /// Specifies the keyevent code to send to "adb shell input keyevent {KeyEventCode}"
     /// </summary>
     /// <remarks>No root needed</remarks>
-    public enum KeyEventCode
-    {
+    public enum KeyEventCode {
         /// <summary>
         /// The Soft Right Key
         /// </summary>
@@ -295,222 +289,222 @@ namespace RegawMOD.Android
         /// The E Character Button
         /// </summary>
         E = 33,
-        
+
         /// <summary>
         /// The F Character Button
         /// </summary>
         F = 34,
-        
+
         /// <summary>
         /// The G Character Button
         /// </summary>
         G = 35,
-        
+
         /// <summary>
         /// The H Character Button
         /// </summary>
         H = 36,
-        
+
         /// <summary>
         /// The I Character Button
         /// </summary>
         I = 37,
-        
+
         /// <summary>
         /// The J Character Button
         /// </summary>
         J = 38,
-        
+
         /// <summary>
         /// The K Character Button
         /// </summary>
         K = 39,
-        
+
         /// <summary>
         /// The L Character Button
         /// </summary>
         L = 40,
-        
+
         /// <summary>
         /// The M Character Button
         /// </summary>
         M = 41,
-        
+
         /// <summary>
         /// The N Character Button
         /// </summary>
         N = 42,
-        
+
         /// <summary>
         /// The O Character Button
         /// </summary>
         O = 43,
-        
+
         /// <summary>
         /// The P Character Button
         /// </summary>
         P = 44,
-        
+
         /// <summary>
         /// The Q Character Button
         /// </summary>
         Q = 45,
-        
+
         /// <summary>
         /// The R Character Button
         /// </summary>
         R = 46,
-        
+
         /// <summary>
         /// The S Character Button
         /// </summary>
         S = 47,
-        
+
         /// <summary>
         /// The T Character Button
         /// </summary>
         T = 48,
-        
+
         /// <summary>
         /// The U Character Button
         /// </summary>
         U = 49,
-        
+
         /// <summary>
         /// The V Character Button
         /// </summary>
         V = 50,
-        
+
         /// <summary>
         /// The W Character Button
         /// </summary>
         W = 51,
-        
+
         /// <summary>
         /// The X Character Button
         /// </summary>
         X = 52,
-        
+
         /// <summary>
         /// The Y Character Button
         /// </summary>
         Y = 53,
-        
+
         /// <summary>
         /// The Z Character Button
         /// </summary>
         Z = 54,
-        
+
         /// <summary>
         /// The Comma Character (,) Button
         /// </summary>
         COMMA = 55,
-        
+
         /// <summary>
         /// The Period Character (.) Button
         /// </summary>
         PERIOD = 56,
-        
+
         /// <summary>
         /// The Left Alt Button
         /// </summary>
         ALT_LEFT = 57,
-        
+
         /// <summary>
         /// The Right Alt Button
         /// </summary>
         ALT_RIGHT = 58,
-        
+
         /// <summary>
         /// The Left Shift Button
         /// </summary>
         SHIFT_LEFT = 59,
-        
+
         /// <summary>
         /// The Right Shift Button
         /// </summary>
         SHIFT_RIGHT = 60,
-        
+
         /// <summary>
         /// The Tab Button
         /// </summary>
         TAB = 61,
-        
+
         /// <summary>
         /// The Space Bar Button
         /// </summary>
         SPACE = 62,
-        
+
         /// <summary>
         /// Brings Up Select Input Method Dialog
         /// </summary>
         SELECT_INPUT_METHOD = 63,
-        
+
         /// <summary>
         /// Not Sure
         /// </summary>
         EXPLORER = 64,
-        
+
         /// <summary>
         /// Not Sure
         /// </summary>
         ENVELOPE = 65,
-        
+
         /// <summary>
         /// The Enter Button
         /// </summary>
         ENTER = 66,
-        
+
         /// <summary>
         /// The Delete Button
         /// </summary>
         DELETE = 67,
-        
+
         /// <summary>
         /// Not Sure
         /// </summary>
         GRAVE = 68,
-        
+
         /// <summary>
         /// The Minus Button
         /// </summary>
         MINUS = 69,
-        
+
         /// <summary>
         /// The Equals Character (=) Button
         /// </summary>
         EQUALS = 70,
-        
+
         /// <summary>
         /// The Left Bracket Character ({) Button
         /// </summary>
         BRACKET_LEFT = 71,
-        
+
         /// <summary>
         /// The Right Bracket Character (}) Button
         /// </summary>
         BRACKET_RIGHT = 72,
-        
+
         /// <summary>
         /// The Backslash Character (\) Button
         /// </summary>
         BACKSLASH = 73,
-        
+
         /// <summary>
         /// The Semicolon Character (;) Button
         /// </summary>
         SEMICOLON = 74,
-        
+
         /// <summary>
         /// The Apostrophe Character (') Button
         /// </summary>
         APOSTROPHE = 75,
-        
+
         /// <summary>
         /// The Forward Slash Character (/) Button
         /// </summary>
         FORWARD_SLASH = 76,
-        
+
         /// <summary>
         /// The At Character (@) Button
         /// </summary>
@@ -520,37 +514,37 @@ namespace RegawMOD.Android
         /// Number Lock
         /// </summary>
         NUM = 78,
-        
+
         /// <summary>
         /// Not Sure
         /// </summary>
         HEADSET_HOOK = 79,
-        
+
         /// <summary>
         /// The Focus Camera Button
         /// </summary>
         FOCUS = 80,
-        
+
         /// <summary>
         /// The Plus Character (+) Button
         /// </summary>
         PLUS = 81,
-        
+
         /// <summary>
         /// The Menu Button
         /// </summary>
         MENU = 82,
-        
+
         /// <summary>
         /// Not Sure
         /// </summary>
         NOTIFICATION = 83,
-        
+
         /// <summary>
         /// The Search Button
         /// </summary>
         SEARCH = 84,
-        
+
         /// <summary>
         /// Not Sure
         /// </summary>
