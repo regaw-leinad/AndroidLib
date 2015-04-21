@@ -1,6 +1,7 @@
 /*
  * Fastboot.cs - Developed by Dan Wager for AndroidLib.dll
  */
+using System;
 
 namespace RegawMOD.Android
 {
@@ -31,6 +32,7 @@ namespace RegawMOD.Android
     /// </summary>
     public static class Fastboot
     {
+        private const string FASTBOOT = "fastboot";
         private const string FASTBOOT_EXE = "fastboot.exe";
 
         internal static string Devices()
@@ -101,7 +103,14 @@ namespace RegawMOD.Android
         /// <returns>Output of <paramref name="command"/> run in fastboot</returns>
         public static string ExecuteFastbootCommand(FastbootCommand command)
         {
-            return Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + FASTBOOT_EXE, command.Command, command.Timeout);
+            if (Environment.OSVersion.Platform.Equals("unix"))
+            {
+                return Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + FASTBOOT, command.Command, command.Timeout);
+            }
+            else
+            {
+                return Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + FASTBOOT_EXE, command.Command, command.Timeout);
+            }
         }
 
         /// <summary>
@@ -111,7 +120,14 @@ namespace RegawMOD.Android
         /// <param name="command">Instance of <see cref="FastbootCommand"/></param>
         public static void ExecuteFastbootCommandNoReturn(FastbootCommand command)
         {
-            Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + FASTBOOT_EXE, command.Command, command.Timeout);
+            if (Environment.OSVersion.Platform.Equals("unix"))
+            {
+                Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + FASTBOOT, command.Command, command.Timeout);
+            }
+            else
+            {
+                Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + FASTBOOT_EXE, command.Command, command.Timeout);
+            }
         }
     }
 }
