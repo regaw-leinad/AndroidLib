@@ -143,7 +143,14 @@ namespace RegawMOD.Android
         {
             lock (_lock)
             {
-                Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", inputLines);
+                if (Environment.OSVersion.Platform.Equals("unix"))
+                {
+                    Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB, "shell", inputLines);
+                }
+                else
+                {
+                    Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", inputLines);
+                }
             }
         }
 
@@ -158,7 +165,14 @@ namespace RegawMOD.Android
         {
             lock (_lock)
             {
-                Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", timeout, inputLines);
+                if (Environment.OSVersion.Platform.Equals("unix"))
+                {
+                    Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB, "shell", timeout, inputLines);
+                }
+                else
+                {
+                    Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", timeout, inputLines);
+                }
             }
         }
 
@@ -175,7 +189,14 @@ namespace RegawMOD.Android
 
             lock (_lock)
             {
-                result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, forceRegular, command.Timeout);
+                if (Environment.OSVersion.Platform.Equals("unix"))
+                {
+                    result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB, command.Command, forceRegular, command.Timeout);
+                }
+                else
+                {
+                    result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, forceRegular, command.Timeout);
+                }
             }
 
             return result;
@@ -191,7 +212,14 @@ namespace RegawMOD.Android
         {
             lock (_lock)
             {
-                Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
+                if (Environment.OSVersion.Platform.Equals("unix"))
+                {
+                    Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB, command.Command, command.Timeout);
+                }
+                else
+                {
+                    Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
+                }
             }
         }
 
@@ -206,7 +234,14 @@ namespace RegawMOD.Android
 
             lock (_lock)
             {
-                result = Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
+                if (Environment.OSVersion.Platform.Equals("unix"))
+                {
+                    result = Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB, command.Command, command.Timeout);
+                }
+                else
+                {
+                    result = Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
+                }
             }
 
             return result;

@@ -59,10 +59,12 @@ namespace RegawMOD.Android
         private const string ANDROID_CONTROLLER_TMP_FOLDER = "AndroidLib\\";
         private static readonly Dictionary<string, string> RESOURCES = new Dictionary<string, string>
         {
-            {"adb.exe","862c2b75b223e3e8aafeb20fe882a602"},
+            {"adb.exe","9e6a80066408aaa565f61071e645450e"},
             {"AdbWinApi.dll", "47a6ee3f186b2c2f5057028906bac0c6"},
             {"AdbWinUsbApi.dll", "5f23f2f936bdfac90bb0a4970ad365cf"},
-            {"fastboot.exe", "35792abb2cafdf2e6844b61e993056e2"},
+            {"fastboot.exe", "d335a521b494edae60c131569126db82"},
+            {"adb", "15cdd2b2fca37ba3b33823de2b125a7a"},
+            {"fastboot", "e228fe6e8ed7b3e7545e348d1adc7bca"},
         };
 
         private static AndroidController instance;
