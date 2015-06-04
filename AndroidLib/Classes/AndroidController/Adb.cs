@@ -3,17 +3,19 @@
  */
 
 using System;
-using System.IO;
 
-namespace RegawMOD.Android
-{
+namespace RegawMOD.Android {
+
+    using System.ComponentModel;
+    using System.IO;
+    using System.Threading.Tasks;
+
     /// <summary>
     /// Holds formatted commands to execute through <see cref="Adb"/>
     /// </summary>
     /// <remarks><para>Can only be created with <c>Adb.FormAdbCommand()</c> or <c>Adb.FormAdbShellCommand()</c></para>
     /// <para>Can only be executed with <c>Adb.ExecuteAdbCommand()</c> or <c>Adb.ExecuteAdbCommandNoReturn()</c></para></remarks>
-    public class AdbCommand
-    {
+    public class AdbCommand {
         private string command;
         private int timeout;
         internal string Command { get { return this.command; } }
@@ -30,8 +32,7 @@ namespace RegawMOD.Android
     /// <summary>
     /// Controls all commands sent to the currently running Android Debug Bridge Server
     /// </summary>
-    public static class Adb
-    {
+    public static class Adb {
         private static Object _lock = new Object();
         internal const string ADB = "adb";
         internal const string ADB_EXE = "adb.exe";
@@ -55,8 +56,7 @@ namespace RegawMOD.Android
         /// 
         /// </code>
         /// </example>
-        public static AdbCommand FormAdbCommand(string command, params object[] args)
-        {
+        public static AdbCommand FormAdbCommand(string command, params object[] args) {
             string adbCommand = (args.Length > 0) ? command + " " : command;
 
             for (int i = 0; i < args.Length; i++)
@@ -83,9 +83,9 @@ namespace RegawMOD.Android
         /// 
         /// </code>
         /// </example>
-        public static AdbCommand FormAdbCommand(Device device, string command, params object[] args)
-        {
-            return FormAdbCommand("-s " + device.SerialNumber + " " + command, args);
+        public static AdbCommand FormAdbCommand(Device device, string command, params object[] args) {
+            //return FormAdbCommand("-s " + device.SerialNumber + " " + command, args);
+            return FormAdbCommand(string.Format("-s {0} {1}", device.SerialNumber, command), args);
         }
 
         /// <summary>
@@ -109,8 +109,7 @@ namespace RegawMOD.Android
         /// 
         /// </code>
         /// </example>
-        public static AdbCommand FormAdbShellCommand(Device device, bool rootShell, string executable, params object[] args)
-        {
+        public static AdbCommand FormAdbShellCommand(Device device, bool rootShell, string executable, params object[] args) {
             if (rootShell && !device.HasRoot)
                 throw new DeviceHasNoRootException();
 
@@ -139,10 +138,8 @@ namespace RegawMOD.Android
         /// <param name="device">Specific <see cref="Device"/> to run the command on</param>
         /// <param name="inputLines">Lines of commands to send to shell</param>
         [Obsolete("Method is deprecated, please use ExecuteAdbShellCommandInputString(Device, int, string...) instead.")]
-        public static void ExecuteAdbShellCommandInputString(Device device, params string[] inputLines)
-        {
-            lock (_lock)
-            {
+        public static void ExecuteAdbShellCommandInputString(Device device, params string[] inputLines) {
+            lock (_lock) {
                 Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", inputLines);
             }
         }
@@ -154,10 +151,8 @@ namespace RegawMOD.Android
         /// <param name="device">Specific <see cref="Device"/> to run the command on</param>
         /// <param name="timeout">The timeout in milliseonds</param>
         /// <param name="inputLines">Lines of commands to send to shell</param>
-        public static void ExecuteAdbShellCommandInputString(Device device, int timeout, params string[] inputLines)
-        {
-            lock (_lock)
-            {
+        public static void ExecuteAdbShellCommandInputString(Device device, int timeout, params string[] inputLines) {
+            lock (_lock) {
                 Command.RunProcessWriteInput(AndroidController.Instance.ResourceDirectory + ADB_EXE, "shell", timeout, inputLines);
             }
         }
@@ -169,16 +164,28 @@ namespace RegawMOD.Android
         /// <param name="command">Instance of <see cref="AdbCommand"/></param>
         /// <param name="forceRegular">Forces Output of stdout, not stderror if any</param>
         /// <returns>Output of <paramref name="command"/> run on server</returns>
-        public static string ExecuteAdbCommand(AdbCommand command, bool forceRegular = false)
-        {
+        public static string ExecuteAdbCommand(AdbCommand command, bool forceRegular = false) {
             string result = "";
 
-            lock (_lock)
-            {
+            lock (_lock) {
                 result = Command.RunProcessReturnOutput(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, forceRegular, command.Timeout);
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Executes an <see cref="AdbCommand"/> on the running Adb Server asynchronously
+        /// </summary>
+        /// <remarks>This should be used if you want the output of the command returned</remarks>
+        /// <param name="command">Instance of <see cref="AdbCommand"/></param>
+        /// <param name="forceRegular">Forces Output of stdout, not stderror if any</param>
+        /// <returns>Output of <paramref name="command"/> run on server</returns>
+        public static async Task<string> ExecuteAdbCommandAsync(AdbCommand m_command, bool m_forceRegular = false) {
+            /*var m_adbOutput = "";
+            await Task.Run(new Action(() => m_adbOutput = ExecuteAdbCommand(m_command, m_forceRegular)));
+            return m_adbOutput;*/
+            return await Task.Run<string>(new Func<string>(() => { return ExecuteAdbCommand(m_command, m_forceRegular); }));
         }
 
         /// <summary>
@@ -187,10 +194,8 @@ namespace RegawMOD.Android
         /// <remarks>This should be used if you do not want the output of the command returned.  Good for quick abd shell commands</remarks>
         /// <param name="command">Instance of <see cref="AdbCommand"/></param>
         /// <returns>Output of <paramref name="command"/> run on server</returns>
-        public static void ExecuteAdbCommandNoReturn(AdbCommand command)
-        {
-            lock (_lock)
-            {
+        public static void ExecuteAdbCommandNoReturn(AdbCommand command) {
+            lock (_lock) {
                 Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
             }
         }
@@ -200,12 +205,10 @@ namespace RegawMOD.Android
         /// </summary>
         /// <param name="command">Instance of <see cref="AdbCommand"/></param>
         /// <returns>Exit code of the process</returns>
-        public static int ExecuteAdbCommandReturnExitCode(AdbCommand command)
-        {
+        public static int ExecuteAdbCommandReturnExitCode(AdbCommand command) {
             int result = -1;
 
-            lock (_lock)
-            {
+            lock (_lock) {
                 result = Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
             }
 
@@ -215,23 +218,19 @@ namespace RegawMOD.Android
         /// <summary>
         /// Gets a value indicating if an Android Debug Bridge Server is currently running.
         /// </summary>
-        public static bool ServerRunning
-        {
+        public static bool ServerRunning {
             get { return Command.IsProcessRunning(Adb.ADB); }
         }
 
-        internal static void StartServer()
-        {
+        internal static void StartServer() {
             ExecuteAdbCommandNoReturn(Adb.FormAdbCommand("start-server"));
         }
 
-        internal static void KillServer()
-        {
+        internal static void KillServer() {
             ExecuteAdbCommandNoReturn(Adb.FormAdbCommand("kill-server"));
         }
 
-        internal static string Devices()
-        {
+        internal static string Devices() {
             return ExecuteAdbCommand(Adb.FormAdbCommand("devices"));
         }
 
@@ -243,13 +242,11 @@ namespace RegawMOD.Android
         /// <param name="localPort">Local port number</param>
         /// <param name="remotePort">Remote port number</param>
         /// <returns>True if successful, false if unsuccessful</returns>
-        public static bool PortForward(Device device, int localPort, int remotePort)
-        {
+        public static bool PortForward(Device device, int localPort, int remotePort) {
             bool success = false;
 
             AdbCommand adbCmd = Adb.FormAdbCommand(device, "forward", "tcp:" + localPort, "tcp:" + remotePort);
-            using (StringReader r = new StringReader(ExecuteAdbCommand(adbCmd)))
-            {
+            using (StringReader r = new StringReader(ExecuteAdbCommand(adbCmd))) {
                 if (r.ReadToEnd().Trim() == "")
                     success = true;
             }
