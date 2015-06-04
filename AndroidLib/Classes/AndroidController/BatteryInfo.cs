@@ -3,13 +3,14 @@
  */
 
 using System.IO;
-using System.Text.RegularExpressions;
 
-namespace RegawMOD.Android {
+namespace RegawMOD.Android
+{
     /// <summary>
     /// Contains information about connected Android device's battery
     /// </summary>
-    public class BatteryInfo {
+    public class BatteryInfo
+    {
         private Device device;
         private string dump;
 
@@ -22,7 +23,7 @@ namespace RegawMOD.Android {
         private int level;
         private int scale;
         private int voltage;
-        private double temperature;
+        private int temperature;
         private string technology;
 
         private string outString;
@@ -30,36 +31,42 @@ namespace RegawMOD.Android {
         /// <summary>
         /// Gets a value indicating if the connected Android device is on AC Power
         /// </summary>
-        public bool ACPower {
+        public bool ACPower
+        {
             get { Update(); return this.acPower; }
         }
 
         /// <summary>
         /// Gets a value indicating if the connected Android device is on USB Power
         /// </summary>
-        public bool USBPower {
+        public bool USBPower
+        {
             get { Update(); return usbPower; }
         }
-
+        
         /// <summary>
         /// Gets a value indicating if the connected Android device is on Wireless Power
         /// </summary>
-        public bool WirelessPower {
+        public bool WirelessPower
+        {
             get { Update(); return wirelessPower; }
         }
-
+        
         /// <summary>
         /// Gets a value indicating the status of the battery
         /// </summary>
-        public string Status {
+        public string Status
+        {
             /* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
              * Property "Status" is changed from type "int" to type "string" to give a string representation
              * of the value obtained from dumpsys regarding battery status.
              * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
              */
-            get {
+            get
+            {
                 Update();
-                switch (status) {
+                switch (status)
+                {
                     case 1:
                         return "Unknown Battery Status: " + status;
                     case 2:
@@ -79,16 +86,19 @@ namespace RegawMOD.Android {
         /// <summary>
         /// Gets a value indicating the health of the battery
         /// </summary>
-        public string Health {
-
+        public string Health
+        {
+        
             /* As defined in: http://developer.android.com/reference/android/os/BatteryManager.html
              * Property "Health" is changed from type "int" to type "string" to give a string representation
              * of the value obtained from dumpsys regarding battery health.
              * Submitted By: Omar Bizreh [DeepUnknown from Xda-Developers.com]
              */
-            get {
+            get
+            {
                 Update();
-                switch (health) {
+                switch (health)
+                {
                     case 1:
                         return "Unknown Health State: " + health;
                     case 2:
@@ -113,42 +123,48 @@ namespace RegawMOD.Android {
         /// <summary>
         /// Gets a value indicating if there is a battery present
         /// </summary>
-        public bool Present {
+        public bool Present
+        {
             get { Update(); return present; }
         }
 
         /// <summary>
         /// Gets a value indicating the current charge level of the battery
         /// </summary>
-        public int Level {
+        public int Level
+        {
             get { Update(); return level; }
         }
 
         /// <summary>
         /// Gets a value indicating the scale of the battery
         /// </summary>
-        public int Scale {
+        public int Scale
+        {
             get { Update(); return scale; }
         }
-
+        
         /// <summary>
         /// Gets a value indicating the current voltage of the battery
         /// </summary>
-        public int Voltage {
+        public int Voltage
+        {
             get { Update(); return voltage; }
         }
-
+        
         /// <summary>
         /// Gets a value indicating the current temperature of the battery
         /// </summary>
-        public double Temperature {
+        public int Temperature
+        {
             get { Update(); return temperature; }
         }
-
+        
         /// <summary>
         /// Gets a value indicating the battery's technology
         /// </summary>
-        public string Technology {
+        public string Technology
+        {
             get { Update(); return technology; }
         }
 
@@ -156,13 +172,16 @@ namespace RegawMOD.Android {
         /// Initializes a new instance of the BatteryInfo class
         /// </summary>
         /// <param name="device">Serial number of Android device</param>
-        internal BatteryInfo(Device device) {
+        internal BatteryInfo(Device device)
+        {
             this.device = device;
             Update();
         }
 
-        private void Update() {
-            if (this.device.State != DeviceState.ONLINE) {
+        private void Update()
+        {
+            if (this.device.State != DeviceState.ONLINE)
+            {
                 this.acPower = false;
                 this.dump = null;
                 this.health = -1;
@@ -182,25 +201,32 @@ namespace RegawMOD.Android {
             AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, "dumpsys", "battery");
             this.dump = Adb.ExecuteAdbCommand(adbCmd);
 
-            using (StringReader r = new StringReader(this.dump)) {
+            using (StringReader r = new StringReader(this.dump))
+            {
                 string line;
 
-                while (true) {
+                while (true)
+                {
                     line = r.ReadLine();
 
-                    if (!line.Contains("Current Battery Service state")) {
+                    if (!line.Contains("Current Battery Service state"))
+                    {
                         continue;
-                    } else {
+                    }
+                    else
+                    {
                         this.dump = line + r.ReadToEnd();
                         break;
                     }
                 }
             }
 
-            using (StringReader r = new StringReader(this.dump)) {
+            using (StringReader r = new StringReader(this.dump))
+            {
                 string line = "";
 
-                while (r.Peek() != -1) {
+                while (r.Peek() != -1)
+                {
                     line = r.ReadLine();
 
                     if (line == "")
@@ -223,15 +249,9 @@ namespace RegawMOD.Android {
                         int.TryParse(line.Substring(9), out this.scale);
                     else if (line.Contains("voltage"))
                         int.TryParse(line.Substring(10), out this.voltage);
-                    else if (line.Contains("temp")) {
-                        var substring = line.Substring(15);
-                        var lastChar = line[line.Length - 1];
-                        var trimmedString = line.Remove(line.Length - 1);
-                        var newString =
-                            string.Concat(trimmedString, ".", lastChar).ToLower().Contains("temperature") ?
-                                Regex.Split(string.Concat(trimmedString, ".", lastChar), ":\\s")[1] : string.Concat(trimmedString, ".", lastChar);
-                        double.TryParse(newString, out this.temperature);
-                    } else if (line.Contains("tech"))
+                    else if (line.Contains("temp"))
+                        int.TryParse(line.Substring(15), out this.temperature);
+                    else if (line.Contains("tech"))
                         this.technology = line.Substring(14);
                 }
             }
@@ -243,7 +263,8 @@ namespace RegawMOD.Android {
         /// Returns a formatted string object containing all battery stats
         /// </summary>
         /// <returns>A formatted string containing all battery stats</returns>
-        public override string ToString() {
+        public override string ToString()
+        {
             Update();
             return this.outString;
         }
