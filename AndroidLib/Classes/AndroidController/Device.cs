@@ -12,16 +12,58 @@ namespace RegawMOD.Android {
     /// </summary>
     public partial class Device {
 
+        /// <summary>
+        /// The activity manager for this device.
+        /// </summary>
+        /// <remarks>
+        /// 06.06.2015, Beatsleigher: This variable is NOT used.
+        /// </remarks>
         private ActivityManager activityManager;
+
+        /// <summary>
+        /// The battery of thís device.
+        /// </summary>
         private BatteryInfo battery;
+
+        /// <summary>
+        /// The build properties for this device's ROM/OS.
+        /// </summary>
         private BuildProp buildProp;
+
+        /// <summary>
+        /// The device's Busybox.
+        /// </summary>
         private BusyBox busyBox;
+
+        /// <summary>
+        /// The file system for this device.
+        /// </summary>
         private FileSystem fileSystem;
+
+        /// <summary>
+        /// The package manager for this device.
+        /// </summary>
         private PackageManager packageManager;
+
+        /// <summary>
+        /// The phone for this device.
+        /// </summary>
         private Phone phone;
         //private Processes processes;
+
+        /// <summary>
+        /// The device's SuperUser installation.
+        /// </summary>
         private Su su;
+
+        /// <summary>
+        /// The device's serialnumber.
+        /// </summary>
         private string serialNumber;
+
+        /// <summary>
+        /// The device's current state.
+        /// </summary>
         protected DeviceState state;
 
         /// <summary>
@@ -33,6 +75,12 @@ namespace RegawMOD.Android {
             Update();
         }
 
+        /// <summary>
+        /// Sets the state of this device..
+        /// </summary>
+        /// <returns>
+        /// Returns the state of this device.
+        /// </returns>
         internal DeviceState SetState() {
             string state = null;
 
@@ -155,6 +203,9 @@ namespace RegawMOD.Android {
                 new Thread(new ThreadStart(FastbootRebootThread)).Start();
         }
 
+        /// <summary>
+        /// The fastboot reboot thread.
+        /// </summary>
         private void FastbootRebootThread() {
             Fastboot.ExecuteFastbootCommandNoReturn(Fastboot.FormFastbootCommand(this, "reboot"));
         }
@@ -166,6 +217,9 @@ namespace RegawMOD.Android {
             new Thread(new ThreadStart(RebootThread)).Start();
         }
 
+        /// <summary>
+        /// The reboot thread.
+        /// </summary>
         private void RebootThread() {
             Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot"));
         }
@@ -177,6 +231,9 @@ namespace RegawMOD.Android {
             new Thread(new ThreadStart(RebootRecoveryThread)).Start();
         }
 
+        /// <summary>
+        /// The reboot-recovery thread.
+        /// </summary>
         private void RebootRecoveryThread() {
             Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot", "recovery"));
         }
@@ -188,6 +245,9 @@ namespace RegawMOD.Android {
             new Thread(new ThreadStart(RebootBootloaderThread)).Start();
         }
 
+        /// <summary>
+        /// The reboot bootloader thread.
+        /// </summary>
         private void RebootBootloaderThread() {
             Adb.ExecuteAdbCommandNoReturn(Adb.FormAdbCommand(this, "reboot", "bootloader"));
         }
@@ -274,6 +334,12 @@ namespace RegawMOD.Android {
 
         }
 
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+        /// </returns>
         public override int GetHashCode() {
             return base.GetHashCode();
         }

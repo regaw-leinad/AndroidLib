@@ -2,22 +2,40 @@
  * BusyBox.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
-using System.Collections.Generic;
-using System.IO;
 
-namespace RegawMOD.Android
-{
+namespace RegawMOD.Android {
+
+    using System.Collections.Generic;
+    using System.IO;
+    
     /// <summary>
-    /// Conatins information about device's busybox
+    /// Contains information about device's busybox.
     /// </summary>
-    public class BusyBox
-    {
+    public class BusyBox {
+
+        /// <summary>
+        /// The executable
+        /// </summary>
         internal const string EXECUTABLE = "busybox";
 
+        /// <summary>
+        /// The device associated with this class.
+        /// </summary>
         private Device device;
 
+        /// <summary>
+        /// Contains a value determining whether Busybox is installed on the device.
+        /// </summary>
         private bool isInstalled;
+
+        /// <summary>
+        /// Contains a value determining the version of the Busybox installation on the device.
+        /// </summary>
         private string version;
+
+        /// <summary>
+        /// A list of commands for the device's Busybox installation.
+        /// </summary>
         private List<string> commands;
 
         /// <summary>
@@ -35,8 +53,11 @@ namespace RegawMOD.Android
         /// </summary>
         public List<string> Commands { get { return this.commands; } }
 
-        internal BusyBox(Device device)
-        {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BusyBox"/> class.
+        /// </summary>
+        /// <param name="device">The device.</param>
+        internal BusyBox(Device device) {
             this.device = device;
 
             this.commands = new List<string>();
@@ -48,23 +69,19 @@ namespace RegawMOD.Android
         /// Updates the instance of busybox
         /// </summary>
         /// <remarks>Generally called only if busybox may have changed on the device</remarks>
-        public void Update()
-        {
+        public void Update() {
             this.commands.Clear();
 
-            if (!this.device.HasRoot || this.device.State != DeviceState.ONLINE)
-            {
+            if (!this.device.HasRoot || this.device.State != DeviceState.ONLINE) {
                 SetNoBusybox();
                 return;
             }
 
             AdbCommand adbCmd = Adb.FormAdbShellCommand(this.device, false, EXECUTABLE);
-            using (StringReader s = new StringReader(Adb.ExecuteAdbCommand(adbCmd)))
-            {
+            using (StringReader s = new StringReader(Adb.ExecuteAdbCommand(adbCmd))) {
                 string check = s.ReadLine();
 
-                if (check.Contains(string.Format("{0}: not found", EXECUTABLE)))
-                {
+                if (check.Contains(string.Format("{0}: not found", EXECUTABLE))) {
                     SetNoBusybox();
                     return;
                 }
@@ -77,20 +94,19 @@ namespace RegawMOD.Android
 
                 string[] cmds = s.ReadToEnd().Replace(" ", "").Replace("\r\r\n\t", "").Trim('\t', '\r', '\n').Split(',');
 
-                if (cmds.Length.Equals(0))
-                {
+                if (cmds.Length.Equals(0)) {
                     SetNoBusybox();
-                }
-                else
-                {
+                } else {
                     foreach (string cmd in cmds)
                         this.commands.Add(cmd);
                 }
             }
         }
 
-        private void SetNoBusybox()
-        {
+        /// <summary>
+        /// If no installation of Busybox could be found on the device, all variables suggesting otherwise will be set to false.
+        /// </summary>
+        private void SetNoBusybox() {
             this.isInstalled = false;
             this.version = null;
         }

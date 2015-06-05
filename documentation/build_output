@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder" version="2015.1.12.0" projectFile="C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\AndroidLib_Beatsleigher.shfbproj" started="05.06.2015 00:08:48">
+<shfbBuild product="Sandcastle Help File Builder" version="2015.1.12.0" projectFile="C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\AndroidLib_Beatsleigher.shfbproj" started="06.06.2015 00:47:45">
 <buildStep step="Initializing">
 Finding tools...
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
@@ -25,16 +25,16 @@ Copying XML comments files
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
-    Last step completed in 00:00:00,4886
+    Last step completed in 00:00:00,4088
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00,0190
+    Last step completed in 00:00:00,0442
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
-Build started 05.06.2015 00:08:51.
+Build started 06.06.2015 00:47:49.
 Project &quot;C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\GenerateRefInfo.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
@@ -43,7 +43,7 @@ GenerateRefInfo:
   Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
   Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
   Loaded 1 assemblies for reflection and 1 dependency assemblies.
-  Wrote information on 2 namespaces, 54 types, and 527 members
+  Wrote information on 2 namespaces, 54 types, and 528 members
   Copying file from &quot;reflection.org&quot; to &quot;reflection.all&quot;.
   XslTransform (v2015.1.12.0)
   Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
@@ -53,13 +53,13 @@ Done Building Project &quot;C:\Users\Beatsleigher\Documents\Visual Studio 2013\P
 
 Build succeeded.
 
-Time Elapsed 00:00:11.52
-    Last step completed in 00:00:13,2732
+Time Elapsed 00:00:06.08
+    Last step completed in 00:00:07,4992
 </buildStep>
 <buildStep step="TransformReflectionInfo">
 Transforming reflection output...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
-Build started 05.06.2015 00:09:04.
+Build started 06.06.2015 00:47:56.
 Project &quot;C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
 TransformManifest:
   XslTransform (v2015.1.12.0)
@@ -79,17 +79,17 @@ Done Building Project &quot;C:\Users\Beatsleigher\Documents\Visual Studio 2013\P
 
 Build succeeded.
 
-Time Elapsed 00:00:06.68
-    Last step completed in 00:00:07,8210
+Time Elapsed 00:00:03.66
+    Last step completed in 00:00:04,1260
 </buildStep>
 <buildStep step="GenerateNamespaceSummaries">
 Generating namespace summary information...
-    Last step completed in 00:00:00,1333
+    Last step completed in 00:00:00,2372
 </buildStep>
 <buildStep step="CopyAdditionalContent">
 Copying additional content files...
 No additional content to copy
-    Last step completed in 00:00:00,0210
+    Last step completed in 00:00:00,0250
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
@@ -98,7 +98,7 @@ Merging conceptual and additional tables of contents...
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
-Build started 05.06.2015 00:09:12.
+Build started 06.06.2015 00:48:00.
 Project &quot;C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
 GenerateIntermediateTOC:
   XslTransform (v2015.1.12.0)
@@ -109,31 +109,30 @@ Done Building Project &quot;C:\Users\Beatsleigher\Documents\Visual Studio 2013\P
 
 Build succeeded.
 
-Time Elapsed 00:00:02.30
+Time Elapsed 00:00:00.54
 Generating conceptual content intermediate TOC file...
-    Last step completed in 00:00:03,4554
+    Last step completed in 00:00:00,9914
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
     sandcastle.config
-    Last step completed in 00:00:01,0815
+    Last step completed in 00:00:01,4158
 </buildStep>
 <buildStep step="MergeCustomConfigs">
 Merging custom build component configurations
 C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\sandcastle.config
-    Last step completed in 00:00:00,0710
+    Last step completed in 00:00:00,0790
 </buildStep>
 <buildStep step="BuildReferenceTopics">
 Building reference help topics...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
-Build started 05.06.2015 00:09:17.
+Build started 06.06.2015 00:48:03.
 Project &quot;C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj&quot; on node 1 (default targets).
 BuildReferenceTopics:
   BuildAssembler (v2015.1.12.0)
   Copyright &#184; 2006-2015, Microsoft Corporation, All Rights Reserved.
   Portions Copyright &#184; 2006-2014, Eric Woodruff, All Rights Reserved.
   Loading configuration...
-  ResolveReferenceLinksComponent: The MSDN content ID cache &#39;C:\Users\Beatsleigher\AppData\Local\EWSoftware\Sandcastle Help File Builder\Cache\MsdnContentId.cache&#39; does not exist yet.  All IDs will be looked up in this build which will slow it down.
   Processing topics...
 BuildAssembler : warning : ShowMissingComponent: [N:RegawMOD] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [T:RegawMOD.Command] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
@@ -274,83 +273,18 @@ BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AAPT.Badgin
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AAPT.Badging.PackageInfo.versionCode] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AAPT.Badging.PackageInfo.versionName] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.ActivityManager.m_device] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.ActivityManager.Start(RegawMOD.Android.Intent)] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.ActivityManager.Start(RegawMOD.Android.Intent)] Missing &lt;param name=&quot;m_intent&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Adb._lock] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Adb.ADB] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Adb.ADB_EXE] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Adb.ADB_VERSION] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Adb.Devices] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Adb.Devices] Missing &lt;returns&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Adb.ExecuteAdbCommandAsync(RegawMOD.Android.AdbCommand,System.Boolean)] Missing &lt;param name=&quot;m_command&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Adb.ExecuteAdbCommandAsync(RegawMOD.Android.AdbCommand,System.Boolean)] Missing &lt;param name=&quot;m_forceRegular&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Adb.KillServer] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Adb.StartServer] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.AdbCommand.#ctor(System.String)] Missing &lt;param name=&quot;command&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AdbCommand.command] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [P:RegawMOD.Android.AdbCommand.Command] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AdbCommand.timeout] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [P:RegawMOD.Android.AdbCommand.Timeout] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.AdbCommand.WithTimeout(System.Int32)] Missing &lt;returns&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController._CancelRequest] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController.ANDROID_CONTROLLER_TMP_FOLDER] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController.connectedDevices] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.AndroidController.CreateResourceDirectories] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController.Extract_Resources] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.AndroidController.ExtractResources] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController.instance] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController.m_eventWatcher] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController.m_monitorUSB] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [E:RegawMOD.Android.AndroidController.OnDeviceRemoved] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController.resourceDirectory] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [P:RegawMOD.Android.AndroidController.ResourceDirectory] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.AndroidController.RESOURCES] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.acPower] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.device] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.dump] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.health] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.level] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.outString] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.present] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.scale] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.status] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.technology] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.temperature] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.BatteryInfo.Update] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.usbPower] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.voltage] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BatteryInfo.wirelessPower] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.BuildProp.#ctor(RegawMOD.Android.Device)] Missing &lt;param name=&quot;device&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BuildProp.device] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BuildProp.prop] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.BuildProp.Update] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.BusyBox.#ctor(RegawMOD.Android.Device)] Missing &lt;param name=&quot;device&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BusyBox.commands] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BusyBox.device] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BusyBox.EXECUTABLE] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BusyBox.isInstalled] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.BusyBox.SetNoBusybox] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.BusyBox.version] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.activityManager] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.battery] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.buildProp] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.busyBox] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.Equals(System.Object)] Missing &lt;returns&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.FastbootRebootThread] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.fileSystem] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.GetHashCode] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.GetHashCode] Missing &lt;returns&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.packageManager] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [P:RegawMOD.Android.Device.PackageManager] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.phone] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.RebootBootloaderThread] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.RebootRecoveryThread] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.RebootThread] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.serialNumber] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.SetState] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Device.SetState] Missing &lt;returns&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.state] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Device.su] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:RegawMOD.Android.DeviceHasNoRootException] MSDN URL not found for target &#39;M:System.Exception.AddExceptionDataForRestrictedErrorInfo(System.String,System.String,System.String,System.Object)&#39;. [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:RegawMOD.Android.DeviceHasNoRootException] MSDN URL not found for target &#39;M:System.Exception.DeepCopyDynamicMethods(System.Object)&#39;. [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [T:RegawMOD.Android.DeviceHasNoRootException] MSDN URL not found for target &#39;M:System.Exception.DeepCopyStackTrace(System.Object)&#39;. [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
@@ -441,6 +375,7 @@ BuildAssembler : warning : ResolveReferenceLinksComponent: [Fields.T:RegawMOD.An
 BuildAssembler : warning : ResolveReferenceLinksComponent: [Fields.T:RegawMOD.Android.DeviceHasNoRootException] MSDN URL not found for target &#39;F:System.Exception._message&#39;. [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [Fields.T:RegawMOD.Android.DeviceHasNoRootException] MSDN URL not found for target &#39;F:System.Exception._HResult&#39;. [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ResolveReferenceLinksComponent: [Fields.T:RegawMOD.Android.DeviceHasNoRootException] MSDN URL not found for target &#39;F:System.Exception._message&#39;. [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
+BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.DeviceHasNoRootException.#ctor(System.String)] Missing &lt;param name=&quot;m_msg&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Fastboot.Devices] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Fastboot.Devices] Missing &lt;returns&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Fastboot.FASTBOOT_EXE] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
@@ -460,11 +395,7 @@ BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.FileSystem.
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.FileSystem.IS_FILE] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.FileSystem.systemMount] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.FileSystem.UpdateMountPoints] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [T:RegawMOD.Android.Intent] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Intent.#ctor(RegawMOD.Android.IntentArgument)] Missing &lt;param name=&quot;m_intentArg&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Intent.GetIntent(RegawMOD.Android.IntentArgument)] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Intent.GetIntent(RegawMOD.Android.IntentArgument)] Missing &lt;returns&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Intent.GetIntent(RegawMOD.Android.IntentArgument)] Missing &lt;param name=&quot;m_intentArg&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.MountInfo.#ctor(System.String,System.String,RegawMOD.Android.MountType)] Missing &lt;param name=&quot;directory&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.MountInfo.#ctor(System.String,System.String,RegawMOD.Android.MountType)] Missing &lt;param name=&quot;block&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.MountInfo.#ctor(System.String,System.String,RegawMOD.Android.MountType)] Missing &lt;param name=&quot;type&quot;/&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
@@ -517,23 +448,22 @@ BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Su.exists] 
 BuildAssembler : warning : ShowMissingComponent: [P:RegawMOD.Android.Su.Exists] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [M:RegawMOD.Android.Su.GetSuData] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
 BuildAssembler : warning : ShowMissingComponent: [F:RegawMOD.Android.Su.version] Missing &lt;summary&gt; documentation [C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj]
-  Processed 526 topic(s)
-  382 warning(s)
+  Processed 528 topic(s)
+  314 warning(s)
   CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 10 of 15.
   CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 3 of 30.
-  ResolveReferenceLinksComponent: New MSDN content ID cache size: 71 entries
 Done Building Project &quot;C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\BuildReferenceTopics.proj&quot; (default targets).
 
 Build succeeded.
 
-Time Elapsed 00:03:10.21
-    Last step completed in 00:03:11,5700
+Time Elapsed 00:01:57.42
+    Last step completed in 00:01:57,8997
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
 
 Clearing any prior web output
-    Last step completed in 00:00:00,1240
+    Last step completed in 00:00:02,0591
 </buildStep>
 <buildStep step="ExtractingHtmlInfo">
 Extracting HTML info for HTML Help 1 and/or website...
@@ -545,17 +475,17 @@ E-Mail: Eric@EWoodruff.us
 Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
 
 Processing Help 1 files in C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\Output\HtmlHelp1
-Processed 526 HTML files
+Processed 528 HTML files
 Sorting keywords and generating See Also indices
 Saving HTML Help 1 keyword index to C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\androidlib_documentation.hhk
 Saving HTML Help 1 table of contents to C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\androidlib_documentation.hhc
 
 Processing website files in C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\Output\Website
-Processed 526 HTML files
+Processed 528 HTML files
 Sorting keywords and generating See Also indices
 Saving website keyword index to C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\WebKI.xml
 Saving website table of contents to C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\WebTOC.xml
-    Last step completed in 00:00:33,3859
+    Last step completed in 00:00:23,4945
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -771,19 +701,19 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyle
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\TOC.css -&gt; C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\Output\Website\TOC.css
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\TOC.js -&gt; C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\Output\Website\TOC.js
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2010\..\LegacyWeb\Web.Config -&gt; C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\Output\Website\Web.Config
-    Last step completed in 00:00:06,8129
+    Last step completed in 00:00:04,0772
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating HTML Help 1 table of contents file...
-    Last step completed in 00:00:00,0070
+    Last step completed in 00:00:00,0040
 </buildStep>
 <buildStep step="GenerateHelpFileIndex">
 Generating HTML Help 1 index file...
-    Last step completed in 00:00:00,0040
+    Last step completed in 00:00:00,0070
 </buildStep>
 <buildStep step="GenerateHelpProject">
 Generating HTML Help 1 project file...
-    Last step completed in 00:00:00,0713
+    Last step completed in 00:00:00,0760
 </buildStep>
 <buildStep step="CompilingHelpFile">
 Compiling HTML Help 1 file...
@@ -798,13 +728,13 @@ Compiling HTML Help 1 file...
   
   
   
-  Compile time: 0 minutes, 12 seconds
+  Compile time: 0 minutes, 8 seconds
   
-  528	Topics
+  530	Topics
   
-  5,808	Local links
+  5,828	Local links
   
-  1,372	Internet links
+  1,373	Internet links
   
   0	Graphics
   
@@ -812,15 +742,15 @@ Compiling HTML Help 1 file...
   
   
   
-  Created c:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\Output\HtmlHelp1\androidlib_documentation.chm, 662,114 bytes
+  Created c:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\Working\Output\HtmlHelp1\androidlib_documentation.chm, 669,610 bytes
   
-  Compression decreased file by 4,078,679 bytes.
+  Compression decreased file by 4,100,026 bytes.
   
-    Last step completed in 00:00:21,4034
+    Last step completed in 00:00:12,1268
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Executing informational Generate Table of Contents build step for plug-ins (not used for MS Help Viewer)
-    Last step completed in 00:00:00,0070
+    Last step completed in 00:00:00,0050
 </buildStep>
 <buildStep step="GenerateHelpProject">
 Executing informational Generate Help Project build step for plug-ins (not used for MS Help Viewer)
@@ -831,21 +761,21 @@ Generating MS Help Viewer file...
 [C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe]
   Compressing help content files...
   500 items added
-  Compression finished.  596 items added
+  Compression finished.  598 items added
   Saving C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\androidlib_documentation.mshc...
-  Saved 500 of 596 items
+  Saved 500 of 598 items
   Finished saving C:\Users\Beatsleigher\Documents\Visual Studio 2013\Projects\AndroidLib\documentation\Help\androidlib_documentation.mshc
-  Compressed 4 folders, 592 files.  Reduced size by 3.678.626 bytes (77%).
-    Last step completed in 00:00:10,6476
+  Compressed 4 folders, 594 files.  Reduced size by 3.705.791 bytes (77%).
+    Last step completed in 00:00:03,5662
 </buildStep>
 <buildStep step="GenerateHelpFormatTableOfContents">
 Generating website table of contents file...
-    Last step completed in 00:00:00,0120
+    Last step completed in 00:00:00,0310
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
-    Last step completed in 00:00:04,9993
+    Last step completed in 00:00:03,9322
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
@@ -856,16 +786,16 @@ Copied 300 files
 Copied 400 files
 Copied 500 files
 Copied 600 files
-Copied 640 files for the website content
-    Last step completed in 00:00:09,2726
+Copied 642 files for the website content
+    Last step completed in 00:00:07,4454
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:07,8985
+    Last step completed in 00:00:07,4244
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 05.06.2015 00:14:02.  Total time: 00:05:14,3406
+Build completed successfully at 06.06.2015 00:51:05.  Total time: 00:03:19,6083
 
 </buildStep>
 </shfbBuild>

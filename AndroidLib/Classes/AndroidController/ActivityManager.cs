@@ -20,6 +20,7 @@ namespace RegawMOD.Android {
     /// <remarks>
     /// Add remarks here. Use following format:
     /// {Date}, {Name}: {Changes/Remarks}
+    /// 06.06.2015, Beatsleigher: This class will not be continued in AndroidLib.
     /// </remarks>
     public class ActivityManager {
 
@@ -43,18 +44,48 @@ namespace RegawMOD.Android {
         /// <param name="m_device">The <see cref="RegawMOD.Android.Device"/> to associate with this object.</param>
         internal ActivityManager(Device m_device) { this.m_device = m_device; }
 
+        /// <summary>
+        /// Starts the specified intent.
+        /// </summary>
+        /// <param name="m_intent">The intent.</param>
+        /// <remarks>
+        /// 06.06.2015, Beatsleigher: This method will not be further developed.
+        /// </remarks>
         public void Start(Intent m_intent) {
             // Todo: Finish method.
         }
 
     }
 
+    /// <summary>
+    /// Wrapper class for an Android intent.
+    /// </summary>
+    /// <remarks>
+    /// 06.06.2015, Beatsleigher: The development will no longer be continued.
+    /// </remarks>
     public sealed class Intent {
 
+        /// <summary>
+        /// Gets the intent.
+        /// </summary>
+        /// <param name="m_intentArg">The m_intent argument.</param>
+        /// <returns></returns>
+        /// 
+        /// <remarks>
+        /// 06.06.2015, Beatsleigher: The development will no longer be continued.
+        /// </remarks>
         internal static Intent GetIntent(IntentArgument m_intentArg) {
             return new Intent(m_intentArg);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Intent"/> class.
+        /// </summary>
+        /// <param name="m_intentArg">The m_intent argument.</param>
+        /// 
+        /// <remarks>
+        /// 06.06.2015, Beatsleigher: The development will no longer be continued.
+        /// </remarks>
         private Intent(IntentArgument m_intentArg) {
 
         }
@@ -83,6 +114,9 @@ namespace RegawMOD.Android {
     /// It's a wrapper for the AM executable. To make your life easy.
     /// </example>
     /// </summary>
+    /// <remarks>
+    /// 06.06.2015, Beatsleigher: The development will no longer be continued.
+    /// </remarks>
     public sealed class IntentArgument {
 
         /// <summary>

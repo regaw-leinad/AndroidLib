@@ -16,10 +16,37 @@ namespace RegawMOD.Android {
     /// <remarks><para>Can only be created with <c>Adb.FormAdbCommand()</c> or <c>Adb.FormAdbShellCommand()</c></para>
     /// <para>Can only be executed with <c>Adb.ExecuteAdbCommand()</c> or <c>Adb.ExecuteAdbCommandNoReturn()</c></para></remarks>
     public class AdbCommand {
+
+        /// <summary>
+        /// The command to be executed.
+        /// </summary>
         private string command;
+
+        /// <summary>
+        /// The timeout until command execution is aborted.
+        /// </summary>
         private int timeout;
+
+        /// <summary>
+        /// Gets the command.
+        /// </summary>
+        /// <value>
+        /// The command.
+        /// </value>
         internal string Command { get { return this.command; } }
+
+        /// <summary>
+        /// Gets the timeout.
+        /// </summary>
+        /// <value>
+        /// The timeout.
+        /// </value>
         internal int Timeout { get { return this.timeout; } }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AdbCommand"/> class.
+        /// </summary>
+        /// <param name="command">The command.</param>
         internal AdbCommand(string command) { this.command = command; this.timeout = RegawMOD.Command.DEFAULT_TIMEOUT; }
 
         /// <summary>
@@ -33,16 +60,34 @@ namespace RegawMOD.Android {
     /// Controls all commands sent to the currently running Android Debug Bridge Server
     /// </summary>
     public static class Adb {
+
+        /// <summary>
+        /// The locking object for this class.
+        /// </summary>
         private static Object _lock = new Object();
+
+        /// <summary>
+        /// The cmd-name for the ADB executable.
+        /// </summary>
         internal const string ADB = "adb";
+
+        /// <summary>
+        /// The ADB executable.
+        /// </summary>
         internal const string ADB_EXE = "adb.exe";
+
+        /// <summary>
+        /// The ADB version
+        /// </summary>
         internal const string ADB_VERSION = "1.0.31";
 
         /// <summary>
         /// Forms an <see cref="AdbCommand"/> that is passed to <c>Adb.ExecuteAdbCommand()</c>
         /// </summary>
-        /// <remarks><para>This should only be used for non device-specific Adb commands, such as <c>adb devices</c> or <c>adb version</c>.</para>
-        /// <para>Never try to start/kill the running Adb Server, as the <see cref="AndroidController"/> type handles it internally.</para></remarks>
+        /// <remarks>
+        /// <para>This should only be used for non device-specific Adb commands, such as <c>adb devices</c> or <c>adb version</c>.</para>
+        /// <para>Never try to start/kill the running Adb Server, as the <see cref="AndroidController"/> type handles it internally.</para>
+        /// </remarks>
         /// <param name="command">The command to run on the Adb Server</param>
         /// <param name="args">Any arguments that need to be sent to <paramref name="command"/></param>
         /// <returns><see cref="AdbCommand"/> that contains formatted command information</returns>
@@ -57,10 +102,12 @@ namespace RegawMOD.Android {
         /// </code>
         /// </example>
         public static AdbCommand FormAdbCommand(string command, params object[] args) {
-            string adbCommand = (args.Length > 0) ? command + " " : command;
+            string adbCommand = (args.Length > 0) ? /*command + " "*/ string.Format("{0} ", command) : command;
 
-            for (int i = 0; i < args.Length; i++)
-                adbCommand += args[i] + " ";
+            /*for (int i = 0; i < args.Length; i++)
+                adbCommand += args[i] + " ";*/
+            foreach (string m_arg in args)
+                string.Concat(adbCommand, " ", m_arg);
 
             return new AdbCommand(adbCommand);
         }
@@ -222,14 +269,26 @@ namespace RegawMOD.Android {
             get { return Command.IsProcessRunning(Adb.ADB); }
         }
 
+        /// <summary>
+        /// Starts the server.
+        /// </summary>
         internal static void StartServer() {
             ExecuteAdbCommandNoReturn(Adb.FormAdbCommand("start-server"));
         }
 
+        /// <summary>
+        /// Kills the server.
+        /// </summary>
         internal static void KillServer() {
             ExecuteAdbCommandNoReturn(Adb.FormAdbCommand("kill-server"));
         }
 
+        /// <summary>
+        /// Gets the devices connected to this computer from the ADB.
+        /// </summary>
+        /// <returns>
+        /// Returns an unformatted and unparsed string containing the devices connected to this computer.
+        /// </returns>
         internal static string Devices() {
             return ExecuteAdbCommand(Adb.FormAdbCommand("devices"));
         }

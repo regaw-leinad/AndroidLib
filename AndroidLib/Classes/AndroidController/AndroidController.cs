@@ -63,8 +63,6 @@ namespace RegawMOD.Android {
         /// </summary>
         /// <example>
         /// Example use of this event:
-        /// Please note that these example are not recommended for WPF.
-        /// For WPF, please consider the MVVM pattern.
         /// 
         /// <code language="C#" title="C# Example (Lambda)">
         /// public class FooBar {
@@ -136,16 +134,98 @@ namespace RegawMOD.Android {
         /// </code>
         /// </example>
         public event DeviceAddedEventHandler OnDeviceAdded;
+        
+        /// <summary>
+        /// Occurs when an Android device is removed from the local machine.
+        /// </summary>
+        /// <example>
+        /// Example use of this event:
+        /// 
+        /// <code language="C#" title="C# Example (Lambda)">
+        /// public class FooBar {
+        ///         
+        ///     private readonly AndroidController m_adbController;
+        ///     
+        ///     public FooBar() {
+        ///         m_adbController = AndroidController.Instance;
+        ///         m_adbController.MonitorUSB = true; // If you set this to <c>false</c>, USB ports will not be monitored, thus, events will not be fired.
+        ///         m_adbController.OnDeviceRemoved += (s, evt) => {
+        ///             MessageBox.Show(string.Format("A new device was removed!\nSerial: {0}", evt.DeviceSerial));
+        ///             // Do more
+        ///         };
+        ///     }
+        /// }
+        /// </code>
+        /// 
+        /// <code language="C#" title="C# Example (Conventional)">
+        /// public class FooBar {
+        ///     
+        ///     private readonly AndroidController m_adbController;
+        ///     
+        ///     public FooBar() {
+        ///         m_adbController = AndroidController.Instance;
+        ///         m_adbController.MonitorUSB = true; // If you set this to <c>false</c>, USB ports will not be monitored, thus, events will not be fired.
+        ///         m_adbController.OnDeviceRemoved += adbController_OnDeviceRemoved;
+        ///     }
+        ///     
+        ///     private void adbController_OnDeviceRemoved(object m_sender, OnDeviceRemovedEventArgs m_eventArgs) {
+        ///         MessageBox.Show(string.Format("A new device was removed!\nSerial: {0}", evt.DeviceSerial));
+        ///         // Do more
+        ///     }
+        /// }
+        /// </code>
+        /// 
+        /// <code language="Visual Basic" title="Visual Basic Example (Lambda)">
+        /// Public Class FooBar
+        /// 
+        ///     Private ReadOnly m_adbController As AndroidController
+        ///     
+        ///     Public Sub New()
+        ///         m_adbController = AndroidController.Instance
+        ///         m_adbController.MonitorUSB = True ' If you set this to <c>False</c>, USB ports will not be monitored, thus, events will not be fired.
+        ///         m_adbController.OnDeviceRemoved += Function(s, evt)
+        ///                                             MessageBox.Show(String.Format("A new device was removed!{0}Serial: {1}", vbNewLine, evt.DeviceSerial))
+        ///                                             ' Do more
+        ///                                          End Function
+        ///     End Sub
+        /// 
+        /// End Class
+        /// </code>
+        /// 
+        /// <code language="Visual Basic" title="Visual Basic Example (Conventional)">
+        /// Public Class FooBar
+        /// 
+        ///     Private ReadOnly m_adbController As AndroidController
+        ///     
+        ///     Public Sub New()
+        ///         m_adbController = AndroidController.Instance
+        ///         m_adbController.MonitorUSB = True ' If you set this to <c>False</c>, USB ports will not be monitored, thus, events will not be fired.
+        ///     End Sub
+        ///     
+        ///     Private Sub m_adbController_OnDeviceRemoved(Object m_sender, OnDeviceRemovedEventArgs m_eventArgs) Handles m_adbController.OnDeviceRemoved
+        ///         MessageBox.Show(String.Format("A new device was added!{0}Serial: {1}", vbNewLine, evt.Device.Serial))
+        ///         ' Do more
+        ///     End Sub
+        /// 
+        /// End Class
+        /// </code>
+        /// </example>
         public event DeviceRemovedEventHandler OnDeviceRemoved;
 
-#region Static variables
+#region Static variables        
+        /// <summary>
+        /// Contains the location of the temporary folder for AndroidController.
+        /// </summary>
         private const string ANDROID_CONTROLLER_TMP_FOLDER = "AndroidLib\\";
-        private static readonly Dictionary<string, string> RESOURCES = new Dictionary<string, string>
-        {
-            {"adb.exe","862c2b75b223e3e8aafeb20fe882a602"},
-            {"AdbWinApi.dll", "47a6ee3f186b2c2f5057028906bac0c6"},
-            {"AdbWinUsbApi.dll", "5f23f2f936bdfac90bb0a4970ad365cf"},
-            {"fastboot.exe", "35792abb2cafdf2e6844b61e993056e2"},
+
+        /// <summary>
+        /// The resources
+        /// </summary>
+        private static readonly Dictionary<string, string> RESOURCES = new Dictionary<string, string> {
+            { "adb.exe","862c2b75b223e3e8aafeb20fe882a602"              },
+            { "AdbWinApi.dll", "47a6ee3f186b2c2f5057028906bac0c6"       },
+            { "AdbWinUsbApi.dll", "5f23f2f936bdfac90bb0a4970ad365cf"    },
+            { "fastboot.exe", "35792abb2cafdf2e6844b61e993056e2"        },
         };
 
         private static AndroidController instance;
@@ -164,14 +244,15 @@ namespace RegawMOD.Android {
         /// </summary>
         public static AndroidController Instance {
             get {
-                if (instance == null) {
-                    instance = new AndroidController();
-                    instance.CreateResourceDirectories();
-                    instance.ExtractResources();
-                    Adb.StartServer();
-                }
+                //if (instance == null) {
+                //    instance = new AndroidController();
+                //    instance.CreateResourceDirectories();
+                //    instance.ExtractResources();
+                //    Adb.StartServer();
+                //}
 
-                return instance;
+                //return instance;
+                return (instance == null) ? instance = new AndroidController() : instance;
             }
         }
 
@@ -185,14 +266,25 @@ namespace RegawMOD.Android {
             }
         }
 
+        /// <summary>
+        /// Gets the resource directory.
+        /// </summary>
+        /// <value>
+        /// The resource directory.
+        /// </value>
         internal string ResourceDirectory {
             get { return this.resourceDirectory; }
         }
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="AndroidController"/> class from being created.
+        /// </summary>
         private AndroidController() {
             this.connectedDevices = new List<string>();
             ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
             this.resourceDirectory = ResourceFolderManager.GetRegisteredFolderPath(ANDROID_CONTROLLER_TMP_FOLDER);
+            CreateResourceDirectories();
+            ExtractResources();
             this.m_eventWatcher = new ManagementEventWatcher(
                 new WqlEventQuery("SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2")
             );
@@ -242,6 +334,9 @@ namespace RegawMOD.Android {
             if (m_monitorUSB) m_eventWatcher.Start();
         }
 
+        /// <summary>
+        /// Creates the resource directories.
+        /// </summary>
         private void CreateResourceDirectories() {
             try {
                 if (!Adb.ExecuteAdbCommand(new AdbCommand("version")).Contains(Adb.ADB_VERSION)) {
@@ -256,6 +351,9 @@ namespace RegawMOD.Android {
             ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
         }
 
+        /// <summary>
+        /// Extracts the resources.
+        /// </summary>
         private void ExtractResources() {
             if (this.Extract_Resources) {
                 string[] res = new string[RESOURCES.Count];

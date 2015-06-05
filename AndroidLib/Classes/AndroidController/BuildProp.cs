@@ -3,22 +3,32 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.IO;
 
-namespace RegawMOD.Android
-{
+namespace RegawMOD.Android {
+
+    using System.Collections.Generic;
+    using System.IO;
+
     /// <summary>
     /// Manages all information from connected Android device's build properties
     /// </summary>
-    public class BuildProp
-    {
+    public class BuildProp {
+
+        /// <summary>
+        /// The device associated with this class.
+        /// </summary>
         private Device device;
 
+        /// <summary>
+        /// The property
+        /// </summary>
         private Dictionary<string, string> prop;
 
-        internal BuildProp(Device device)
-        {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BuildProp"/> class.
+        /// </summary>
+        /// <param name="device">The device.</param>
+        internal BuildProp(Device device) {
             this.prop = new Dictionary<string, string>();
             this.device = device;
         }
@@ -26,10 +36,8 @@ namespace RegawMOD.Android
         /// <summary>
         /// Gets a <c>List&lt;string&gt;</c> containing all of the device's build proprty keys
         /// </summary>
-        public List<string> Keys
-        {
-            get
-            {
+        public List<string> Keys {
+            get {
                 Update();
 
                 List<string> keys = new List<string>();
@@ -44,10 +52,8 @@ namespace RegawMOD.Android
         /// <summary>
         /// Gets a <c>List&lt;string&gt;</c> object containing all of the device's build proprty values
         /// </summary>
-        public List<string> Values
-        {
-            get
-            {
+        public List<string> Values {
+            get {
                 Update();
 
                 List<string> values = new List<string>();
@@ -64,8 +70,7 @@ namespace RegawMOD.Android
         /// </summary>
         /// <param name="key">Key of build property</param>
         /// <returns>Value if key exists, null if key doesn't exist</returns>
-        public string GetProp(string key)
-        {
+        public string GetProp(string key) {
             Update();
 
             string tmp;
@@ -82,8 +87,7 @@ namespace RegawMOD.Android
         /// <param name="key">Build property key to set</param>
         /// <param name="newValue">Value you wish to set <paramref name="key"/> to</param>
         /// <returns>True if new value set, false if not</returns>
-        public bool SetProp(string key, string newValue)
-        {
+        public bool SetProp(string key, string newValue) {
             string before;
             if (!this.prop.TryGetValue(key, out before))
                 return false;
@@ -107,8 +111,7 @@ namespace RegawMOD.Android
         /// Returns a formatted string containing all of the build properties
         /// </summary>
         /// <returns>Formatted string containing build.prop</returns>
-        public override string ToString()
-        {
+        public override string ToString() {
             Update();
 
             string outPut = "";
@@ -119,10 +122,11 @@ namespace RegawMOD.Android
             return outPut;
         }
 
-        private void Update()
-        {
-            try
-            {
+        /// <summary>
+        /// Updates this instance.
+        /// </summary>
+        private void Update() {
+            try {
                 this.prop.Clear();
 
                 if (this.device.State != DeviceState.ONLINE)
@@ -133,16 +137,13 @@ namespace RegawMOD.Android
 
                 string[] lines = prop.Split(new string[] { "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-                for (int i = 0; i < lines.Length; i++)
-                {
+                for (int i = 0; i < lines.Length; i++) {
                     string[] entry = lines[i].Split(new string[] { "[", "]: [", "]" }, StringSplitOptions.RemoveEmptyEntries);
 
                     if (entry.Length == 2)
                         this.prop.Add(entry[0], entry[1]);
                 }
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 Logger.WriteLog(ex.Message, "Using: getprop in BuildProp.cs", ex.StackTrace);
             }
         }

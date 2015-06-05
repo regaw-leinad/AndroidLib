@@ -10,21 +10,75 @@ namespace RegawMOD.Android {
     /// Contains information about connected Android device's battery
     /// </summary>
     public class BatteryInfo {
+
+        /// <summary>
+        /// The device associated with this class.
+        /// </summary>
         private Device device;
+
+        /// <summary>
+        /// The dumped string from ADB.
+        /// </summary>
         private string dump;
 
+        /// <summary>
+        /// Contains a value determining whether the device is connected to AC power or not.
+        /// </summary>
         private bool acPower;
+
+        /// <summary>
+        /// Contains a value determining whether the device is connected to USB power or not.
+        /// </summary>
         private bool usbPower;
+
+        /// <summary>
+        /// Contains a value determining wether the device is connected to a wireless powersource or not.
+        /// </summary>
         private bool wirelessPower;
+
+        /// <summary>
+        /// Contains a value determining the battery's status.
+        /// </summary>
         private int status;
+
+        /// <summary>
+        /// Contains a value determining the battery's health.
+        /// </summary>
         private int health;
+
+        /// <summary>
+        /// Contains a value determining whether the battery is present in the device or not.
+        /// </summary>
         private bool present;
+
+        /// <summary>
+        /// Contains a value determining the battery's level of charge.
+        /// </summary>
         private int level;
+
+        /// <summary>
+        /// Contains a value determining the battery's scale. (How far the battery charges in %)
+        /// </summary>
         private int scale;
+
+        /// <summary>
+        /// Contains a value determinining the battery's current voltage output.
+        /// </summary>
         private int voltage;
+
+        /// <summary>
+        /// Contains a value determining the battery's current temperature.
+        /// </summary>
         private double temperature;
+
+        /// <summary>
+        /// Contains a value determining the technology used in the battery.
+        /// </summary>
         private string technology;
 
+        /// <summary>
+        /// Contains the string that is returned by <see cref="ToString()"/>
+        /// </summary>
         private string outString;
 
         /// <summary>
@@ -161,6 +215,9 @@ namespace RegawMOD.Android {
             Update();
         }
 
+        /// <summary>
+        /// Gets raw data about the device's battery and parses said data to then update all the data in this instance.
+        /// </summary>
         private void Update() {
             if (this.device.State != DeviceState.ONLINE) {
                 this.acPower = false;

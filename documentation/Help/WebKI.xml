@@ -18,8 +18,8 @@
     <HelpKINode Title="about AAPT.Badging class" Url="html/10e59963-b362-2350-1a9b-b443d497ca3d.htm" />
     <HelpKINode Title="constructor" Url="html/4a55602f-0ec2-362f-5c6e-71c76bae629d.htm" />
   </HelpKINode>
-  <HelpKINode Title="AAPT.Badging.activity field" Url="html/68275d06-4b29-508a-c95f-b13999b4fcae.htm" />
   <HelpKINode Title="AAPT.Badging.ACTIVITY field" Url="html/c431a4d6-6ae7-9643-6199-2b4d1b64c5f3.htm" />
+  <HelpKINode Title="AAPT.Badging.activity field" Url="html/68275d06-4b29-508a-c95f-b13999b4fcae.htm" />
   <HelpKINode Title="AAPT.Badging.Activity property" Url="html/2f3c93e3-089a-4098-5533-db8a911f1e26.htm" />
   <HelpKINode Title="AAPT.Badging.ACTIVITY_ICON field" Url="html/ee94307f-2e12-7305-c16e-468e5b500b38.htm" />
   <HelpKINode Title="AAPT.Badging.ACTIVITY_LABEL field" Url="html/16f6aefd-6e38-a2e4-4a37-ce1237894ada.htm" />
@@ -94,8 +94,8 @@
   <HelpKINode Title="acPower field" Url="html/b2ff5eac-fcc0-6298-5721-a99652082709.htm" />
   <HelpKINode Title="ACPower property" Url="html/ecce43bd-4bff-c883-a386-5c4ff5343eea.htm" />
   <HelpKINode Title="Action enumeration member" Url="html/6aff6e3a-31c5-5271-4d64-8728a5a82f58.htm" />
-  <HelpKINode Title="activity field" Url="html/68275d06-4b29-508a-c95f-b13999b4fcae.htm" />
   <HelpKINode Title="ACTIVITY field" Url="html/c431a4d6-6ae7-9643-6199-2b4d1b64c5f3.htm" />
+  <HelpKINode Title="activity field" Url="html/68275d06-4b29-508a-c95f-b13999b4fcae.htm" />
   <HelpKINode Title="Activity property" Url="html/2f3c93e3-089a-4098-5533-db8a911f1e26.htm" />
   <HelpKINode Title="ActivityBroughtToFront enumeration member" Url="html/6aff6e3a-31c5-5271-4d64-8728a5a82f58.htm" />
   <HelpKINode Title="ActivityClearTask enumeration member" Url="html/6aff6e3a-31c5-5271-4d64-8728a5a82f58.htm" />
@@ -178,8 +178,8 @@
   <HelpKINode Title="AndroidController class">
     <HelpKINode Title="AndroidController Class" Url="html/d3fb2ddb-dcb5-bf17-9107-53b2d49ae80c.htm" />
     <HelpKINode Title="about AndroidController class" Url="html/d3fb2ddb-dcb5-bf17-9107-53b2d49ae80c.htm" />
-    <HelpKINode Title="constructor" Url="html/8184c499-2f99-4bf5-efe1-84dbfc8a699d.htm" />
     <HelpKINode Title="constructor" Url="html/7bdd4995-bdf6-beaf-3d8b-2a22fbd451aa.htm" />
+    <HelpKINode Title="constructor" Url="html/8184c499-2f99-4bf5-efe1-84dbfc8a699d.htm" />
     <HelpKINode Title="events" Url="html/f775b7bd-26d0-268b-6c40-2601371c4d4d.htm" />
     <HelpKINode Title="fields" Url="html/29a54a87-1d42-8339-ee72-3ec8bcbd4e5b.htm" />
     <HelpKINode Title="methods" Url="html/d40e42e1-0bed-dd46-5d58-7d76ad66b693.htm" />
@@ -435,13 +435,13 @@
   <HelpKINode Title="DeviceHasNoRootException class">
     <HelpKINode Title="DeviceHasNoRootException Class" Url="html/d4b01bc6-0f61-e292-f6b0-c4d12aaa1040.htm" />
     <HelpKINode Title="about DeviceHasNoRootException class" Url="html/d4b01bc6-0f61-e292-f6b0-c4d12aaa1040.htm" />
-    <HelpKINode Title="constructor" Url="html/60a3ae9e-e9ef-7d67-a1a9-8a28b1ad5662.htm" />
+    <HelpKINode Title="constructor" Url="html/1ea1c36a-df12-f405-daa1-ba6f1f154d25.htm" />
     <HelpKINode Title="events" Url="html/3700c96c-8cef-cdc1-65bc-15751f5af61c.htm" />
     <HelpKINode Title="fields" Url="html/5344e85e-ed7d-9b94-56ca-777a8343a2b7.htm" />
     <HelpKINode Title="methods" Url="html/0044e10b-8918-eb13-030d-cd2b228e907b.htm" />
     <HelpKINode Title="properties" Url="html/ab3c1eb0-f3cf-a77f-5d08-6c044c081ca9.htm" />
   </HelpKINode>
-  <HelpKINode Title="DeviceHasNoRootException.DeviceHasNoRootException constructor" Url="html/60a3ae9e-e9ef-7d67-a1a9-8a28b1ad5662.htm" />
+  <HelpKINode Title="DeviceHasNoRootException.DeviceHasNoRootException constructor" Url="html/1ea1c36a-df12-f405-daa1-ba6f1f154d25.htm" />
   <HelpKINode Title="DevicePartition enumeration" Url="html/acc2ee21-68eb-c07b-bcb9-93e6d2a92760.htm" />
   <HelpKINode Title="DeviceRemovedEventHandler delegate" Url="html/aac9ede8-2146-0a1d-b5fc-06a0aa5f14bb.htm" />
   <HelpKINode Title="Devices method">
@@ -845,8 +845,8 @@
     <HelpKINode Title="methods" Url="html/10aac6d7-bd46-b79e-f581-dbc03887bf18.htm" />
     <HelpKINode Title="properties" Url="html/93e5a1c5-b150-f516-2b01-03420838ebf5.htm" />
   </HelpKINode>
-  <HelpKINode Title="package field" Url="html/ee99ecaf-cee1-2427-9c0c-fe09d840956f.htm" />
   <HelpKINode Title="PACKAGE field" Url="html/00f2b11f-6b14-3871-16d8-41ceba97e3f9.htm" />
+  <HelpKINode Title="package field" Url="html/ee99ecaf-cee1-2427-9c0c-fe09d840956f.htm" />
   <HelpKINode Title="Package property" Url="html/ec6a7fd9-83a1-3ee8-7def-0943f5314f6f.htm" />
   <HelpKINode Title="Package.AssociatedFile property" Url="html/95dcca46-5ab7-342f-ea61-9578662fc212.htm" />
   <HelpKINode Title="Package.Package constructor" Url="html/953ec4b9-6fba-c01d-687d-f7684194e079.htm" />

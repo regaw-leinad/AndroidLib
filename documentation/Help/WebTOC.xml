@@ -1,71 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpTOC>
 
-  <HelpTOCNode Id="876f9cf2-b81f-4403-bc20-3435028f7f0c" Title="RegawMOD" Url="html/d964fee0-c181-89f1-903d-605b2cefa790.htm">
-    <HelpTOCNode Id="37b86b9b-38d7-42f1-95bc-2743cf1e69a0" Title="Command Class" Url="html/8e0a4436-81e9-795b-2e9b-0efd82eaf264.htm">
-      <HelpTOCNode Id="5ad7a400-b370-48cc-99ca-953ae6e20e94" Title="Command Fields" Url="html/065dd54a-d218-020f-3997-23bd36ad4791.htm">
+  <HelpTOCNode Id="6e41f31f-b117-4e60-be87-deb263cc07ac" Title="RegawMOD" Url="html/d964fee0-c181-89f1-903d-605b2cefa790.htm">
+    <HelpTOCNode Id="0c28de96-e275-4025-8981-f3e7f5c9c0fc" Title="Command Class" Url="html/8e0a4436-81e9-795b-2e9b-0efd82eaf264.htm">
+      <HelpTOCNode Id="e5d989f6-7f1b-4373-a42e-b81c494662df" Title="Command Fields" Url="html/065dd54a-d218-020f-3997-23bd36ad4791.htm">
         <HelpTOCNode Title="DEFAULT_TIMEOUT Field" Url="html/3b99d807-6704-a2ac-f955-dcc9bf27029a.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="4c3ee1b9-49db-41ae-bd69-f8b3ab095042" Title="Command Methods" Url="html/c03adb0e-b8e3-f5b0-6a9d-22c470d38bc4.htm">
+      <HelpTOCNode Id="15da5ba1-79d0-41ac-9a92-f94377570c3d" Title="Command Methods" Url="html/c03adb0e-b8e3-f5b0-6a9d-22c470d38bc4.htm">
         <HelpTOCNode Title="HandleOutput Method " Url="html/5d77689e-8912-8be7-d3b2-ccb405bb5343.htm" />
         <HelpTOCNode Title="IsProcessRunning Method " Url="html/1998e041-2ca7-df23-03a0-b8c5f9897ac4.htm" />
         <HelpTOCNode Title="KillProcess Method " Url="html/e33334e4-4319-79aa-69cd-9590b5e297bb.htm" />
-        <HelpTOCNode Id="6935fb28-ca49-411e-b6df-2908cf558fd1" Title="RunProcessNoReturn Method " Url="html/32be1cdc-94f3-b03a-f96f-bb2bc5d4f232.htm">
+        <HelpTOCNode Id="fa21662c-5603-461b-b236-d02c6a2a4df9" Title="RunProcessNoReturn Method " Url="html/32be1cdc-94f3-b03a-f96f-bb2bc5d4f232.htm">
           <HelpTOCNode Title="RunProcessNoReturn Method (String, String, Boolean)" Url="html/a6398b2d-9ec3-29a1-3493-f2cde78ebaaa.htm" />
           <HelpTOCNode Title="RunProcessNoReturn Method (String, String, Int32)" Url="html/1bc3f59d-1eff-9d3d-2635-38aecef39e17.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="RunProcessReturnExitCode Method " Url="html/f4987b91-1ddf-dfc2-897e-557b36235dba.htm" />
-        <HelpTOCNode Id="d1c1bbf4-33f4-46e0-9216-5a714e181379" Title="RunProcessReturnOutput Method " Url="html/2903fc30-62e8-12e2-1bc3-da517d4b9f9e.htm">
+        <HelpTOCNode Id="10e9fabd-70ad-4d79-849e-1dd9f7284662" Title="RunProcessReturnOutput Method " Url="html/2903fc30-62e8-12e2-1bc3-da517d4b9f9e.htm">
           <HelpTOCNode Title="RunProcessReturnOutput Method (String, String, Int32)" Url="html/5dd410ba-9182-2305-a1f9-d4371df3b8e0.htm" />
           <HelpTOCNode Title="RunProcessReturnOutput Method (String, String, Boolean, Int32)" Url="html/f3a75edd-d6a4-5d70-ade6-d4ef5db69fce.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="ffb62fa0-59f6-41b0-97a1-a6fb3543b439" Title="RunProcessWriteInput Method " Url="html/5525fb25-3e64-1805-29b3-1387d35e1f44.htm">
+        <HelpTOCNode Id="284b3461-ad14-442b-b907-04ff9541cf03" Title="RunProcessWriteInput Method " Url="html/5525fb25-3e64-1805-29b3-1387d35e1f44.htm">
           <HelpTOCNode Title="RunProcessWriteInput Method (String, String, String[])" Url="html/03ed2dff-fcb1-5c6e-12f7-dad4cbd6af88.htm" />
           <HelpTOCNode Title="RunProcessWriteInput Method (String, String, Int32, String[])" Url="html/970ebd0a-7d46-efd3-dd77-c0c2ccb8fb43.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="90e20c2e-215e-49b8-80de-1685de2c855e" Title="ExtensionMethods Class" Url="html/312d5d4e-fd5a-6ac2-4dd0-589b9db428b3.htm">
-      <HelpTOCNode Id="b0c9c46f-ba41-4d47-ab32-92032de6ca3e" Title="ExtensionMethods Methods" Url="html/5544707c-70e4-bfd1-30f6-32344c4f5023.htm">
+    <HelpTOCNode Id="e7f6e161-eb69-4342-9ce0-76568e55f22f" Title="ExtensionMethods Class" Url="html/312d5d4e-fd5a-6ac2-4dd0-589b9db428b3.htm">
+      <HelpTOCNode Id="e06ec473-dcea-4522-8ce5-0a733d73f744" Title="ExtensionMethods Methods" Url="html/5544707c-70e4-bfd1-30f6-32344c4f5023.htm">
         <HelpTOCNode Title="ContainsIgnoreCase Method " Url="html/02d209bc-6cbb-bfbe-593b-7a821c048f18.htm" />
         <HelpTOCNode Title="ProperCase Method " Url="html/9c75f9b2-10de-37f3-1297-5d55b8a65250.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="1b4046c6-3635-402c-8ddc-e89b3453ce56" Title="Extract Class" Url="html/d0cbb370-ccc2-0e7a-1714-5d37aa5abe14.htm">
-      <HelpTOCNode Id="2ad94c22-9c50-4689-8d3f-e405805af0ae" Title="Extract Methods" Url="html/1a5f7c16-045a-010f-881e-1d772299d88d.htm">
-        <HelpTOCNode Id="304c75ad-52bf-4219-9bf5-a66599a62ec2" Title="Resources Method " Url="html/3b1b7f43-6817-930e-47b0-354d674f69cf.htm">
+    <HelpTOCNode Id="e713e80b-9704-4b98-bdc0-139e5c59f666" Title="Extract Class" Url="html/d0cbb370-ccc2-0e7a-1714-5d37aa5abe14.htm">
+      <HelpTOCNode Id="a0bd5a1d-eea8-4b2f-80a1-0e948493190b" Title="Extract Methods" Url="html/1a5f7c16-045a-010f-881e-1d772299d88d.htm">
+        <HelpTOCNode Id="2b4888bc-d590-459e-a71e-c12a434f7f26" Title="Resources Method " Url="html/3b1b7f43-6817-930e-47b0-354d674f69cf.htm">
           <HelpTOCNode Title="Resources Method (Object, String, String, String[])" Url="html/c2436ab7-400e-2656-1850-cd54c5dfb647.htm" />
           <HelpTOCNode Title="Resources Method (String, String, String, String[])" Url="html/7bfa434a-ebba-83a0-25e3-16d2c8bfa0c9.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="5b319533-9f36-4b5f-b6ab-518c5aef78fb" Title="Hasher Class" Url="html/395d13c0-b318-aac8-3c54-7b5f91b3c686.htm">
+    <HelpTOCNode Id="4af69883-9bcf-4a92-b286-739c26832b2f" Title="Hasher Class" Url="html/395d13c0-b318-aac8-3c54-7b5f91b3c686.htm">
       <HelpTOCNode Title="Hasher Constructor " Url="html/92251722-1150-9a54-6586-84d26a61d0a6.htm" />
-      <HelpTOCNode Id="3165b586-40cb-4b9c-8631-05059f5ccd17" Title="Hasher Fields" Url="html/faadf1c9-b02b-57f9-5e2e-c08724571504.htm">
+      <HelpTOCNode Id="5b2219dc-0f00-4cf6-a151-5b0290c2742a" Title="Hasher Fields" Url="html/faadf1c9-b02b-57f9-5e2e-c08724571504.htm">
         <HelpTOCNode Title="builder Field" Url="html/93295e48-222c-ba76-6831-57391e52c177.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="88790ad0-1a18-4c69-a811-7b1259b355e5" Title="Hasher Methods" Url="html/ddb9a3e2-93f9-feea-ecb3-4bba71fb2ae3.htm">
+      <HelpTOCNode Id="cea9375d-d0d5-4872-9a40-e7f974c8618c" Title="Hasher Methods" Url="html/ddb9a3e2-93f9-feea-ecb3-4bba71fb2ae3.htm">
         <HelpTOCNode Title="HashFile Method " Url="html/42e8f7ae-7705-aacd-5588-2875465ff961.htm" />
         <HelpTOCNode Title="HashString Method " Url="html/7128ee98-7d06-8599-9c7d-226e43dd1dda.htm" />
         <HelpTOCNode Title="MakeHashString Method " Url="html/2202a23c-53e1-4473-1614-d1f8a5aac866.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
     <HelpTOCNode Title="HashType Enumeration" Url="html/729ab02e-6dd6-c9f1-78a7-482f90c91340.htm" />
-    <HelpTOCNode Id="850bcb1d-13d2-466d-8b06-66835e169a6b" Title="Java Class" Url="html/02ed246c-91a8-4bad-3402-5de204e62eaa.htm">
+    <HelpTOCNode Id="330103b7-81f2-4a3f-b1b1-32569a2e8353" Title="Java Class" Url="html/02ed246c-91a8-4bad-3402-5de204e62eaa.htm">
       <HelpTOCNode Title="Java Constructor " Url="html/4fec05ed-50e7-fdbc-7ab6-518f3b201676.htm" />
-      <HelpTOCNode Id="d3ad8046-08a8-4543-af95-03593abda4d7" Title="Java Fields" Url="html/d9782b8f-7d30-8164-8d14-6928c3773768.htm">
+      <HelpTOCNode Id="701ca5d2-9bc1-44ef-a7d3-f921343bfe2f" Title="Java Fields" Url="html/d9782b8f-7d30-8164-8d14-6928c3773768.htm">
         <HelpTOCNode Title="binPath Field" Url="html/b130304a-2f8e-347c-1787-70f67b50b1e3.htm" />
         <HelpTOCNode Title="installationPath Field" Url="html/8fab26a6-a5f6-5795-73b5-2bcefb94ae09.htm" />
         <HelpTOCNode Title="isInstalled Field" Url="html/fe63bed1-d191-3cdd-ef2a-44e92f00a9f1.htm" />
         <HelpTOCNode Title="javacExecutable Field" Url="html/e6daf7dd-b684-a7fd-08af-1219fdeb9529.htm" />
         <HelpTOCNode Title="javaExecutable Field" Url="html/2ffe13e4-337f-0627-82e6-2795b546322d.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="f8d400c8-c896-47ff-9b75-2556161a6ddc" Title="Java Methods" Url="html/0da1dbf2-a537-645b-20ab-1a6f8838a59c.htm">
+      <HelpTOCNode Id="30e8b2f9-a5b1-4c00-a64a-d3935702fff4" Title="Java Methods" Url="html/0da1dbf2-a537-645b-20ab-1a6f8838a59c.htm">
         <HelpTOCNode Title="GetJavaInstallationPath Method " Url="html/80ce3cd8-4716-ec58-4b7b-eb677ea052b5.htm" />
         <HelpTOCNode Title="RunJar Method " Url="html/5c10160d-b12c-beee-2193-27ce8e349bf0.htm" />
         <HelpTOCNode Title="Update Method " Url="html/4084489d-9ac2-c08c-71e0-1654a69358c8.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="636f9be6-73b1-4fbd-8b81-15868de078e6" Title="Java Properties" Url="html/83158049-484b-d591-10bc-bb67de602e28.htm">
+      <HelpTOCNode Id="3d194d92-42eb-401a-9836-8ed37b36f778" Title="Java Properties" Url="html/83158049-484b-d591-10bc-bb67de602e28.htm">
         <HelpTOCNode Title="BinPath Property " Url="html/f594840d-cd01-d45f-155d-575ca4f13ac3.htm" />
         <HelpTOCNode Title="InstallationPath Property " Url="html/b377aae8-f69a-f44c-127b-7e4bb4ee68c2.htm" />
         <HelpTOCNode Title="IsInstalled Property " Url="html/29db6ebe-c7c6-5501-27db-3cdb123df4ba.htm" />
@@ -73,85 +73,85 @@
         <HelpTOCNode Title="JavaExe Property " Url="html/8d86407b-a7a6-77f8-ea22-f91b5284dbb5.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="d2f33b33-46ac-41b6-b37c-7074cd9fb3bd" Title="Logger Class" Url="html/ac7dee76-b73b-6dbb-0987-993c3aa0c63d.htm">
+    <HelpTOCNode Id="78bad9f2-ff0d-4b76-b376-6b0a2cda68c5" Title="Logger Class" Url="html/ac7dee76-b73b-6dbb-0987-993c3aa0c63d.htm">
       <HelpTOCNode Title="Logger Constructor " Url="html/5b58b834-bae3-fe0c-271c-6f7844d9f46b.htm" />
-      <HelpTOCNode Id="0d52d99f-dc90-43a6-bf2d-bd9f5b072a65" Title="Logger Fields" Url="html/d3e3a0b1-072a-d0ec-9cc3-082b175f82da.htm">
+      <HelpTOCNode Id="8e24004d-d861-4160-ad80-e31ec08814cc" Title="Logger Fields" Url="html/d3e3a0b1-072a-d0ec-9cc3-082b175f82da.htm">
         <HelpTOCNode Title="ErrorLogPath Field" Url="html/b4164817-828b-65a6-d632-d783e643ab53.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="fa6cfb08-29b7-4223-aab0-a382dbfe9323" Title="Logger Methods" Url="html/8b8bb491-e884-4245-17c4-9a25cbb26397.htm">
+      <HelpTOCNode Id="ed44837d-ed0e-47de-9bd7-63c719ed8db0" Title="Logger Methods" Url="html/8b8bb491-e884-4245-17c4-9a25cbb26397.htm">
         <HelpTOCNode Title="WriteLog Method " Url="html/0b9020e2-5722-1fb0-2554-e0488f42f920.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="2d855911-76ae-4367-a5e8-8e32f2bc6f7e" Title="ResourceFolderManager Class" Url="html/07cd849b-df21-2323-711e-7a48d0c862df.htm">
+    <HelpTOCNode Id="c27bbd03-70ce-4497-a8e5-01de5e042537" Title="ResourceFolderManager Class" Url="html/07cd849b-df21-2323-711e-7a48d0c862df.htm">
       <HelpTOCNode Title="ResourceFolderManager Constructor " Url="html/4ab49f0c-f402-56dd-8e99-cca7de965ff7.htm" />
-      <HelpTOCNode Id="e8dc6805-ca9c-4b62-80ce-689e1474af02" Title="ResourceFolderManager Fields" Url="html/7420c185-fffb-41d3-4d86-fbe93342765a.htm">
+      <HelpTOCNode Id="35fbb98e-2382-48a7-a69d-f6fadbfa366f" Title="ResourceFolderManager Fields" Url="html/7420c185-fffb-41d3-4d86-fbe93342765a.htm">
         <HelpTOCNode Title="controlledFolders Field" Url="html/7cc3be19-5e46-1acf-3fb2-8739c02b6ab8.htm" />
         <HelpTOCNode Title="REGAWMOD_TEMP_DIRECTORY Field" Url="html/ed348908-7268-b86b-ef57-69a7396228a0.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="a4b46b07-b5c4-4095-970b-66cf38a870d0" Title="ResourceFolderManager Methods" Url="html/a32ceed5-e8c1-210e-fb88-33ea14e3923c.htm">
+      <HelpTOCNode Id="71c8d91e-dfa8-4938-b8f0-088dfe1738de" Title="ResourceFolderManager Methods" Url="html/a32ceed5-e8c1-210e-fb88-33ea14e3923c.htm">
         <HelpTOCNode Title="GetRegisteredFolder Method " Url="html/3415f56c-685f-2745-4bb8-18e67d8a8971.htm" />
         <HelpTOCNode Title="GetRegisteredFolderPath Method " Url="html/fb998eae-5d6b-e1b7-e3c5-992888e4c0b3.htm" />
         <HelpTOCNode Title="Register Method " Url="html/07960caf-1367-72f4-60be-3d8254bd5177.htm" />
         <HelpTOCNode Title="Unregister Method " Url="html/763a6c07-abda-071a-039e-0f64a0059e44.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="fc0bc0fd-ee92-49ae-a17e-d72dcca5f67a" Title="StringEnum Class" Url="html/e9b95170-fc38-1d6b-753d-a339029b1aaf.htm">
+    <HelpTOCNode Id="38b7cdf5-f9b7-467f-81e0-0aa72b1a6374" Title="StringEnum Class" Url="html/e9b95170-fc38-1d6b-753d-a339029b1aaf.htm">
       <HelpTOCNode Title="StringEnum Constructor " Url="html/d47c7568-8aa4-d5ed-0316-e6eb8e9c44f0.htm" />
       <HelpTOCNode Title="StringEnum Constructor " Url="html/83beff2f-1642-d05f-e277-f6ab26fd4312.htm" />
-      <HelpTOCNode Id="aa0828c7-dc45-4f65-8005-d6bf98f13608" Title="StringEnum Fields" Url="html/43aff791-2aca-8176-fcd2-e3318205e75e.htm">
+      <HelpTOCNode Id="0f1f1720-f377-46cb-9dcb-7a81d4d06d26" Title="StringEnum Fields" Url="html/43aff791-2aca-8176-fcd2-e3318205e75e.htm">
         <HelpTOCNode Title="_enumType Field" Url="html/c5fa4d0d-78d9-5789-53e0-ebe44ea319ab.htm" />
         <HelpTOCNode Title="_stringValues Field" Url="html/5a0636b3-ba74-b05e-62ce-bc7974bb6d71.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="f04f7e60-8563-4b92-881c-892b0753904e" Title="StringEnum Methods" Url="html/cd1e204a-102f-c120-fd9c-34a8812f2e64.htm">
+      <HelpTOCNode Id="fe22d9bd-8740-456d-8251-699c3606e814" Title="StringEnum Methods" Url="html/cd1e204a-102f-c120-fd9c-34a8812f2e64.htm">
         <HelpTOCNode Title="GetListValues Method " Url="html/41d50bcb-4639-e43c-78f1-5f74cce12308.htm" />
-        <HelpTOCNode Id="02f9e4cd-996a-4470-b468-d950f5014583" Title="GetStringValue Method " Url="html/91e4c9b7-6d04-4af5-5225-1b2fa3679d89.htm">
+        <HelpTOCNode Id="5cc2ad32-4650-41d5-87f2-7d80ca284bf8" Title="GetStringValue Method " Url="html/91e4c9b7-6d04-4af5-5225-1b2fa3679d89.htm">
           <HelpTOCNode Title="GetStringValue Method (Enum)" Url="html/9f45fd20-500f-1633-ad31-9b48af8ccf59.htm" />
           <HelpTOCNode Title="GetStringValue Method (String)" Url="html/ad7523ae-de53-12fc-7755-8979353592ec.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="GetStringValues Method " Url="html/98b18592-1671-7fbb-d58b-c349ee248607.htm" />
-        <HelpTOCNode Id="3e969b84-c3ee-4b6b-938c-9bf6c8e8acb7" Title="IsStringDefined Method " Url="html/bd601024-02ce-04a3-7249-c6aa53973fcb.htm">
+        <HelpTOCNode Id="7596ab85-a52a-4a82-9146-b1f69fc7d28c" Title="IsStringDefined Method " Url="html/bd601024-02ce-04a3-7249-c6aa53973fcb.htm">
           <HelpTOCNode Title="IsStringDefined Method (String)" Url="html/56446310-a30d-888f-e898-3ddab4dc05d6.htm" />
           <HelpTOCNode Title="IsStringDefined Method (String, Boolean)" Url="html/28a32d12-11dc-0b7f-8cb0-a4063cd87ffd.htm" />
           <HelpTOCNode Title="IsStringDefined Method (Type, String)" Url="html/6e91ff6c-01d5-d061-d9dd-bd91627aced3.htm" />
           <HelpTOCNode Title="IsStringDefined Method (Type, String, Boolean)" Url="html/fbcdb5a3-feb9-c237-9188-d3eb024de3bb.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="19b29c3a-5e7b-4005-8bd9-d2be8f1b57e4" Title="Parse Method " Url="html/43a71b2d-5e6c-dfe8-956c-2cd2a4384f61.htm">
+        <HelpTOCNode Id="97b48a65-016c-4554-9729-19c307c7182d" Title="Parse Method " Url="html/43a71b2d-5e6c-dfe8-956c-2cd2a4384f61.htm">
           <HelpTOCNode Title="Parse Method (Type, String)" Url="html/f0dd10a7-bcc4-1b97-9015-2cd302f4149d.htm" />
           <HelpTOCNode Title="Parse Method (Type, String, Boolean)" Url="html/6afe4701-0d8a-7f7c-53cb-c88e7e62d2d9.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
-      <HelpTOCNode Id="86955caa-0dad-46f0-9d80-efeba43636c3" Title="StringEnum Properties" Url="html/ef650197-bd61-a997-cfa5-19f52611b376.htm">
+      <HelpTOCNode Id="94dc24c4-4884-49fb-b85f-af9dbec4b0df" Title="StringEnum Properties" Url="html/ef650197-bd61-a997-cfa5-19f52611b376.htm">
         <HelpTOCNode Title="EnumType Property " Url="html/b18a0f25-3e0e-a101-08e2-702289b4dcb8.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="f497ae22-2512-482c-bd18-d5c878cd2015" Title="StringValueAttribute Class" Url="html/200822d3-dbaf-9bc0-24ed-4934040d4f07.htm">
+    <HelpTOCNode Id="4a409ca3-8b4e-41c7-a1d5-458447e26e84" Title="StringValueAttribute Class" Url="html/200822d3-dbaf-9bc0-24ed-4934040d4f07.htm">
       <HelpTOCNode Title="StringValueAttribute Constructor " Url="html/66044507-2460-4b38-bf2d-003be16a4b5b.htm" />
-      <HelpTOCNode Id="c2642e9d-25ba-449f-9d4a-a5825f658894" Title="StringValueAttribute Fields" Url="html/8ca595dc-f706-12cc-a3aa-37b6fe48d874.htm">
+      <HelpTOCNode Id="2e2021f7-716f-4246-bb39-a658508c573a" Title="StringValueAttribute Fields" Url="html/8ca595dc-f706-12cc-a3aa-37b6fe48d874.htm">
         <HelpTOCNode Title="_value Field" Url="html/a8df2c4d-cf9f-15aa-64cc-14a65290d358.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="StringValueAttribute Methods" Url="html/fb53ddeb-a3fc-1b0c-db03-dd1083137a8f.htm" />
-      <HelpTOCNode Id="c543dd77-ae50-47dd-8d39-bb59140545fa" Title="StringValueAttribute Properties" Url="html/eb808807-bdc1-f5d8-db62-223f6bed0c99.htm">
+      <HelpTOCNode Id="4af5c6fc-b831-4a72-ba5e-4f04d6793e63" Title="StringValueAttribute Properties" Url="html/eb808807-bdc1-f5d8-db62-223f6bed0c99.htm">
         <HelpTOCNode Title="Value Property " Url="html/5745f160-cf40-ca2a-3eea-15ef1627a431.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="27d96d96-95e1-4908-bb90-8759b222f86f" Title="RegawMOD.Android" Url="html/a20daf82-f181-08ac-e563-13ca3e92327b.htm">
-    <HelpTOCNode Id="4d034348-8253-46ea-8a25-d00665624b26" Title="AAPT Class" Url="html/092e93c8-8503-d6f9-b19a-ed12ef1a4ccb.htm">
+  <HelpTOCNode Id="23198470-03e4-4598-b63c-244fc58483d6" Title="RegawMOD.Android" Url="html/a20daf82-f181-08ac-e563-13ca3e92327b.htm">
+    <HelpTOCNode Id="cc577fae-f3de-407a-9b53-a7d95930d6af" Title="AAPT Class" Url="html/092e93c8-8503-d6f9-b19a-ed12ef1a4ccb.htm">
       <HelpTOCNode Title="AAPT Constructor " Url="html/f7134aba-281a-944c-d155-942b0b4a557d.htm" />
       <HelpTOCNode Title="AAPT Constructor " Url="html/ee614c2e-e7d5-7f4a-712b-bdecda310774.htm" />
-      <HelpTOCNode Id="854b102c-a737-4c19-a976-0c0bf2de52a3" Title="AAPT Fields" Url="html/db00c015-7a7e-0e76-25f8-a3da5666858c.htm">
+      <HelpTOCNode Id="f3a22a54-9dbb-4e84-96fc-77d9b75966ef" Title="AAPT Fields" Url="html/db00c015-7a7e-0e76-25f8-a3da5666858c.htm">
         <HelpTOCNode Title="resDir Field" Url="html/3cafdfde-659d-549f-9415-db27422b432c.htm" />
         <HelpTOCNode Title="RESOURCES Field" Url="html/656e06ec-2645-2dc5-7cb4-0df4d0e60187.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="311756a1-effd-4adb-a09b-e24859b13448" Title="AAPT Methods" Url="html/bf918bb0-e03c-2314-dfee-24783fb14b4d.htm">
+      <HelpTOCNode Id="abffae84-81b9-4492-965c-494ace783bc2" Title="AAPT Methods" Url="html/bf918bb0-e03c-2314-dfee-24783fb14b4d.htm">
         <HelpTOCNode Title="Dispose Method " Url="html/e96d4691-51cc-f71b-db66-6628bb7fb3c9.htm" />
         <HelpTOCNode Title="DumpBadging Method " Url="html/edaa135e-c45e-6f6c-e28d-214880793ed4.htm" />
         <HelpTOCNode Title="ExtractResources Method " Url="html/585dfce3-60f5-7f04-c870-9a2099956e6f.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="246b0211-6be1-4798-a533-03543fbdfadd" Title="AAPT.Badging Class" Url="html/10e59963-b362-2350-1a9b-b443d497ca3d.htm">
+    <HelpTOCNode Id="b73eddff-1d9d-4d10-acff-74a01db46910" Title="AAPT.Badging Class" Url="html/10e59963-b362-2350-1a9b-b443d497ca3d.htm">
       <HelpTOCNode Title="AAPT.Badging Constructor " Url="html/4a55602f-0ec2-362f-5c6e-71c76bae629d.htm" />
-      <HelpTOCNode Id="6eac9c40-511f-4b86-916e-76169598d103" Title="Badging Fields" Url="html/5d517645-2320-de57-dacb-6824e6281e04.htm">
+      <HelpTOCNode Id="a891d420-64d3-46bf-bf05-24712dd6d0ca" Title="Badging Fields" Url="html/5d517645-2320-de57-dacb-6824e6281e04.htm">
         <HelpTOCNode Title="activity Field" Url="html/68275d06-4b29-508a-c95f-b13999b4fcae.htm" />
         <HelpTOCNode Title="ACTIVITY Field" Url="html/c431a4d6-6ae7-9643-6199-2b4d1b64c5f3.htm" />
         <HelpTOCNode Title="ACTIVITY_ICON Field" Url="html/ee94307f-2e12-7305-c16e-468e5b500b38.htm" />
@@ -177,10 +177,10 @@
         <HelpTOCNode Title="USES_PERMISSION Field" Url="html/983708b6-d696-92d4-0e10-29ca1294f2f0.htm" />
         <HelpTOCNode Title="usesPermission Field" Url="html/1863739b-c412-a128-3d13-3d57575be3b3.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="298ad4b0-0f39-42a2-baaf-d1170cff6c84" Title="Badging Methods" Url="html/2a304098-46f6-6eec-bd97-18b0ae80a8ff.htm">
+      <HelpTOCNode Id="dae5cf33-31c9-4bf1-9e7b-76d900b5c0e8" Title="Badging Methods" Url="html/2a304098-46f6-6eec-bd97-18b0ae80a8ff.htm">
         <HelpTOCNode Title="ProcessDump Method " Url="html/904e53d7-04d7-d455-fffc-c385a3cb7a5a.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="239b6ed3-9805-48b6-932d-053c0acdd5d5" Title="Badging Properties" Url="html/203597ff-8704-1faa-97e2-8a49bc52c4b2.htm">
+      <HelpTOCNode Id="730694d5-9f06-4d42-96de-45ead5f19d53" Title="Badging Properties" Url="html/203597ff-8704-1faa-97e2-8a49bc52c4b2.htm">
         <HelpTOCNode Title="Activity Property " Url="html/2f3c93e3-089a-4098-5533-db8a911f1e26.htm" />
         <HelpTOCNode Title="Application Property " Url="html/fe6a5eb2-8ef1-639b-a969-c28f1235d819.htm" />
         <HelpTOCNode Title="Package Property " Url="html/ec6a7fd9-83a1-3ee8-7def-0943f5314f6f.htm" />
@@ -191,84 +191,84 @@
         <HelpTOCNode Title="TargetSdkVersion Property " Url="html/cc7bae87-ff18-f59a-2cc4-bc453ade5de2.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="df736df4-9189-4c54-b4f1-1fef69e62b1f" Title="AAPT.Badging.ApplicationInfo Class" Url="html/5559de0c-9349-aecd-c105-a57a601ce086.htm">
-      <HelpTOCNode Id="6c82df5f-0500-4f16-a3b6-a6ed3a94c5ac" Title="ApplicationInfo Constructor " Url="html/37900de7-5e09-a73b-08e9-9fea0552dc48.htm">
+    <HelpTOCNode Id="e8dc8ef8-c89d-4b80-ab1f-ca3458b09c4a" Title="AAPT.Badging.ApplicationInfo Class" Url="html/5559de0c-9349-aecd-c105-a57a601ce086.htm">
+      <HelpTOCNode Id="6a673199-0bda-40f7-b61d-6124abf90c7c" Title="ApplicationInfo Constructor " Url="html/37900de7-5e09-a73b-08e9-9fea0552dc48.htm">
         <HelpTOCNode Title="AAPT.Badging.ApplicationInfo Constructor " Url="html/7fa5e999-6459-765f-3890-78cbf534fd23.htm" />
         <HelpTOCNode Title="AAPT.Badging.ApplicationInfo Constructor (String, String)" Url="html/bf2fbfeb-d08a-ff26-b5a6-cd66084217aa.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="dd27e7db-ac63-48c8-96c3-2c09282fd4ed" Title="ApplicationInfo Fields" Url="html/690bfa77-9843-b645-cb69-3b732361d828.htm">
+      <HelpTOCNode Id="218d3d93-1b2f-4f00-99b5-aae783b64394" Title="ApplicationInfo Fields" Url="html/690bfa77-9843-b645-cb69-3b732361d828.htm">
         <HelpTOCNode Title="icon Field" Url="html/a8b5fa43-576a-9863-4e01-4ae4f9e42139.htm" />
         <HelpTOCNode Title="label Field" Url="html/b52d1116-65ff-ce4b-d0c0-1a5ab5bd666a.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="ApplicationInfo Methods" Url="html/56579a29-abfa-ab75-6a29-85272e0eff07.htm" />
-      <HelpTOCNode Id="33f85533-c4b1-4802-aa84-f0fb028cefb3" Title="ApplicationInfo Properties" Url="html/fa6da293-f173-ad6a-9117-205b81bc3621.htm">
+      <HelpTOCNode Id="2d3db458-b4a0-43d5-91c0-557cf9f23902" Title="ApplicationInfo Properties" Url="html/fa6da293-f173-ad6a-9117-205b81bc3621.htm">
         <HelpTOCNode Title="Icon Property " Url="html/c41f1bf5-2dee-23f4-c7e7-3af78e6ad9b5.htm" />
         <HelpTOCNode Title="Label Property " Url="html/31bf6b43-9415-2cbf-0fa2-d67f9ef444de.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="79fe0ab1-cb83-44fe-857d-f7b388258c06" Title="AAPT.Badging.LaunchableActivity Class" Url="html/c886144e-dbb2-56c8-2004-96febc162e2f.htm">
-      <HelpTOCNode Id="1a6a99a4-0eee-49c8-ac22-7997e93778b9" Title="LaunchableActivity Constructor " Url="html/d0c3c9e2-ae4b-3a1c-b5ba-00d0e41f3f92.htm">
+    <HelpTOCNode Id="0e3a6e53-1100-40b9-bb82-db2145267548" Title="AAPT.Badging.LaunchableActivity Class" Url="html/c886144e-dbb2-56c8-2004-96febc162e2f.htm">
+      <HelpTOCNode Id="54eaa92c-a4e8-4d66-84b2-d1b4e1fcf5a2" Title="LaunchableActivity Constructor " Url="html/d0c3c9e2-ae4b-3a1c-b5ba-00d0e41f3f92.htm">
         <HelpTOCNode Title="AAPT.Badging.LaunchableActivity Constructor " Url="html/a3932986-405f-7fa2-e217-6ecc9f6d091a.htm" />
         <HelpTOCNode Title="AAPT.Badging.LaunchableActivity Constructor (String, String, String)" Url="html/29047052-9dc0-d770-1b2b-e8c3f0701a03.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="e0a18efd-0370-4111-b592-5ca3da62da1d" Title="LaunchableActivity Fields" Url="html/f9a1fd9a-b494-0bd0-980e-8e11085a76fb.htm">
+      <HelpTOCNode Id="bb916e04-e542-4f4a-bb04-a072e6b055d7" Title="LaunchableActivity Fields" Url="html/f9a1fd9a-b494-0bd0-980e-8e11085a76fb.htm">
         <HelpTOCNode Title="icon Field" Url="html/0406b977-1dac-e166-b44f-f36daa5c85c3.htm" />
         <HelpTOCNode Title="label Field" Url="html/201e4da7-696f-235f-98bb-ed4705a1278c.htm" />
         <HelpTOCNode Title="name Field" Url="html/628e1005-7890-1ee7-56bf-fb7588870701.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="LaunchableActivity Methods" Url="html/938e08e2-971c-b0ff-db01-b984377d046d.htm" />
-      <HelpTOCNode Id="96934d65-05fe-473e-a0b1-38131561ed66" Title="LaunchableActivity Properties" Url="html/d83ed703-b0a5-309f-7d21-41141008bf36.htm">
+      <HelpTOCNode Id="1df87cb6-c2c0-4088-bb09-3077da71fed8" Title="LaunchableActivity Properties" Url="html/d83ed703-b0a5-309f-7d21-41141008bf36.htm">
         <HelpTOCNode Title="Icon Property " Url="html/a2bfb571-dd57-6326-34b3-11f37a6065f9.htm" />
         <HelpTOCNode Title="Label Property " Url="html/39fa61bd-560d-9e50-6e9b-0566213e7d3a.htm" />
         <HelpTOCNode Title="Name Property " Url="html/9499e1e3-d4e7-13fa-b90b-922f18734f79.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="7a1b052c-f0fe-47dc-b9a0-f3ad39ae54b7" Title="AAPT.Badging.PackageInfo Class" Url="html/8abc6906-bc79-cdf5-6ed8-cd4665a65678.htm">
-      <HelpTOCNode Id="cc655539-5032-4496-88fa-1eecf074569d" Title="PackageInfo Constructor " Url="html/3f515640-52fb-6a1e-f1b8-5327a63c057c.htm">
+    <HelpTOCNode Id="963029c5-a28e-4834-b01d-4819ffe32e52" Title="AAPT.Badging.PackageInfo Class" Url="html/8abc6906-bc79-cdf5-6ed8-cd4665a65678.htm">
+      <HelpTOCNode Id="62bf9ff9-7e6d-404a-af1d-40acae09a166" Title="PackageInfo Constructor " Url="html/3f515640-52fb-6a1e-f1b8-5327a63c057c.htm">
         <HelpTOCNode Title="AAPT.Badging.PackageInfo Constructor " Url="html/51e78ba7-19db-3a88-013b-78d3d75aa441.htm" />
         <HelpTOCNode Title="AAPT.Badging.PackageInfo Constructor (String, String, String)" Url="html/d80a694b-2c1a-79b2-dcd5-cacac88d3ded.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="8eb214ab-9724-4304-acd6-6a3cb6523e2b" Title="PackageInfo Fields" Url="html/4e1ae069-503e-5bb4-ebc6-880736342e6b.htm">
+      <HelpTOCNode Id="56772c4a-42fe-4a19-8ca6-8b3a3f293b2b" Title="PackageInfo Fields" Url="html/4e1ae069-503e-5bb4-ebc6-880736342e6b.htm">
         <HelpTOCNode Title="name Field" Url="html/85068ba8-69dd-a5aa-0a9e-9e6d2f14bea1.htm" />
         <HelpTOCNode Title="versionCode Field" Url="html/0fe73a19-9321-7a7f-8e4c-1d13582b3071.htm" />
         <HelpTOCNode Title="versionName Field" Url="html/daa1380a-0c36-e053-f847-668958b7d611.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="PackageInfo Methods" Url="html/658ee470-9243-2c51-1d4f-96b88a9aefe8.htm" />
-      <HelpTOCNode Id="15f32e4b-5e32-450d-81e2-d47c1ce12ec4" Title="PackageInfo Properties" Url="html/6711a246-5e87-e541-bb65-deaec9f1d494.htm">
+      <HelpTOCNode Id="efd71361-8502-4ae1-adc0-38639aea5a6f" Title="PackageInfo Properties" Url="html/6711a246-5e87-e541-bb65-deaec9f1d494.htm">
         <HelpTOCNode Title="Name Property " Url="html/897fd0db-a532-78d8-dca7-78f5eb92e39e.htm" />
         <HelpTOCNode Title="VersionCode Property " Url="html/ef5f7a94-beff-6d49-ee06-19cef63ee349.htm" />
         <HelpTOCNode Title="VersionName Property " Url="html/43cff540-274c-6232-cfe2-4aebb94cc658.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="64ad7c65-f4cc-4786-91c7-249084f03366" Title="ActivityManager Class" Url="html/41472d9b-78d8-6d6d-dba1-842467b0b6b1.htm">
+    <HelpTOCNode Id="c7a9e1b4-dda7-4e85-b747-a34ba0b38e26" Title="ActivityManager Class" Url="html/41472d9b-78d8-6d6d-dba1-842467b0b6b1.htm">
       <HelpTOCNode Title="ActivityManager Constructor " Url="html/e6adc786-98ff-8a90-1226-9ecd2ea71c71.htm" />
-      <HelpTOCNode Id="0ec57e6d-de9f-4600-92db-4232a63f0e50" Title="ActivityManager Fields" Url="html/5ec6f726-caed-1900-45d0-c76bd9b27b3e.htm">
+      <HelpTOCNode Id="f42aafbb-7d5b-4c73-a5cf-0d2344b9e9d6" Title="ActivityManager Fields" Url="html/5ec6f726-caed-1900-45d0-c76bd9b27b3e.htm">
         <HelpTOCNode Title="m_device Field" Url="html/f557f7fa-4f7c-0256-42b3-936384101022.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="67ddcd36-4620-466b-92d3-3cf75e61e42a" Title="ActivityManager Methods" Url="html/9532888b-02be-af79-ee56-ba205a1f173b.htm">
+      <HelpTOCNode Id="1c6f17b6-ddbf-4a09-b738-6715f34f73ea" Title="ActivityManager Methods" Url="html/9532888b-02be-af79-ee56-ba205a1f173b.htm">
         <HelpTOCNode Title="Start Method " Url="html/66ed5397-b219-6c06-c708-eaacfde0fd89.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
     <HelpTOCNode Title="ActivityManager.StartOption Enumeration" Url="html/8af19d37-259e-d358-5b3c-c2e52d11b945.htm" />
-    <HelpTOCNode Id="e83e60e4-b797-427c-a70c-0696e48e4917" Title="Adb Class" Url="html/45654754-c9c7-c5fd-5365-6430c8c81e17.htm">
+    <HelpTOCNode Id="4c136290-138f-48bc-ae06-c79eab511a6b" Title="Adb Class" Url="html/45654754-c9c7-c5fd-5365-6430c8c81e17.htm">
       <HelpTOCNode Title="Adb Constructor " Url="html/ef3e8989-b7f7-9a7e-e065-0e80e0736b05.htm" />
-      <HelpTOCNode Id="a6247e1a-06fd-4566-8649-93b6fd7a5caf" Title="Adb Fields" Url="html/896dfd70-87f1-aed2-1791-086373c2537c.htm">
+      <HelpTOCNode Id="8c67cdb0-abcd-4c9f-b69c-0c53f5a8bdaf" Title="Adb Fields" Url="html/896dfd70-87f1-aed2-1791-086373c2537c.htm">
         <HelpTOCNode Title="_lock Field" Url="html/44d2dff2-1f11-1166-9e2a-7c6f5411aead.htm" />
         <HelpTOCNode Title="ADB Field" Url="html/14d24f08-e22c-6d8b-4ca3-49fd5eb5e538.htm" />
         <HelpTOCNode Title="ADB_EXE Field" Url="html/ca5b4171-d19b-2c95-e7dc-96233d8a4acf.htm" />
         <HelpTOCNode Title="ADB_VERSION Field" Url="html/a965ee25-5096-a1de-b6a4-e8ab594bd2d2.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="922156b7-3bcc-4a99-a118-ea093aefde93" Title="Adb Methods" Url="html/7b8be3ac-9083-4a04-18f2-e3cbb1e4dc90.htm">
+      <HelpTOCNode Id="b71b843b-3037-4e16-974e-5d70e8690a5d" Title="Adb Methods" Url="html/7b8be3ac-9083-4a04-18f2-e3cbb1e4dc90.htm">
         <HelpTOCNode Title="Devices Method " Url="html/bfa8ec15-41ad-5eca-9e76-041ebf4292d0.htm" />
         <HelpTOCNode Title="ExecuteAdbCommand Method " Url="html/890d3a09-a78f-ee14-7cce-f6b288e10b28.htm" />
         <HelpTOCNode Title="ExecuteAdbCommandAsync Method " Url="html/9e5831a0-e266-19b8-6fbd-04d9bdafedf9.htm" />
         <HelpTOCNode Title="ExecuteAdbCommandNoReturn Method " Url="html/728a9886-af3e-7b71-56de-5b47ef5f6809.htm" />
         <HelpTOCNode Title="ExecuteAdbCommandReturnExitCode Method " Url="html/09cdd178-7d05-9e46-8b59-f0bce9091b0a.htm" />
-        <HelpTOCNode Id="e4793ddd-c766-4c62-a1da-5fb3b83d8407" Title="ExecuteAdbShellCommandInputString Method " Url="html/ea888e04-fcbd-c50a-2d43-380ea76ac301.htm">
+        <HelpTOCNode Id="745f9fd5-ae08-498d-a62a-e6042d846443" Title="ExecuteAdbShellCommandInputString Method " Url="html/ea888e04-fcbd-c50a-2d43-380ea76ac301.htm">
           <HelpTOCNode Title="ExecuteAdbShellCommandInputString Method (Device, String[])" Url="html/dd815e75-54ba-a5da-05bb-12ba5bc2a73f.htm" />
           <HelpTOCNode Title="ExecuteAdbShellCommandInputString Method (Device, Int32, String[])" Url="html/c23f9ff3-2f49-a6a6-ceda-94ff0ee213f4.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="3660348c-2e67-47ad-a3db-5dcd4d77742e" Title="FormAdbCommand Method " Url="html/340954df-3e41-43b0-f8da-83289eaf89e5.htm">
+        <HelpTOCNode Id="30f72e41-651f-4f16-8817-c85bef741297" Title="FormAdbCommand Method " Url="html/340954df-3e41-43b0-f8da-83289eaf89e5.htm">
           <HelpTOCNode Title="FormAdbCommand Method (String, Object[])" Url="html/2a1176b8-0069-4965-73ee-3c42c13836f2.htm" />
           <HelpTOCNode Title="FormAdbCommand Method (Device, String, Object[])" Url="html/5f204b3b-febd-cb9a-4b0f-4808c3ee31cb.htm" />
         </HelpTOCNode>
@@ -277,28 +277,28 @@
         <HelpTOCNode Title="PortForward Method " Url="html/f9d70c2f-cab0-ecb5-c509-e5c840b51e38.htm" />
         <HelpTOCNode Title="StartServer Method " Url="html/fe9aa6b7-9318-c2c1-442e-1aeadfc18972.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="fe6e49ca-c884-4053-8236-8c0a26a03878" Title="Adb Properties" Url="html/d41fde10-5e5e-8bd9-95f0-883541376f9a.htm">
+      <HelpTOCNode Id="ce34be98-5e55-4133-87db-ffe896ee5be8" Title="Adb Properties" Url="html/d41fde10-5e5e-8bd9-95f0-883541376f9a.htm">
         <HelpTOCNode Title="ServerRunning Property " Url="html/703d8fc0-a9ea-ad1b-b5f4-ce37460269cd.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="b8979c05-6cb3-40aa-8c78-5dbbfea9dc70" Title="AdbCommand Class" Url="html/371689d7-a46d-aeaa-fd0a-075cedc7121d.htm">
+    <HelpTOCNode Id="a27cce85-62ea-4066-a017-40a7e732b65c" Title="AdbCommand Class" Url="html/371689d7-a46d-aeaa-fd0a-075cedc7121d.htm">
       <HelpTOCNode Title="AdbCommand Constructor " Url="html/06dbb1d8-a442-6b94-0c29-559c9608c2dc.htm" />
-      <HelpTOCNode Id="06053af5-1b0b-4ad7-9449-f2036408266c" Title="AdbCommand Fields" Url="html/23491d76-45ca-c461-045a-809d8da0ecba.htm">
+      <HelpTOCNode Id="5e37c372-9ad9-4e77-a59f-17167fc361b5" Title="AdbCommand Fields" Url="html/23491d76-45ca-c461-045a-809d8da0ecba.htm">
         <HelpTOCNode Title="command Field" Url="html/d5139ac5-8db7-f634-c42b-64e2e0673a1b.htm" />
         <HelpTOCNode Title="timeout Field" Url="html/f5af7b11-2262-5347-336b-95deed8650c4.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="c75907ac-b38d-4408-b1d0-ea9a4e5d9822" Title="AdbCommand Methods" Url="html/684fb6cd-1ef9-a27d-2494-7b0b45082503.htm">
+      <HelpTOCNode Id="834f6516-8d2c-407e-85f9-893023b5bb94" Title="AdbCommand Methods" Url="html/684fb6cd-1ef9-a27d-2494-7b0b45082503.htm">
         <HelpTOCNode Title="WithTimeout Method " Url="html/50fffc14-564b-a848-bd42-807c6774ae3e.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="1a069b8e-6a82-49a5-8f5a-13dbb5b6c0a2" Title="AdbCommand Properties" Url="html/9c808f32-f627-4755-ced8-27b34fca0842.htm">
+      <HelpTOCNode Id="62eebbd4-0e68-482d-b0b5-f41b18ddd3b2" Title="AdbCommand Properties" Url="html/9c808f32-f627-4755-ced8-27b34fca0842.htm">
         <HelpTOCNode Title="Command Property " Url="html/4e9625a2-729e-2edf-c2e4-f376484ac277.htm" />
         <HelpTOCNode Title="Timeout Property " Url="html/e0ec387f-f19a-c417-d98f-59d5e6372d66.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="6ab97637-d02f-4112-9f63-0abc93dfb622" Title="AndroidController Class" Url="html/d3fb2ddb-dcb5-bf17-9107-53b2d49ae80c.htm">
+    <HelpTOCNode Id="5dfc1b88-97be-4190-a61b-a3b3559e0504" Title="AndroidController Class" Url="html/d3fb2ddb-dcb5-bf17-9107-53b2d49ae80c.htm">
       <HelpTOCNode Title="AndroidController Constructor " Url="html/8184c499-2f99-4bf5-efe1-84dbfc8a699d.htm" />
       <HelpTOCNode Title="AndroidController Constructor " Url="html/7bdd4995-bdf6-beaf-3d8b-2a22fbd451aa.htm" />
-      <HelpTOCNode Id="c9e1143c-106b-4998-8794-5bb1a5e56bc4" Title="AndroidController Fields" Url="html/29a54a87-1d42-8339-ee72-3ec8bcbd4e5b.htm">
+      <HelpTOCNode Id="7c855d5c-0097-4e6b-a678-5647c51b39d4" Title="AndroidController Fields" Url="html/29a54a87-1d42-8339-ee72-3ec8bcbd4e5b.htm">
         <HelpTOCNode Title="_CancelRequest Field" Url="html/2947e29e-97b3-5c81-5629-4e556bc845ac.htm" />
         <HelpTOCNode Title="ANDROID_CONTROLLER_TMP_FOLDER Field" Url="html/bed3bdb3-d7c5-8468-2a54-6f7112139559.htm" />
         <HelpTOCNode Title="connectedDevices Field" Url="html/b3177024-69c3-6a88-fc99-9efd12e1ce04.htm" />
@@ -309,22 +309,22 @@
         <HelpTOCNode Title="resourceDirectory Field" Url="html/e50bf218-81d0-09c0-325c-6cf545cc819c.htm" />
         <HelpTOCNode Title="RESOURCES Field" Url="html/aa15531a-bc91-b79f-71a7-354f8bb0a5a6.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="2a18e49d-1aaf-4a3a-ab78-0274798fa098" Title="AndroidController Methods" Url="html/d40e42e1-0bed-dd46-5d58-7d76ad66b693.htm">
+      <HelpTOCNode Id="fa3baa16-4267-467a-8fe1-2d7847c214eb" Title="AndroidController Methods" Url="html/d40e42e1-0bed-dd46-5d58-7d76ad66b693.htm">
         <HelpTOCNode Title="CreateResourceDirectories Method " Url="html/6749a0e9-1bf7-afa7-852e-478818859a7f.htm" />
         <HelpTOCNode Title="Dispose Method " Url="html/1722fc1e-87c3-174d-9818-bfda4b898885.htm" />
         <HelpTOCNode Title="ExtractResources Method " Url="html/e39c4ddd-60dc-3f36-9b36-795cdc5893e8.htm" />
-        <HelpTOCNode Id="b6807132-0f7d-4ef8-848e-7e149eb3a258" Title="GetConnectedDevice Method " Url="html/7793609a-8a5e-a890-ce11-0645db3b4d2d.htm">
+        <HelpTOCNode Id="7528659c-e3d0-49c7-a04a-c654c33c6018" Title="GetConnectedDevice Method " Url="html/7793609a-8a5e-a890-ce11-0645db3b4d2d.htm">
           <HelpTOCNode Title="GetConnectedDevice Method " Url="html/e2dc30d6-e5ed-6d40-d255-5a11c619fc99.htm" />
           <HelpTOCNode Title="GetConnectedDevice Method (String)" Url="html/1de169e3-6350-32d0-3816-31fd422a1311.htm" />
         </HelpTOCNode>
-        <HelpTOCNode Id="2fce03f5-a9b1-48ea-b015-e622a10a9f8e" Title="IsDeviceConnected Method " Url="html/66848c16-1ef6-ac15-9f1c-13fcfa339f61.htm">
+        <HelpTOCNode Id="033cc8b8-13d6-4d78-9615-59e034d4c002" Title="IsDeviceConnected Method " Url="html/66848c16-1ef6-ac15-9f1c-13fcfa339f61.htm">
           <HelpTOCNode Title="IsDeviceConnected Method (String)" Url="html/fae8d31a-23c6-13be-b00f-6efc2f5375fa.htm" />
           <HelpTOCNode Title="IsDeviceConnected Method (Device)" Url="html/c1e31eb2-4b87-8516-a069-273d19c92fb7.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="UpdateDeviceList Method " Url="html/0c10986f-9fe9-dcd8-84b9-9594daa22307.htm" />
         <HelpTOCNode Title="WaitForDevice Method " Url="html/796be847-8306-42f6-2e67-0fd3f44e0d58.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="fa2c62f6-cbfe-44cb-a541-ff669face905" Title="AndroidController Properties" Url="html/08b8668e-7848-d363-2016-9d5dfbf6291b.htm">
+      <HelpTOCNode Id="9ac0b3a7-a581-4688-b700-52809c26519e" Title="AndroidController Properties" Url="html/08b8668e-7848-d363-2016-9d5dfbf6291b.htm">
         <HelpTOCNode Title="CancelWait Property " Url="html/c74e40bb-05c6-81e8-7205-b9dbc9d08131.htm" />
         <HelpTOCNode Title="ConnectedDevices Property " Url="html/af63cc3d-9cc5-3ebf-a2e4-1e641e9daa1f.htm" />
         <HelpTOCNode Title="HasConnectedDevices Property " Url="html/74ba5376-a785-a555-9a51-2ccfcc81de6e.htm" />
@@ -332,14 +332,14 @@
         <HelpTOCNode Title="MonitorUSB Property " Url="html/478c9657-126e-eb78-b305-4452c37656ca.htm" />
         <HelpTOCNode Title="ResourceDirectory Property " Url="html/4160ea2c-f028-bd51-98d6-f307173e30d0.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="a2721717-b26e-4d42-826e-e757c103c08c" Title="AndroidController Events" Url="html/f775b7bd-26d0-268b-6c40-2601371c4d4d.htm">
+      <HelpTOCNode Id="a46c34c9-e6d6-42fd-aabe-5db59860f2d2" Title="AndroidController Events" Url="html/f775b7bd-26d0-268b-6c40-2601371c4d4d.htm">
         <HelpTOCNode Title="OnDeviceAdded Event" Url="html/24609e25-41b8-64eb-59f1-15a79f4fec82.htm" />
         <HelpTOCNode Title="OnDeviceRemoved Event" Url="html/12fbe17a-2555-7c7d-afce-e557d0648f00.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="7efd306d-827d-4188-836a-2587e409221d" Title="BatteryInfo Class" Url="html/ed7c1c58-a694-3557-3650-a68ddd5f9b3e.htm">
+    <HelpTOCNode Id="11daccf1-7742-480c-81ac-bf65527b1cb6" Title="BatteryInfo Class" Url="html/ed7c1c58-a694-3557-3650-a68ddd5f9b3e.htm">
       <HelpTOCNode Title="BatteryInfo Constructor " Url="html/18d297dd-07e1-c1ee-4d98-884e9d96be7d.htm" />
-      <HelpTOCNode Id="94a60926-9dc2-4284-8442-9520fe2d7e8a" Title="BatteryInfo Fields" Url="html/31bacf70-435b-136b-52d2-73b9e9ccb4e4.htm">
+      <HelpTOCNode Id="4c30a3ab-bd7c-4bd5-9878-2de56ff375a2" Title="BatteryInfo Fields" Url="html/31bacf70-435b-136b-52d2-73b9e9ccb4e4.htm">
         <HelpTOCNode Title="acPower Field" Url="html/b2ff5eac-fcc0-6298-5721-a99652082709.htm" />
         <HelpTOCNode Title="device Field" Url="html/df0a045c-4f6e-4c46-427e-c56c3d4700e8.htm" />
         <HelpTOCNode Title="dump Field" Url="html/251f8d7b-6f4a-926e-1601-d825d75682af.htm" />
@@ -355,11 +355,11 @@
         <HelpTOCNode Title="voltage Field" Url="html/97e5a4d9-b1f8-3a55-20ec-c99b47c3fa8b.htm" />
         <HelpTOCNode Title="wirelessPower Field" Url="html/613d2b75-4907-3796-43c7-73c2a2f78280.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="443d98b9-99b1-4e1c-a7ea-52c46053f6ea" Title="BatteryInfo Methods" Url="html/00f9a308-675d-f6b9-1445-d133eb4eddea.htm">
+      <HelpTOCNode Id="ef6df9a9-f3e6-473c-938b-673e1ee3ab1c" Title="BatteryInfo Methods" Url="html/00f9a308-675d-f6b9-1445-d133eb4eddea.htm">
         <HelpTOCNode Title="ToString Method " Url="html/13312ae4-d42b-9a1b-2741-dcb8e04f16b0.htm" />
         <HelpTOCNode Title="Update Method " Url="html/c3e15209-8616-7712-3222-f4466e05069d.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="718ee437-bf92-4073-859f-3b0b1f171318" Title="BatteryInfo Properties" Url="html/10081f86-1260-eb96-b7ee-487b87eb9e57.htm">
+      <HelpTOCNode Id="696d8443-cb1f-4dc4-bebf-1efce38d0d72" Title="BatteryInfo Properties" Url="html/10081f86-1260-eb96-b7ee-487b87eb9e57.htm">
         <HelpTOCNode Title="ACPower Property " Url="html/ecce43bd-4bff-c883-a386-5c4ff5343eea.htm" />
         <HelpTOCNode Title="Health Property " Url="html/7281e731-4f46-161a-aa0f-ee47cdddd108.htm" />
         <HelpTOCNode Title="Level Property " Url="html/b31d1d19-9111-d5e7-e928-5e59fcf7e8fa.htm" />
@@ -373,45 +373,45 @@
         <HelpTOCNode Title="WirelessPower Property " Url="html/94fa54bd-7f57-183e-2f6a-2b0a211f9cd8.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="cf125001-76a3-45b3-88b7-e515dd822a25" Title="BuildProp Class" Url="html/cd567498-cb44-6209-e0ac-f8913dcedaa3.htm">
+    <HelpTOCNode Id="aff0c144-85fa-4a65-a6e3-fca77e20b005" Title="BuildProp Class" Url="html/cd567498-cb44-6209-e0ac-f8913dcedaa3.htm">
       <HelpTOCNode Title="BuildProp Constructor " Url="html/40d35f9e-6224-4c53-8537-fdb49dd8d51a.htm" />
-      <HelpTOCNode Id="8b23d541-20e6-4f87-b89a-82174d827a2d" Title="BuildProp Fields" Url="html/9b769362-718b-2d7a-2b83-f0849b42620e.htm">
+      <HelpTOCNode Id="db305f74-16b2-406d-88b1-f11c7b587fc4" Title="BuildProp Fields" Url="html/9b769362-718b-2d7a-2b83-f0849b42620e.htm">
         <HelpTOCNode Title="device Field" Url="html/2620b0ed-680b-5ac6-f088-493592fa2fab.htm" />
         <HelpTOCNode Title="prop Field" Url="html/ef909aac-b393-fef7-fe6f-0494b692cf1e.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="e00257a7-7132-48cd-a2a8-7705ca948059" Title="BuildProp Methods" Url="html/55b83cbd-11ae-7005-82d1-c4c1bc8d3c00.htm">
+      <HelpTOCNode Id="a16c0b89-af45-44fd-9e33-c053f9bd839d" Title="BuildProp Methods" Url="html/55b83cbd-11ae-7005-82d1-c4c1bc8d3c00.htm">
         <HelpTOCNode Title="GetProp Method " Url="html/f7857e16-9023-1f4f-0898-494c8f9a2686.htm" />
         <HelpTOCNode Title="SetProp Method " Url="html/3a07552a-602b-a6f6-5623-b2b2202437e6.htm" />
         <HelpTOCNode Title="ToString Method " Url="html/81770b8b-9304-04c7-711f-3c5232353e56.htm" />
         <HelpTOCNode Title="Update Method " Url="html/095ad464-3664-2849-7696-197b494b0fcb.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="92723056-a7d9-4238-9459-4e38cb2beeca" Title="BuildProp Properties" Url="html/71d5bcdf-4c3f-5447-818a-27fc6efcca51.htm">
+      <HelpTOCNode Id="e1bd361e-7e3b-46f6-a397-9953cd34bfe0" Title="BuildProp Properties" Url="html/71d5bcdf-4c3f-5447-818a-27fc6efcca51.htm">
         <HelpTOCNode Title="Keys Property " Url="html/52a09e05-ae0c-aea0-6d10-355284f5b0a3.htm" />
         <HelpTOCNode Title="Values Property " Url="html/ecda7f92-19e5-2581-dd0a-0f3261029e81.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="372e4c22-1a11-4c00-be11-07d64767fe48" Title="BusyBox Class" Url="html/95f989df-c04a-9fa2-cde6-f65d3371e270.htm">
+    <HelpTOCNode Id="ff49a0b6-0667-4d6d-a1cf-68a0b5b4ad43" Title="BusyBox Class" Url="html/95f989df-c04a-9fa2-cde6-f65d3371e270.htm">
       <HelpTOCNode Title="BusyBox Constructor " Url="html/69fae305-979d-035d-3f72-a17f14790963.htm" />
-      <HelpTOCNode Id="76d3c7fd-d67a-419a-9b88-185b18cad362" Title="BusyBox Fields" Url="html/b3c95ee0-5e04-7e1a-3321-f5b7c9c2ac82.htm">
+      <HelpTOCNode Id="a11b24bd-7153-445a-88c9-25ffe4322093" Title="BusyBox Fields" Url="html/b3c95ee0-5e04-7e1a-3321-f5b7c9c2ac82.htm">
         <HelpTOCNode Title="commands Field" Url="html/62a38f72-84ba-095f-55bf-ff05283e2719.htm" />
         <HelpTOCNode Title="device Field" Url="html/34880754-0c73-32e4-b81f-ff78929b8d52.htm" />
         <HelpTOCNode Title="EXECUTABLE Field" Url="html/2bfec863-4260-f96f-9613-33ccc870c2bb.htm" />
         <HelpTOCNode Title="isInstalled Field" Url="html/b7226942-f6d7-33ca-8964-aea8f15342ab.htm" />
         <HelpTOCNode Title="version Field" Url="html/13cb870a-03d5-8040-79f4-6d7465a12a7a.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="68b7c356-2961-4e4b-ad84-0fa91bbcce3c" Title="BusyBox Methods" Url="html/ee9298fe-7695-0a75-aecc-ffeb8694105c.htm">
+      <HelpTOCNode Id="a7b0ba34-3924-47b8-831b-a2b54137d667" Title="BusyBox Methods" Url="html/ee9298fe-7695-0a75-aecc-ffeb8694105c.htm">
         <HelpTOCNode Title="SetNoBusybox Method " Url="html/37f4fcab-2cd3-c876-79f9-8093181d5774.htm" />
         <HelpTOCNode Title="Update Method " Url="html/924f8c3a-299f-da4f-021c-8b9ccd1f03f3.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="b9b0ffa4-0b0b-4327-87ed-3879e361d2e1" Title="BusyBox Properties" Url="html/4421feaa-2e2b-c1f9-ff60-522639f63402.htm">
+      <HelpTOCNode Id="83776244-6181-47fd-b507-e446c94ea1f7" Title="BusyBox Properties" Url="html/4421feaa-2e2b-c1f9-ff60-522639f63402.htm">
         <HelpTOCNode Title="Commands Property " Url="html/eac47a94-7110-90f7-7b33-00e324e2cfc4.htm" />
         <HelpTOCNode Title="IsInstalled Property " Url="html/7471ce37-ab01-1e94-50bf-344d11fe8c5e.htm" />
         <HelpTOCNode Title="Version Property " Url="html/645ff2a6-d0ad-8aff-b532-8685097732c2.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="55bef5f8-55ae-45da-9655-a32273e9e798" Title="Device Class" Url="html/74583a49-9cc9-5580-1e87-2542e2a4c7f7.htm">
+    <HelpTOCNode Id="2f249a14-3a4b-45bf-9226-423dc8ca48e7" Title="Device Class" Url="html/74583a49-9cc9-5580-1e87-2542e2a4c7f7.htm">
       <HelpTOCNode Title="Device Constructor " Url="html/d38bf3ca-55e0-194f-b8f8-e8b382414103.htm" />
-      <HelpTOCNode Id="a99bf639-a11d-4552-922a-51a4ff698978" Title="Device Fields" Url="html/0c67cb05-6498-5d38-001f-31968ca34ffb.htm">
+      <HelpTOCNode Id="3a8a9ec0-17d1-41fb-a175-1dcfcd513a66" Title="Device Fields" Url="html/0c67cb05-6498-5d38-001f-31968ca34ffb.htm">
         <HelpTOCNode Title="activityManager Field" Url="html/bf368655-f5ee-fdd1-c204-e220d6a09864.htm" />
         <HelpTOCNode Title="battery Field" Url="html/c0f6869c-31b7-465d-feb6-f3e51db82093.htm" />
         <HelpTOCNode Title="buildProp Field" Url="html/b0a05571-231a-eeaa-1cee-e4a8d0769176.htm" />
@@ -423,7 +423,7 @@
         <HelpTOCNode Title="state Field" Url="html/1546068b-77d1-784d-c21b-9a8f172d6821.htm" />
         <HelpTOCNode Title="su Field" Url="html/3a911352-6d05-7d8c-b1b3-9086817288e9.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="f2e339b4-9bf4-4c68-9414-059f0b450941" Title="Device Methods" Url="html/37d39102-8b5c-e224-0b47-f4f0348de111.htm">
+      <HelpTOCNode Id="4e0c595f-4482-4b7d-bb80-9a027208bd3f" Title="Device Methods" Url="html/37d39102-8b5c-e224-0b47-f4f0348de111.htm">
         <HelpTOCNode Title="Equals Method " Url="html/a761c5f7-5555-7bba-4438-ff015264828a.htm" />
         <HelpTOCNode Title="FastbootReboot Method " Url="html/85bfc57a-4bc5-89a3-fb23-dd8e18de7c03.htm" />
         <HelpTOCNode Title="FastbootRebootThread Method " Url="html/92304416-5c5d-cc5c-9c33-fa7189456c79.htm" />
@@ -441,7 +441,7 @@
         <HelpTOCNode Title="SetState Method " Url="html/6156446c-32e2-9d14-2bb1-dab37947d5e0.htm" />
         <HelpTOCNode Title="Update Method " Url="html/4db5e106-770f-2a9a-ad3a-e307f544bf2e.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="f3ddce23-7d9a-4517-9b4b-a41ad6d328c7" Title="Device Properties" Url="html/d5649956-e2b1-f488-cc39-9d1cd60f999e.htm">
+      <HelpTOCNode Id="e37576c7-17d7-42df-a816-8592131453bc" Title="Device Properties" Url="html/d5649956-e2b1-f488-cc39-9d1cd60f999e.htm">
         <HelpTOCNode Title="ActivityManager Property " Url="html/85d5ca86-e5ac-754f-c344-c5b876bc9cac.htm" />
         <HelpTOCNode Title="Battery Property " Url="html/c976b3c9-94d9-490e-f543-b95010cc0d3b.htm" />
         <HelpTOCNode Title="BuildProp Property " Url="html/073f8e11-01a0-954b-97ba-9938bddb1626.htm" />
@@ -456,8 +456,11 @@
       </HelpTOCNode>
     </HelpTOCNode>
     <HelpTOCNode Title="DeviceAddedEventHandler Delegate" Url="html/25e38220-8aeb-3d45-6925-6a7fe4863e53.htm" />
-    <HelpTOCNode Id="bdb65560-b13b-42aa-9f8f-37a0573ab865" Title="DeviceHasNoRootException Class" Url="html/d4b01bc6-0f61-e292-f6b0-c4d12aaa1040.htm">
-      <HelpTOCNode Title="DeviceHasNoRootException Constructor " Url="html/60a3ae9e-e9ef-7d67-a1a9-8a28b1ad5662.htm" />
+    <HelpTOCNode Id="1eed59ef-a002-4cb8-b271-6246f62516dc" Title="DeviceHasNoRootException Class" Url="html/d4b01bc6-0f61-e292-f6b0-c4d12aaa1040.htm">
+      <HelpTOCNode Id="14ffa49e-f8ed-4876-b6e4-62ff42546194" Title="DeviceHasNoRootException Constructor " Url="html/1ea1c36a-df12-f405-daa1-ba6f1f154d25.htm">
+        <HelpTOCNode Title="DeviceHasNoRootException Constructor " Url="html/60a3ae9e-e9ef-7d67-a1a9-8a28b1ad5662.htm" />
+        <HelpTOCNode Title="DeviceHasNoRootException Constructor (String)" Url="html/ca796966-8539-1882-2e03-0f9262d2d161.htm" />
+      </HelpTOCNode>
       <HelpTOCNode Title="DeviceHasNoRootException Fields" Url="html/5344e85e-ed7d-9b94-56ca-777a8343a2b7.htm" />
       <HelpTOCNode Title="DeviceHasNoRootException Methods" Url="html/0044e10b-8918-eb13-030d-cd2b228e907b.htm" />
       <HelpTOCNode Title="DeviceHasNoRootException Properties" Url="html/ab3c1eb0-f3cf-a77f-5d08-6c044c081ca9.htm" />
@@ -466,71 +469,71 @@
     <HelpTOCNode Title="DevicePartition Enumeration" Url="html/acc2ee21-68eb-c07b-bcb9-93e6d2a92760.htm" />
     <HelpTOCNode Title="DeviceRemovedEventHandler Delegate" Url="html/aac9ede8-2146-0a1d-b5fc-06a0aa5f14bb.htm" />
     <HelpTOCNode Title="DeviceState Enumeration" Url="html/f66339f2-527e-b578-d9ac-a75f5802ba68.htm" />
-    <HelpTOCNode Id="47a0467f-e94b-4262-8b93-55c5071e6535" Title="Fastboot Class" Url="html/1a64a7ca-04e8-ffb1-de66-fe920ebf6bfe.htm">
-      <HelpTOCNode Id="0c6bee58-aaba-4fb2-8b74-527f24d34067" Title="Fastboot Fields" Url="html/a16b8c1e-2dbb-462f-e9ea-e569ba174aa2.htm">
+    <HelpTOCNode Id="15970a21-0959-47b5-bcb4-bf3e958ed920" Title="Fastboot Class" Url="html/1a64a7ca-04e8-ffb1-de66-fe920ebf6bfe.htm">
+      <HelpTOCNode Id="edb0e410-2619-4a28-911f-00a3cecd41d2" Title="Fastboot Fields" Url="html/a16b8c1e-2dbb-462f-e9ea-e569ba174aa2.htm">
         <HelpTOCNode Title="FASTBOOT_EXE Field" Url="html/69520c0e-232c-04fb-95e2-c5141f9fbe29.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="f43afa4a-0498-434a-ba74-6b3fa5eb5e7e" Title="Fastboot Methods" Url="html/4a6f743f-6e0c-3833-086d-6b6588a20367.htm">
+      <HelpTOCNode Id="1a64fa80-a080-4fd3-bb19-96d7102d5046" Title="Fastboot Methods" Url="html/4a6f743f-6e0c-3833-086d-6b6588a20367.htm">
         <HelpTOCNode Title="Devices Method " Url="html/64ca2569-7394-29c5-5829-30da166fb7ae.htm" />
         <HelpTOCNode Title="ExecuteFastbootCommand Method " Url="html/557ce52a-846d-b79b-b376-39ef02242e3d.htm" />
         <HelpTOCNode Title="ExecuteFastbootCommandNoReturn Method " Url="html/b1f545e0-c01a-5f78-d46f-d92c2c26ec17.htm" />
-        <HelpTOCNode Id="442f17b3-2913-4b89-b16a-2d6cacb50888" Title="FormFastbootCommand Method " Url="html/139a0203-94a0-23e4-97b6-23c0aeec4ae9.htm">
+        <HelpTOCNode Id="aa61e134-6758-4e89-852e-c8a87f46595c" Title="FormFastbootCommand Method " Url="html/139a0203-94a0-23e4-97b6-23c0aeec4ae9.htm">
           <HelpTOCNode Title="FormFastbootCommand Method (String, String[])" Url="html/06453c99-1faa-7e76-63a9-b25c7d4ca5b9.htm" />
           <HelpTOCNode Title="FormFastbootCommand Method (Device, String, String[])" Url="html/4ae0ba43-a225-c279-2ba1-6232623fbc4a.htm" />
         </HelpTOCNode>
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="edfd4562-eae7-4d8b-92f9-c58c1f693377" Title="FastbootCommand Class" Url="html/c5556c06-450c-13d4-83bd-9fd211211f5b.htm">
+    <HelpTOCNode Id="cc89d77d-96d1-4e5d-b281-107726ae53e1" Title="FastbootCommand Class" Url="html/c5556c06-450c-13d4-83bd-9fd211211f5b.htm">
       <HelpTOCNode Title="FastbootCommand Constructor " Url="html/789d213a-58cc-262b-a8aa-1e839730a44a.htm" />
-      <HelpTOCNode Id="3db1e74b-99b4-4810-9b7b-a20c21caa7b7" Title="FastbootCommand Fields" Url="html/aa7b99b6-91f1-9358-1049-6c8fee21fb5f.htm">
+      <HelpTOCNode Id="82df1d4b-b2b2-4e5c-8a0a-d52625f2f04c" Title="FastbootCommand Fields" Url="html/aa7b99b6-91f1-9358-1049-6c8fee21fb5f.htm">
         <HelpTOCNode Title="command Field" Url="html/bcfd7720-afb3-d160-6af9-b6b2f19c6873.htm" />
         <HelpTOCNode Title="timeout Field" Url="html/1e4afad3-9386-8efc-e38d-934ba15ae731.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="fb28e195-d733-48e8-8729-fc6545bde36b" Title="FastbootCommand Methods" Url="html/b8a22429-65f7-7492-a2af-8cc06f1ecc13.htm">
+      <HelpTOCNode Id="2e4e9bda-d410-4509-8fd3-efe2181a2d07" Title="FastbootCommand Methods" Url="html/b8a22429-65f7-7492-a2af-8cc06f1ecc13.htm">
         <HelpTOCNode Title="WithTimeout Method " Url="html/6a0fd7fe-0876-d7a7-6103-3eb61d788cc8.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="1c44a720-c506-4580-968b-44e0c10caef9" Title="FastbootCommand Properties" Url="html/0e66f73c-948f-8da8-ec4d-ea00db82b6e3.htm">
+      <HelpTOCNode Id="3db1499a-4268-47e0-b50e-669b460b1442" Title="FastbootCommand Properties" Url="html/0e66f73c-948f-8da8-ec4d-ea00db82b6e3.htm">
         <HelpTOCNode Title="Command Property " Url="html/75ddb04a-69cf-c01d-634c-24b410c97059.htm" />
         <HelpTOCNode Title="Timeout Property " Url="html/cf92e76d-5611-1745-ce62-760d91421a6a.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="6b8444ff-5957-44f6-8cd7-1f721c7cfa23" Title="Feature Class" Url="html/451e1be8-f0a0-bc03-7b97-548fe5d6ab05.htm">
+    <HelpTOCNode Id="605404bc-6011-41c1-a8fd-b81ddd1e51fd" Title="Feature Class" Url="html/451e1be8-f0a0-bc03-7b97-548fe5d6ab05.htm">
       <HelpTOCNode Title="Feature Constructor " Url="html/02974dc4-78a0-859a-866c-352823ae86fa.htm" />
       <HelpTOCNode Title="Feature Methods" Url="html/badc4ec6-08c4-ec12-6ca8-7c70ec600f67.htm" />
-      <HelpTOCNode Id="c4a08eef-c10d-4069-9f04-ac745656e192" Title="Feature Properties" Url="html/3ba11471-de73-2da8-328a-b17882f45a4c.htm">
+      <HelpTOCNode Id="e59009ad-38ea-4e20-8f66-42ea85040ac5" Title="Feature Properties" Url="html/3ba11471-de73-2da8-328a-b17882f45a4c.htm">
         <HelpTOCNode Title="FeatureName Property " Url="html/71d3ffe2-8d7e-280b-76c9-a4d4ac7419f6.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="422c600b-fc96-43d9-be4e-2cb7beca035a" Title="FileSystem Class" Url="html/c99e651e-1d54-fcf7-d062-77e9fe0f8662.htm">
+    <HelpTOCNode Id="f7d7e3d7-4773-4867-8c0f-61b84a28d5d9" Title="FileSystem Class" Url="html/c99e651e-1d54-fcf7-d062-77e9fe0f8662.htm">
       <HelpTOCNode Title="FileSystem Constructor " Url="html/1b6d4f65-6e22-d043-0def-059d3f987a76.htm" />
-      <HelpTOCNode Id="868d044a-1d9d-4437-a8c4-5313952e2fcb" Title="FileSystem Fields" Url="html/e6784aca-19fd-045c-b9cf-6a3917f08e95.htm">
+      <HelpTOCNode Id="e0f2d2ac-d68d-47f0-b168-8ccddf249295" Title="FileSystem Fields" Url="html/e6784aca-19fd-045c-b9cf-6a3917f08e95.htm">
         <HelpTOCNode Title="device Field" Url="html/0f1e7665-59f9-56bf-56a6-3a11e2c13af0.htm" />
         <HelpTOCNode Title="IS_DIRECTORY Field" Url="html/541fff1f-1284-1ee3-77df-3ce90b0de0ea.htm" />
         <HelpTOCNode Title="IS_FILE Field" Url="html/c2f06ebf-fe91-052f-3a0b-a61c33a4bb25.htm" />
         <HelpTOCNode Title="systemMount Field" Url="html/8f92ca3f-e8ea-e286-6045-af8f324cbccb.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="fa6ebb68-2cc9-4f46-8b4f-687d2a6c07a5" Title="FileSystem Methods" Url="html/5a00ad3a-3bd0-7dc3-32a5-672d7d66193e.htm">
+      <HelpTOCNode Id="494c3c31-15de-4fb1-9c0b-6af5af6113c8" Title="FileSystem Methods" Url="html/5a00ad3a-3bd0-7dc3-32a5-672d7d66193e.htm">
         <HelpTOCNode Title="FileOrDirectory Method " Url="html/36b31fad-aa56-c9c0-05a5-ef4e31338b31.htm" />
         <HelpTOCNode Title="GetFilesAndDirectories Method " Url="html/83047825-1820-7fe5-8af8-627b025e25b8.htm" />
         <HelpTOCNode Title="RemountSystem Method " Url="html/3874c2eb-5b54-3e4e-c7e2-81881b34880c.htm" />
         <HelpTOCNode Title="UpdateMountPoints Method " Url="html/cacbe624-f9fd-511a-8c22-1fc02e1c11a9.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="608ead3d-023a-46e5-b31a-dddd84e0cf41" Title="FileSystem Properties" Url="html/f16096f1-ced5-3a0a-9250-742b24940e58.htm">
+      <HelpTOCNode Id="36a31e98-c361-4251-91e9-81cdc82302f1" Title="FileSystem Properties" Url="html/f16096f1-ced5-3a0a-9250-742b24940e58.htm">
         <HelpTOCNode Title="SystemMountInfo Property " Url="html/cd82759a-9806-3e81-d641-c2d13cc08425.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="50184649-59fc-4757-8cc7-a24406e4955d" Title="Intent Class" Url="html/6401ad32-459b-0ed5-af93-0eed132943b7.htm">
+    <HelpTOCNode Id="eb1d1f78-67d7-4e8f-8dea-f6792b780553" Title="Intent Class" Url="html/6401ad32-459b-0ed5-af93-0eed132943b7.htm">
       <HelpTOCNode Title="Intent Constructor " Url="html/6e487663-8e80-ce60-166c-1a3df61fef31.htm" />
-      <HelpTOCNode Id="0578955b-2472-4588-823b-72511f71b0dc" Title="Intent Methods" Url="html/4e6aa304-1abb-cc59-97bc-a2591b9925b3.htm">
+      <HelpTOCNode Id="5ceb1514-0a50-476c-88c2-e78cfd6d503e" Title="Intent Methods" Url="html/4e6aa304-1abb-cc59-97bc-a2591b9925b3.htm">
         <HelpTOCNode Title="GetIntent Method " Url="html/5240aa0e-b8ef-18f6-e2a5-cb905e143b1d.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="fb84d8c5-2ed2-4a63-887c-f49243ebbeda" Title="IntentArgument Class" Url="html/61f0ac13-6744-515f-cc54-20d605e7cf2d.htm">
+    <HelpTOCNode Id="cb847848-4022-4bdc-a367-a3876b91ea82" Title="IntentArgument Class" Url="html/61f0ac13-6744-515f-cc54-20d605e7cf2d.htm">
       <HelpTOCNode Title="IntentArgument Constructor " Url="html/9eb86d33-f7e2-3791-866b-af1c6e292b39.htm" />
-      <HelpTOCNode Id="01ff99f3-13d1-4a69-8cef-519f02394adb" Title="IntentArgument Methods" Url="html/63012a21-224c-58e3-152f-7ee22fabc05e.htm">
+      <HelpTOCNode Id="6b0fb6c4-592a-484e-bc53-2f08f1c7426c" Title="IntentArgument Methods" Url="html/63012a21-224c-58e3-152f-7ee22fabc05e.htm">
         <HelpTOCNode Title="GetIntentArgument Method " Url="html/89db4892-e459-521f-1bf0-32d98fb80012.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="182cc74e-fb48-4158-a342-9370dc4b63ae" Title="IntentArgument Properties" Url="html/744633d3-5a3b-0f5b-598a-b4c558d9348d.htm">
+      <HelpTOCNode Id="c8d03060-983d-4312-be77-20b019b7f4df" Title="IntentArgument Properties" Url="html/744633d3-5a3b-0f5b-598a-b4c558d9348d.htm">
         <HelpTOCNode Title="Args Property " Url="html/72224745-b361-e3ed-da73-ef6fbe298640.htm" />
         <HelpTOCNode Title="Argument Property " Url="html/2e37946e-5e6d-08fd-a632-6ba31aab469a.htm" />
         <HelpTOCNode Title="Prefix Property " Url="html/2e985884-031a-1b41-2185-a03a6f03a228.htm" />
@@ -539,55 +542,55 @@
     <HelpTOCNode Title="IntentArgument.ArgumentPrefix Enumeration" Url="html/6aff6e3a-31c5-5271-4d64-8728a5a82f58.htm" />
     <HelpTOCNode Title="KeyEventCode Enumeration" Url="html/a0ab00a9-dbf3-cd53-8750-1ea310fcfa9c.htm" />
     <HelpTOCNode Title="ListingType Enumeration" Url="html/88996caa-54fe-ad23-0356-2b2acf9ca4d0.htm" />
-    <HelpTOCNode Id="2c5b205a-4d38-4ea4-9e7c-cc5fe314646f" Title="MountInfo Class" Url="html/a335c9ec-b291-e185-6902-03a79c06d826.htm">
+    <HelpTOCNode Id="371809d9-7a30-4508-be01-aadc270b61f3" Title="MountInfo Class" Url="html/a335c9ec-b291-e185-6902-03a79c06d826.htm">
       <HelpTOCNode Title="MountInfo Constructor " Url="html/265bf043-c80a-a1c3-8d20-a92789407e46.htm" />
-      <HelpTOCNode Id="53a74802-4b69-42bd-a9f2-2d2f74fe3570" Title="MountInfo Fields" Url="html/71837da6-db4a-183a-615d-2d1439be7b30.htm">
+      <HelpTOCNode Id="18d409c7-101e-42f1-a29b-536670a77ab5" Title="MountInfo Fields" Url="html/71837da6-db4a-183a-615d-2d1439be7b30.htm">
         <HelpTOCNode Title="block Field" Url="html/3e6dc8a1-efe0-2f63-f4c0-8b1baf2c356f.htm" />
         <HelpTOCNode Title="directory Field" Url="html/79674b05-b6a2-9f50-b8b7-cd36250a4cc4.htm" />
         <HelpTOCNode Title="type Field" Url="html/1426e6c7-a17d-a375-df5d-6fc93ab0a784.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="MountInfo Methods" Url="html/ba6dcb52-c7dc-c9d5-2cca-e6306c6a5a38.htm" />
-      <HelpTOCNode Id="62d6dbb2-4256-4e9c-ae2e-662676fa6bdd" Title="MountInfo Properties" Url="html/119e82fb-4043-db63-c4da-3533f8b3401f.htm">
+      <HelpTOCNode Id="8cb0a50b-08e4-46cb-a593-41aec7eed9b0" Title="MountInfo Properties" Url="html/119e82fb-4043-db63-c4da-3533f8b3401f.htm">
         <HelpTOCNode Title="Block Property " Url="html/5c456b9b-b9fe-043f-a14e-a7081e31837d.htm" />
         <HelpTOCNode Title="Directory Property " Url="html/f410c6be-98bd-2024-2773-b2011e3e3f1b.htm" />
         <HelpTOCNode Title="MountType Property " Url="html/749a846b-4d5c-da7e-333b-bca9664556e3.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
     <HelpTOCNode Title="MountType Enumeration" Url="html/1e578a51-fee2-2838-a955-1973d98dc419.htm" />
-    <HelpTOCNode Id="8e836430-3fc1-42ec-b606-c2489c5b4810" Title="OnDeviceAddedEventArgs Class" Url="html/dcbefcd1-7951-0485-3968-ac0f23317517.htm">
-      <HelpTOCNode Id="37df6f9b-d4de-45fe-bd20-3d76e1a458d6" Title="OnDeviceAddedEventArgs Constructor " Url="html/d0df3472-32a1-9b8c-6215-44c617aa159b.htm">
+    <HelpTOCNode Id="e39d8293-4329-46f2-a54c-4f032878869c" Title="OnDeviceAddedEventArgs Class" Url="html/dcbefcd1-7951-0485-3968-ac0f23317517.htm">
+      <HelpTOCNode Id="f7469c90-a0c4-4243-b644-c57020b18103" Title="OnDeviceAddedEventArgs Constructor " Url="html/d0df3472-32a1-9b8c-6215-44c617aa159b.htm">
         <HelpTOCNode Title="OnDeviceAddedEventArgs Constructor (String, Device)" Url="html/4bd221bf-70d6-000e-a710-f09063cdec98.htm" />
         <HelpTOCNode Title="OnDeviceAddedEventArgs Constructor (String, String)" Url="html/899045b3-2cd0-984d-56dc-22ba11c2f51d.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="OnDeviceAddedEventArgs Methods" Url="html/47ebf712-9b7c-597c-5c2c-742f4a2f80c2.htm" />
-      <HelpTOCNode Id="bb2c1bc3-5f55-4223-8ad9-c5a31c3526f2" Title="OnDeviceAddedEventArgs Properties" Url="html/bc2f2f99-56da-8a36-7af2-8f150c57959a.htm">
+      <HelpTOCNode Id="868ed909-7d62-4ad7-9d50-5be43135c4e0" Title="OnDeviceAddedEventArgs Properties" Url="html/bc2f2f99-56da-8a36-7af2-8f150c57959a.htm">
         <HelpTOCNode Title="Device Property " Url="html/79cdfee6-8479-b6a3-4a47-eb2695d0a80e.htm" />
         <HelpTOCNode Title="Message Property " Url="html/ff8736d2-178b-599b-e0cc-49aafacfbe3c.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="04cc8ca1-ff24-4965-8c3b-58e592131e4e" Title="OnDeviceRemovedEventArgs Class" Url="html/f2752992-a344-aad4-cbce-27ce8bc52dc0.htm">
+    <HelpTOCNode Id="45840077-2f30-4187-9fe3-d26107a2053e" Title="OnDeviceRemovedEventArgs Class" Url="html/f2752992-a344-aad4-cbce-27ce8bc52dc0.htm">
       <HelpTOCNode Title="OnDeviceRemovedEventArgs Constructor " Url="html/52a4f7f7-2586-2b7a-694e-1a5746a7e268.htm" />
       <HelpTOCNode Title="OnDeviceRemovedEventArgs Methods" Url="html/78fc8f83-7504-9823-cb57-335cee81a39f.htm" />
-      <HelpTOCNode Id="ec1f7b57-dad8-4062-a7d5-f980d3de2f1a" Title="OnDeviceRemovedEventArgs Properties" Url="html/8fd19ddc-5517-2ecb-6b6b-fc195ce3f2e0.htm">
+      <HelpTOCNode Id="00bc4f38-a71b-4d6e-ae67-0725779b1712" Title="OnDeviceRemovedEventArgs Properties" Url="html/8fd19ddc-5517-2ecb-6b6b-fc195ce3f2e0.htm">
         <HelpTOCNode Title="DeviceSerial Property " Url="html/1247cb26-fea7-f9c0-ed8a-3af29f1e6109.htm" />
         <HelpTOCNode Title="Message Property " Url="html/4759e2cf-f8ff-a86d-3733-67953ccc1540.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="22b5bd0d-59dd-438e-976c-7eae0cac2f57" Title="Package Class" Url="html/352b9a01-0510-cb73-c3c9-af2f27374335.htm">
+    <HelpTOCNode Id="c14bd928-b319-4632-84b7-21971dfec11c" Title="Package Class" Url="html/352b9a01-0510-cb73-c3c9-af2f27374335.htm">
       <HelpTOCNode Title="Package Constructor " Url="html/953ec4b9-6fba-c01d-687d-f7684194e079.htm" />
       <HelpTOCNode Title="Package Methods" Url="html/10aac6d7-bd46-b79e-f581-dbc03887bf18.htm" />
-      <HelpTOCNode Id="f21e1888-af17-43e5-91e7-09510c35a761" Title="Package Properties" Url="html/93e5a1c5-b150-f516-2b01-03420838ebf5.htm">
+      <HelpTOCNode Id="247edc1c-ba7f-46f9-8dc7-3abe8a76165b" Title="Package Properties" Url="html/93e5a1c5-b150-f516-2b01-03420838ebf5.htm">
         <HelpTOCNode Title="AssociatedFile Property " Url="html/95dcca46-5ab7-342f-ea61-9578662fc212.htm" />
         <HelpTOCNode Title="PackageInstaller Property " Url="html/b6cf112c-7b6f-71f0-0036-33d4cc2d90a5.htm" />
         <HelpTOCNode Title="PackageName Property " Url="html/600595af-f748-eb25-63a0-9b1eb88f1003.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="75e707c1-b60c-4f29-93b5-54ab6f389783" Title="PackageManager Class" Url="html/504ed67b-780a-c1ad-dfa7-6aaf49adf8b1.htm">
+    <HelpTOCNode Id="c99b8a02-f6d1-446d-aaff-22a8b1941cf1" Title="PackageManager Class" Url="html/504ed67b-780a-c1ad-dfa7-6aaf49adf8b1.htm">
       <HelpTOCNode Title="PackageManager Constructor " Url="html/d4bfd5c6-07e5-d815-ffb8-6ccff79c089d.htm" />
-      <HelpTOCNode Id="88353e91-d0dc-4019-848c-329f0ea6b8a2" Title="PackageManager Fields" Url="html/6bf0dbb5-bf3d-a0e4-7461-7e7976378bac.htm">
+      <HelpTOCNode Id="5328af30-de15-4656-95e1-efd8e4f77632" Title="PackageManager Fields" Url="html/6bf0dbb5-bf3d-a0e4-7461-7e7976378bac.htm">
         <HelpTOCNode Title="m_device Field" Url="html/40871259-006d-ff2f-1ece-05d55436af98.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="55f0ea16-7823-4fa7-a458-675ff3cba379" Title="PackageManager Methods" Url="html/133116b9-5b03-acae-18a7-42145291c83d.htm">
+      <HelpTOCNode Id="f8cb1769-a765-409d-a36f-e0bb3ba40276" Title="PackageManager Methods" Url="html/133116b9-5b03-acae-18a7-42145291c83d.htm">
         <HelpTOCNode Title="Clear Method " Url="html/fee1a002-61d1-2bc0-cf67-fa55a07ed1cc.htm" />
         <HelpTOCNode Title="CreateUser Method " Url="html/2a9207f2-9735-ad4a-f150-ff74f8866cf9.htm" />
         <HelpTOCNode Title="DisableUser Method " Url="html/dd4d3a2a-e1cc-0557-101b-6c6cd2457dbd.htm" />
@@ -606,14 +609,14 @@
     <HelpTOCNode Title="PackageManager.ListPackagesFilter Enumeration" Url="html/cf250e44-dda7-5c4f-bb17-ebe4c64f8639.htm" />
     <HelpTOCNode Title="PackageManager.ListPackagesOption Enumeration" Url="html/d3dd4335-60bd-cdd2-5a19-376160661405.htm" />
     <HelpTOCNode Title="PackageManager.ListPermissionOption Enumeration" Url="html/7c38f223-baeb-884d-705e-30ef07e4234d.htm" />
-    <HelpTOCNode Id="d4ff5200-1beb-4a05-92d5-286257132b0c" Title="Permission Class" Url="html/9884a384-1542-1d53-8335-7d709a5bcb50.htm">
-      <HelpTOCNode Id="01d58af2-aac4-4ad5-be28-1c2d04275dbb" Title="Permission Constructor " Url="html/aff45b81-cfa7-ced8-edcb-117af7d7cf26.htm">
+    <HelpTOCNode Id="c6687fa7-a1f9-4c4f-a614-ffcc6299ddb5" Title="Permission Class" Url="html/9884a384-1542-1d53-8335-7d709a5bcb50.htm">
+      <HelpTOCNode Id="0d57151d-3432-46e8-81cd-4c1a536ce281" Title="Permission Constructor " Url="html/aff45b81-cfa7-ced8-edcb-117af7d7cf26.htm">
         <HelpTOCNode Title="Permission Constructor (String)" Url="html/2f0027ad-a9e7-4fa8-941c-846a429ef5b6.htm" />
         <HelpTOCNode Title="Permission Constructor (String, String)" Url="html/1f01c2e4-2607-e953-2ac7-8b8f890c1187.htm" />
         <HelpTOCNode Title="Permission Constructor (String, String, String, String, String, Permission.ProtectionLevel)" Url="html/74979277-11fe-a0ea-4997-3306d41973b6.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="Permission Methods" Url="html/335904a8-f3fe-81a1-846b-8d8c972cf6a9.htm" />
-      <HelpTOCNode Id="18171885-de02-48c3-a910-7d61881da493" Title="Permission Properties" Url="html/66c7af9a-eb46-2349-e029-a859c7acad9c.htm">
+      <HelpTOCNode Id="90814e44-8468-4641-a20c-ad9629422bfc" Title="Permission Properties" Url="html/66c7af9a-eb46-2349-e029-a859c7acad9c.htm">
         <HelpTOCNode Title="PermissionDescription Property " Url="html/8c08c2e9-c082-3ccc-ebf5-18591a7de4fb.htm" />
         <HelpTOCNode Title="PermissionGroup Property " Url="html/b85b87dc-e528-cc83-926a-f4d4e819a93b.htm" />
         <HelpTOCNode Title="PermissionLabel Property " Url="html/ada1fcb7-a8c9-7bc8-fceb-166c108a5419.htm" />
@@ -623,44 +626,44 @@
       </HelpTOCNode>
     </HelpTOCNode>
     <HelpTOCNode Title="Permission.ProtectionLevel Enumeration" Url="html/de535825-d7da-4b2a-d645-c4482c7fb9cf.htm" />
-    <HelpTOCNode Id="5869b0d9-0b1b-47bc-9cbe-fab1036dbf5c" Title="PermissionGroup Class" Url="html/12f2ca93-4f3a-38a8-66c7-f727086c7ca0.htm">
+    <HelpTOCNode Id="df966e01-2bea-4487-962b-d58cd999e921" Title="PermissionGroup Class" Url="html/12f2ca93-4f3a-38a8-66c7-f727086c7ca0.htm">
       <HelpTOCNode Title="PermissionGroup Constructor " Url="html/58bab21c-9c3d-3400-062c-661b2bd89e27.htm" />
       <HelpTOCNode Title="PermissionGroup Methods" Url="html/d0046eff-f624-d987-aa05-06cce7e5252e.htm" />
-      <HelpTOCNode Id="34ee8b1e-5520-4c8e-8a10-ac850bd1d84a" Title="PermissionGroup Properties" Url="html/b24cc216-2652-55aa-4d2e-abf8b653977b.htm">
+      <HelpTOCNode Id="6b699571-a549-4cf7-b351-7caca466ce0e" Title="PermissionGroup Properties" Url="html/b24cc216-2652-55aa-4d2e-abf8b653977b.htm">
         <HelpTOCNode Title="Name Property " Url="html/747f16ed-a63c-0e96-3533-82bb53811019.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="8be7c61d-a0fe-4abf-a8e6-28d2bdd4a5ea" Title="Phone Class" Url="html/ed6b5fdc-8212-1f03-020e-3e23874f716d.htm">
+    <HelpTOCNode Id="30ab7f76-9abb-4a86-a943-43e4b14454ec" Title="Phone Class" Url="html/ed6b5fdc-8212-1f03-020e-3e23874f716d.htm">
       <HelpTOCNode Title="Phone Constructor " Url="html/a80eb8c8-38f0-6fdd-2121-b4b06cb4ea1a.htm" />
-      <HelpTOCNode Id="d2f62525-7c6a-4fbc-bdfd-8e4d78d8ecd5" Title="Phone Fields" Url="html/7e5bcf18-2cfc-f8fb-18c5-cfc36241088b.htm">
+      <HelpTOCNode Id="13ca4e20-1c55-469f-9f3f-c030d7a27044" Title="Phone Fields" Url="html/7e5bcf18-2cfc-f8fb-18c5-cfc36241088b.htm">
         <HelpTOCNode Title="device Field" Url="html/1cb71358-29c6-7fd3-34c1-003ad5237be0.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="0450ca5a-a79b-4f99-9824-e3ba3b1babca" Title="Phone Methods" Url="html/35b8d2e7-8655-bbf8-cab4-0ff6335d8323.htm">
+      <HelpTOCNode Id="dbbe0252-a111-4ed6-9e5c-61a9b6b9cc21" Title="Phone Methods" Url="html/35b8d2e7-8655-bbf8-cab4-0ff6335d8323.htm">
         <HelpTOCNode Title="CallPhoneNumber Method " Url="html/e8b6afee-0ba0-d0b2-24d8-79be43c72025.htm" />
         <HelpTOCNode Title="DialPhoneNumber Method " Url="html/24c77803-df26-6923-6589-8599c8e1cefe.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="46689370-64ca-40fd-b5b5-79c13ce1f8c7" Title="Signer Class" Url="html/3bb3383f-fb47-42fc-df9a-e90372afef6f.htm">
+    <HelpTOCNode Id="f7e4226b-cce0-4f8c-90d3-97a480681a60" Title="Signer Class" Url="html/3bb3383f-fb47-42fc-df9a-e90372afef6f.htm">
       <HelpTOCNode Title="Signer Constructor " Url="html/d95bb50b-f58c-ef4f-be2f-a971b7c8f515.htm" />
-      <HelpTOCNode Id="5db0eb0f-b88d-47fa-b4a7-7501139fb2b1" Title="Signer Fields" Url="html/0a21a1ec-5eb4-ba21-1c25-767674a104f4.htm">
+      <HelpTOCNode Id="98845d34-74bb-4795-92de-1cb5558b5d8d" Title="Signer Fields" Url="html/0a21a1ec-5eb4-ba21-1c25-767674a104f4.htm">
         <HelpTOCNode Title="RESOURCES Field" Url="html/206e4f92-a23d-9938-4d0c-c90a7f8821fa.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="8f715f6a-0f62-42cf-b9c9-56d969fc95b2" Title="Signer Methods" Url="html/9fd0db5d-d3ec-b6e4-9206-34f451a7e43c.htm">
+      <HelpTOCNode Id="b2dfff5d-e532-4162-bec1-dfe5e24cb4c2" Title="Signer Methods" Url="html/9fd0db5d-d3ec-b6e4-9206-34f451a7e43c.htm">
         <HelpTOCNode Title="ExtractResources Method " Url="html/a260e127-a932-a097-99cb-af863d0c0159.htm" />
         <HelpTOCNode Title="SignUpdateZip Method " Url="html/d4cc717b-36f9-60bd-7b66-c29100a1c1d8.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="8267d76d-5950-4da3-a8fd-61d60b9f968e" Title="Su Class" Url="html/82040a9d-2e54-057f-ea94-9da22f2ca0dc.htm">
+    <HelpTOCNode Id="e59d7741-2c80-41fb-b66a-b8f4a54da3b1" Title="Su Class" Url="html/82040a9d-2e54-057f-ea94-9da22f2ca0dc.htm">
       <HelpTOCNode Title="Su Constructor " Url="html/cc1e6cda-72ee-8d0f-7710-459d163f8d21.htm" />
-      <HelpTOCNode Id="79e9b80d-b33a-467d-a640-3e0204c9061d" Title="Su Fields" Url="html/0af88e4b-c8c0-e139-1d81-98cf100dca96.htm">
+      <HelpTOCNode Id="dc780810-8e72-4881-a764-451b3d12df74" Title="Su Fields" Url="html/0af88e4b-c8c0-e139-1d81-98cf100dca96.htm">
         <HelpTOCNode Title="device Field" Url="html/14e922fd-b5a5-9cf2-1362-b7a390400fa5.htm" />
         <HelpTOCNode Title="exists Field" Url="html/a75bfaba-3890-814d-085b-003ef3c609eb.htm" />
         <HelpTOCNode Title="version Field" Url="html/c2aa450b-2f49-3386-28c4-e8fcd380534e.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="7a5130ad-11f4-469b-925b-f92cf24f10cd" Title="Su Methods" Url="html/3fc7bd60-4615-7b18-cc93-abc1e398d4ba.htm">
+      <HelpTOCNode Id="3bb6f9db-2c4e-4c7b-a51d-ee9264e59bf1" Title="Su Methods" Url="html/3fc7bd60-4615-7b18-cc93-abc1e398d4ba.htm">
         <HelpTOCNode Title="GetSuData Method " Url="html/5defa99a-1f04-60f2-2c7a-cfee26cb8aea.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="dc13e520-b384-4cbf-a7ef-37e35f82af7e" Title="Su Properties" Url="html/a40ebb2f-544d-2424-4197-fee97c499428.htm">
+      <HelpTOCNode Id="677b6c31-3797-48dd-a1b0-2250cd6ac692" Title="Su Properties" Url="html/a40ebb2f-544d-2424-4197-fee97c499428.htm">
         <HelpTOCNode Title="Exists Property " Url="html/66efa500-f48e-c25b-0c1a-cf32372ca54c.htm" />
         <HelpTOCNode Title="Version Property " Url="html/6474e14a-b7d4-1fba-decf-c5020daa6dca.htm" />
       </HelpTOCNode>
