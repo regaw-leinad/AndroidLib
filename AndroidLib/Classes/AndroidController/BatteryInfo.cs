@@ -2,8 +2,11 @@
  * Battery.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
+using System;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace RegawMOD.Android {
     /// <summary>
@@ -11,6 +14,7 @@ namespace RegawMOD.Android {
     /// </summary>
     public class BatteryInfo {
 
+        #region Variables
         /// <summary>
         /// The device associated with this class.
         /// </summary>
@@ -80,12 +84,14 @@ namespace RegawMOD.Android {
         /// Contains the string that is returned by <see cref="ToString()"/>
         /// </summary>
         private string outString;
-
+        #endregion
+        #region Properties
         /// <summary>
         /// Gets a value indicating if the connected Android device is on AC Power
         /// </summary>
         public bool ACPower {
             get { Update(); return this.acPower; }
+            private set { this.acPower = value; OnInfoChanged("ACPower", string.Format("Device {0} charging via AC", value ? "is" : "is not")); }
         }
 
         /// <summary>
@@ -93,6 +99,7 @@ namespace RegawMOD.Android {
         /// </summary>
         public bool USBPower {
             get { Update(); return usbPower; }
+            private set { this.usbPower = value; OnInfoChanged("USBPower", string.Format("Device {0} charging via USB", value ? "is" : "is not")); }
         }
 
         /// <summary>
@@ -100,6 +107,7 @@ namespace RegawMOD.Android {
         /// </summary>
         public bool WirelessPower {
             get { Update(); return wirelessPower; }
+            private set { this.usbPower = value; OnInfoChanged("WirelessPower", string.Format("Device {0} charging via wireless powersource", value ? "is" : "is not")); }
         }
 
         /// <summary>
@@ -127,6 +135,10 @@ namespace RegawMOD.Android {
                     default:
                         return "Unknown Value: " + status;
                 }
+            }
+            private set {
+                status = int.Parse(value);
+                OnInfoChanged("Status", "The battery status has changed!");
             }
         }
 
@@ -162,6 +174,10 @@ namespace RegawMOD.Android {
                 }
 
             }
+            private set {
+                health = int.Parse(value);
+                OnInfoChanged("Health", "The battery's health has changed!");
+            }
         }
 
         /// <summary>
@@ -169,6 +185,7 @@ namespace RegawMOD.Android {
         /// </summary>
         public bool Present {
             get { Update(); return present; }
+            private set { present = value; OnInfoChanged("Present", string.Format("Battery {0} present.", value ? "is" : "is no longer")); }
         }
 
         /// <summary>
@@ -176,6 +193,7 @@ namespace RegawMOD.Android {
         /// </summary>
         public int Level {
             get { Update(); return level; }
+            private set { level = value; OnInfoChanged("Level", "The battery level has changed!"); }
         }
 
         /// <summary>
@@ -183,6 +201,7 @@ namespace RegawMOD.Android {
         /// </summary>
         public int Scale {
             get { Update(); return scale; }
+            private set { scale = value; OnInfoChanged("Scale", "The battery's scale has changed!"); }
         }
 
         /// <summary>
@@ -190,6 +209,7 @@ namespace RegawMOD.Android {
         /// </summary>
         public int Voltage {
             get { Update(); return voltage; }
+            private set { voltage = value; OnInfoChanged("Voltage", "Battery's voltage has changed!"); }
         }
 
         /// <summary>
@@ -197,6 +217,7 @@ namespace RegawMOD.Android {
         /// </summary>
         public double Temperature {
             get { Update(); return temperature; }
+            private set { temperature = value; OnInfoChanged("Temperature", "The battery's temperature has changed!"); }
         }
 
         /// <summary>
@@ -204,14 +225,19 @@ namespace RegawMOD.Android {
         /// </summary>
         public string Technology {
             get { Update(); return technology; }
+            // Even though this is very unlikely to happen, 
+            // I like to keep things consistent.
+            private set { technology = value; OnInfoChanged("Technology"); }
         }
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the BatteryInfo class
         /// </summary>
         /// <param name="device">Serial number of Android device</param>
-        internal BatteryInfo(Device device) {
+        internal BatteryInfo(Device device, bool monitorBattery = true) {
             this.device = device;
+            this.MonitorBattery = monitorBattery;
             Update();
         }
 
@@ -220,18 +246,18 @@ namespace RegawMOD.Android {
         /// </summary>
         private void Update() {
             if (this.device.State != DeviceState.ONLINE) {
-                this.acPower = false;
+                this.ACPower = false;
                 this.dump = null;
-                this.health = -1;
-                this.level = -1;
-                this.present = false;
-                this.scale = -1;
-                this.status = -1;
-                this.technology = null;
-                this.temperature = -1;
-                this.usbPower = false;
-                this.voltage = -1;
-                this.wirelessPower = false;
+                this.Health = "-1";
+                this.Level = -1;
+                this.Present = false;
+                this.Scale = -1;
+                this.Status = "-1";
+                this.Technology = null;
+                this.Temperature = -1;
+                this.USBPower = false;
+                this.Voltage = -1;
+                this.WirelessPower = false;
                 this.outString = "Device Not Online";
                 return;
             }
@@ -263,23 +289,32 @@ namespace RegawMOD.Android {
                     if (line == "")
                         continue;
                     else if (line.Contains("AC "))
-                        bool.TryParse(line.Substring(14), out this.acPower);
+                        if (bool.TryParse(line.Substring(14), out this.acPower))
+                            ACPower = acPower;
                     else if (line.Contains("USB"))
-                        bool.TryParse(line.Substring(15), out this.usbPower);
+                        if (bool.TryParse(line.Substring(15), out this.usbPower))
+                            USBPower = usbPower;
                     else if (line.Contains("Wireless"))
-                        bool.TryParse(line.Substring(20), out this.wirelessPower);
+                        if (bool.TryParse(line.Substring(20), out this.wirelessPower))
+                            WirelessPower = wirelessPower;
                     else if (line.Contains("status"))
-                        int.TryParse(line.Substring(10), out this.status);
+                        if (int.TryParse(line.Substring(10), out this.status))
+                            Status = status.ToString();
                     else if (line.Contains("health"))
-                        int.TryParse(line.Substring(10), out this.health);
+                        if (int.TryParse(line.Substring(10), out this.health))
+                            Health = health.ToString();
                     else if (line.Contains("present"))
-                        bool.TryParse(line.Substring(11), out this.present);
+                        if (bool.TryParse(line.Substring(11), out this.present))
+                            Present = present;
                     else if (line.Contains("level"))
-                        int.TryParse(line.Substring(9), out this.level);
+                        if (int.TryParse(line.Substring(9), out this.level))
+                            Level = level;
                     else if (line.Contains("scale"))
-                        int.TryParse(line.Substring(9), out this.scale);
+                        if (int.TryParse(line.Substring(9), out this.scale))
+                            Scale = scale;
                     else if (line.Contains("voltage"))
-                        int.TryParse(line.Substring(10), out this.voltage);
+                        if (int.TryParse(line.Substring(10), out this.voltage))
+                            Voltage = voltage;
                     else if (line.Contains("temp")) {
                         var substring = line.Substring(15);
                         var lastChar = line[line.Length - 1];
@@ -287,9 +322,10 @@ namespace RegawMOD.Android {
                         var newString =
                             string.Concat(trimmedString, ".", lastChar).ToLower().Contains("temperature") ?
                                 Regex.Split(string.Concat(trimmedString, ".", lastChar), ":\\s")[1] : string.Concat(trimmedString, ".", lastChar);
-                        double.TryParse(newString, out this.temperature);
+                        if (double.TryParse(newString, out this.temperature))
+                            Temperature = temperature;
                     } else if (line.Contains("tech"))
-                        this.technology = line.Substring(14);
+                        this.Technology = line.Substring(14);
                 }
             }
 
@@ -304,5 +340,63 @@ namespace RegawMOD.Android {
             Update();
             return this.outString;
         }
+
+        /// *********************************************
+        /// Event handling added by Beatsleigher        *
+        /// *********************************************
+        #region Event Handling
+        private bool m_monitorBattery = true;
+        public bool MonitorBattery {
+            get { return m_monitorBattery; }
+            set { 
+                m_monitorBattery = value;
+                if (value) StartMonitorBattery();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the update interval in milliseconds (x1000 = 1 second).
+        /// Created by: Beatsleigher
+        /// At:               08.06.2015, 13:07
+        /// On:              BEATSLEIGHER-PC
+        /// </summary>
+        /// <value>
+        /// The update interval.
+        /// </value>
+        public int UpdateInterval {
+            get; set;
+        }
+
+        /// <summary>
+        /// Monitors the battery.
+        /// </summary>
+        private async void StartMonitorBattery() {
+            await Task.Run(new Action(() => {
+                while (m_monitorBattery) {
+                    Update();
+                    Thread.Sleep(UpdateInterval);
+                }
+            }));
+        }
+
+        /// <summary>
+        /// Occurs when a property in this instance has changed its value.
+        /// Created by: Beatsleigher
+        /// At:               08.06.2015, 13:14
+        /// On:              BEATSLEIGHER-PC
+        /// </summary>
+        public event BatteryInfoChangedEventHandler InfoChanged;
+
+        /// <summary>
+        /// Called when a property in this class has changed its value.
+        /// </summary>
+        /// <param name="m_propertyName">Name of the m_property.</param>
+        /// <param name="m_message">The m_message.</param>
+        private void OnInfoChanged(string m_propertyName, string m_message = "A property has changed.") {
+            if (InfoChanged != null && !(InfoChanged.GetInvocationList().Length > 0))
+                foreach (BatteryInfoChangedEventHandler m_handler in InfoChanged.GetInvocationList())
+                    m_handler(this, new OnBatteryInfoChangedEventArgs() { Device = this.device, Message = m_message, PropertyName = m_propertyName });
+        }
+        #endregion
     }
 }

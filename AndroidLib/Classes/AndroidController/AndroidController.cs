@@ -244,15 +244,15 @@ namespace RegawMOD.Android {
         /// </summary>
         public static AndroidController Instance {
             get {
-                //if (instance == null) {
-                //    instance = new AndroidController();
-                //    instance.CreateResourceDirectories();
-                //    instance.ExtractResources();
-                //    Adb.StartServer();
-                //}
+                if (instance == null) {
+                    instance = new AndroidController();
+                    instance.CreateResourceDirectories();
+                    instance.ExtractResources();
+                    Adb.StartServer();
+                }
 
-                //return instance;
-                return (instance == null) ? instance = new AndroidController() : instance;
+                return instance;
+                //return (instance == null) ? instance = new AndroidController() : instance;
             }
         }
 
@@ -283,8 +283,8 @@ namespace RegawMOD.Android {
             this.connectedDevices = new List<string>();
             ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
             this.resourceDirectory = ResourceFolderManager.GetRegisteredFolderPath(ANDROID_CONTROLLER_TMP_FOLDER);
-            CreateResourceDirectories();
-            ExtractResources();
+            //CreateResourceDirectories();
+            //ExtractResources();
             this.m_eventWatcher = new ManagementEventWatcher(
                 new WqlEventQuery("SELECT * FROM Win32_VolumeChangeEvent WHERE EventType = 2")
             );

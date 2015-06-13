@@ -193,7 +193,7 @@ namespace RegawMOD.Android {
         /// <summary>
         /// Gets a value indicating if the device has root
         /// </summary>
-        public virtual bool HasRoot { get { return this.su.Exists; } }
+        public virtual bool HasRoot { get { Update();  return this.su.Exists; } }
 
         /// <summary>
         /// Reboots the device regularly from fastboot

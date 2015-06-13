@@ -82,4 +82,72 @@ namespace RegawMOD.Android {
 
     }
 
+    /// <summary>
+    /// The event arguments provided whenever the battery level of a connected device changes.
+    /// 
+    /// RegawMOD.Android.OnBatteryLevelChangedEventArgs
+    /// Created by: Beatsleigher
+    /// At:               08.06.2015, 11:05
+    /// On:              BEATSLEIGHER-PC
+    /// 
+    /// </summary>
+    public class OnBatteryInfoChangedEventArgs: EventArgs {
+
+        /// <summary>
+        /// Gets the name of the property, whose value has changed.
+        /// Created by: Beatsleigher
+        /// At:               08.06.2015, 12:59
+        /// On:               BEATSLEIGHER-PC
+        /// </summary>
+        /// <value>
+        /// The name of the property.
+        /// </value>
+        public string PropertyName { get; internal set; }
+
+        /// <summary>
+        /// Gets the message.
+        /// Created by: Beatsleigher
+        /// At:               08.06.2015, 11:05
+        /// On:              BEATSLEIGHER-PC
+        /// </summary>
+        /// <value>
+        /// The message.
+        /// </value>
+        public string Message { get; internal set; }
+
+        /// <summary>
+        /// Gets the device.
+        /// Created by: Beatsleigher
+        /// At:               08.06.2015, 11:05
+        /// On:              BEATSLEIGHER-PC
+        /// </summary>
+        /// <value>
+        /// The device.
+        /// </value>
+        public Device Device { get; internal set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OnBatteryInfoChangedEventArgs"/> class.
+        /// Created by: Beatsleigher
+        /// At:               08.06.2015, 11:07
+        /// On:              BEATSLEIGHER-PC
+        /// </summary>
+        /// <param name="m_message">The m_message.</param>
+        /// <param name="m_device">The m_device.</param>
+        /// <param name="m_batteryLevel">The m_battery level.</param>
+        public OnBatteryInfoChangedEventArgs(string m_message, Device m_device) {
+            this.Message = m_message;
+            this.Device = m_device;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OnBatteryInfoChangedEventArgs"/> class.
+        /// Created by: Beatsleigher
+        /// At:               08.06.2015, 13:12
+        /// On:              BEATSLEIGHER-PC
+        /// </summary>
+        public OnBatteryInfoChangedEventArgs() { }
+
+    }
+
 }

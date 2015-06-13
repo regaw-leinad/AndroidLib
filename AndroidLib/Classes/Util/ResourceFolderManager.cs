@@ -2,11 +2,12 @@
  * ResourceFolderManager.cs - Developed by Dan Wager for AndroidLib.dll - 04/12/12
  */
 
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
-namespace RegawMOD
-{
+namespace RegawMOD {
     /// <summary>
     /// Controls Resource Folders for the <see cref="RegawMOD"/> Namespace
     /// </summary>
@@ -38,13 +39,11 @@ namespace RegawMOD
     /// }
     /// </code>
     /// </example>
-    public static class ResourceFolderManager
-    {
+    public static class ResourceFolderManager {
         private static readonly DirectoryInfo REGAWMOD_TEMP_DIRECTORY;
         private static Dictionary<string, DirectoryInfo> controlledFolders;
 
-        static ResourceFolderManager()
-        {
+        static ResourceFolderManager() {
             REGAWMOD_TEMP_DIRECTORY = new DirectoryInfo(Path.GetTempPath() + "\\RegawMOD\\");
             controlledFolders = new Dictionary<string, DirectoryInfo>();
 
@@ -54,14 +53,13 @@ namespace RegawMOD
             foreach (DirectoryInfo d in REGAWMOD_TEMP_DIRECTORY.GetDirectories("*", SearchOption.TopDirectoryOnly))
                 controlledFolders.Add(d.Name, d);
         }
-        
+
         /// <summary>
         /// Gets a <see cref="DirectoryInfo"/> containing information about the registered resource directory <paramref name="folder"/>
         /// </summary>
         /// <param name="folder">Name of registered resource directory</param>
         /// <returns><see cref="DirectoryInfo"/> containing information about the registered resource directory <paramref name="folder"/></returns>
-        public static DirectoryInfo GetRegisteredFolder(string folder)
-        {
+        public static DirectoryInfo GetRegisteredFolder(string folder) {
             return (controlledFolders.ContainsKey(folder) ? controlledFolders[folder] : null);
         }
 
@@ -70,9 +68,13 @@ namespace RegawMOD
         /// </summary>
         /// <param name="folder">Name of registered resource directory</param>
         /// <returns>Full path of the registered resource directory <paramref name="folder"/></returns>
-        public static string GetRegisteredFolderPath(string folder)
-        {
-            return (controlledFolders.ContainsKey(folder) ? controlledFolders[folder].FullName : null);
+        public static string GetRegisteredFolderPath(string folder) {
+            try {
+                return controlledFolders.ContainsKey(folder) ? controlledFolders[folder].FullName : null;
+            } catch (StackOverflowException ex) {
+                Debug.WriteLine(ex);
+                return null;
+            }
         }
 
         /// <summary>
@@ -80,8 +82,7 @@ namespace RegawMOD
         /// </summary>
         /// <param name="name">Name to give to resource directory</param>
         /// <returns>True if creation succeeds, false if directory already exists</returns>
-        public static bool Register(string name)
-        {
+        public static bool Register(string name) {
             if (controlledFolders.ContainsKey(name))
                 return false;
 
@@ -99,13 +100,11 @@ namespace RegawMOD
         /// <param name="name">Name of resource directory to unregister</param>
         /// <returns>True if deletion succeeds, false if not</returns>
         /// <remarks>Make sure all resources in <paramref name="name"/> are not being used by the system at time of Unregister() or it will return false.</remarks>
-        public static bool Unregister(string name)
-        {
+        public static bool Unregister(string name) {
             if (!controlledFolders.ContainsKey(name))
                 return false;
 
-            try { controlledFolders[name].Delete(true); }
-            catch { return false; }
+            try { controlledFolders[name].Delete(true); } catch { return false; }
 
             return controlledFolders.Remove(name);
         }
