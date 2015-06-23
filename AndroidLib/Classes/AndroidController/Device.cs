@@ -6,6 +6,7 @@ namespace RegawMOD.Android {
 
     using System.IO;
     using System.Threading;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Manages connected Android device's info and commands
@@ -265,6 +266,18 @@ namespace RegawMOD.Android {
         }
 
         /// <summary>
+        /// Pulls a file from the device asynchronously
+        /// </summary>
+        /// <param name="fileOnDevice">Path to file to pull from device</param>
+        /// <param name="destinationDirectory">Directory on local computer to pull file to</param>
+        /// /// <param name="timeout">The timeout for this operation in milliseconds (Default = -1)</param>
+        /// <returns>True if file is pulled, false if pull failed</returns>
+        public async Task<bool> PullFileAsync(string fileOnDevice, string destinationDirectory, int timeout = Command.DEFAULT_TIMEOUT) {
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "pull", "\"" + fileOnDevice + "\"", "\"" + destinationDirectory + "\"");
+            return await Adb.ExecuteAdbCommandReturnExitCodeAsync(adbCmd.WithTimeout(timeout)) == 0;
+        }
+
+        /// <summary>
         /// Pushes a file to the device
         /// </summary>
         /// <param name="filePath">The path to the file on the computer you want to push</param>
@@ -274,6 +287,11 @@ namespace RegawMOD.Android {
         public bool PushFile(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT) {
             AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"");
             return (Adb.ExecuteAdbCommandReturnExitCode(adbCmd.WithTimeout(timeout)) == 0);
+        }
+
+        public async Task<bool> PushFileAsync(string filePath, string destinationFilePath, int timeout = Command.DEFAULT_TIMEOUT) {
+            AdbCommand adbCmd = Adb.FormAdbCommand(this, "push", "\"" + filePath + "\"", "\"" + destinationFilePath + "\"");
+            return await Adb.ExecuteAdbCommandReturnExitCodeAsync(adbCmd.WithTimeout(timeout)) == 0;
         }
 
         /// <summary>

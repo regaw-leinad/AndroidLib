@@ -54,6 +54,21 @@ namespace RegawMOD.Android {
         /// </summary>
         /// <param name="timeout">The timeout for the command in milliseconds</param>
         public AdbCommand WithTimeout(int timeout) { this.timeout = timeout; return this; }
+
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        /// <author>
+        /// Created by: Beatsleigher
+        /// At:               21.06.2015, 21:35
+        /// On:              BEATSLEIGHER-PC
+        /// </author>
+        public override string ToString() {
+            return Command;
+        }
     }
 
     /// <summary>
@@ -248,6 +263,20 @@ namespace RegawMOD.Android {
         }
 
         /// <summary>
+        /// Executes an <see cref="AdbCommand"/> on the running Adb Server asynchronously
+        /// </summary>
+        /// <remarks>This should be used if you do not want the output of the command returned.  Good for quick abd shell commands</remarks>
+        /// <param name="command">Instance of <see cref="AdbCommand"/></param>
+        /// <returns>Output of <paramref name="command"/> run on server</returns>
+        public static async void ExecuteAdbCommandNoReturnAsync(AdbCommand command) {
+            await Task.Run(new Action(() => {
+                lock (_lock) {
+                    Command.RunProcessNoReturn(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
+                }
+            }));
+        }
+
+        /// <summary>
         /// Executes an <see cref="AdbCommand"/> on the running Adb Server
         /// </summary>
         /// <param name="command">Instance of <see cref="AdbCommand"/></param>
@@ -260,6 +289,23 @@ namespace RegawMOD.Android {
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Executes an <see cref="AdbCommand"/> on the running Adb Server
+        /// </summary>
+        /// <param name="command">Instance of <see cref="AdbCommand"/></param>
+        /// <returns>Exit code of the process</returns>
+        public static async Task<int> ExecuteAdbCommandReturnExitCodeAsync(AdbCommand command) {
+            return await Task.Run<int>(new Func<int>(() => {
+                int result = -1;
+
+                lock (_lock) {
+                    result = Command.RunProcessReturnExitCode(AndroidController.Instance.ResourceDirectory + ADB_EXE, command.Command, command.Timeout);
+                }
+
+                return result;
+            }));
         }
 
         /// <summary>
