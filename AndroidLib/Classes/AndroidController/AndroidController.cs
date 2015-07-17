@@ -1,4 +1,4 @@
-﻿/*
+/*
  * AndroidController.cs - Handles communication between computer and Android devices
  * Developed by Dan Wager for AndroidLib.dll - 04/12/12
  */
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 
-namespace RegawMOD.Android
+namespace RegawMOD.Android.Classes.AndroidController
 {
     /// <summary>
     /// Controls communication to and from connected Android devices.  Use only one instance for the entire project.
@@ -54,10 +54,10 @@ namespace RegawMOD.Android
     ///	//		Connected Device - {serial # here}
     /// </code>
     /// </example>
-    public sealed class AndroidController
+    public sealed class AndroidController : IDisposable
     {
-        private const string ANDROID_CONTROLLER_TMP_FOLDER = "AndroidLib\\";
-        private static readonly Dictionary<string, string> RESOURCES = new Dictionary<string, string>
+        private const string AndroidControllerTmpFolder = "AndroidLib\\";
+        private static readonly Dictionary<string, string> resources = new Dictionary<string, string>
         {
             {"adb.exe","862c2b75b223e3e8aafeb20fe882a602"},
             {"AdbWinApi.dll", "47a6ee3f186b2c2f5057028906bac0c6"},
@@ -67,9 +67,9 @@ namespace RegawMOD.Android
 
         private static AndroidController instance;
 
-        private string resourceDirectory;
-        private List<string> connectedDevices;
-        private bool Extract_Resources = false;
+        private readonly string resourceDirectory;
+        private readonly List<string> connectedDevices;
+        private bool extractResources = false;
 
         /// <summary>
         /// Gets the current AndroidController Instance.
@@ -110,8 +110,8 @@ namespace RegawMOD.Android
         private AndroidController()
         {
             this.connectedDevices = new List<string>();
-            ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
-            this.resourceDirectory = ResourceFolderManager.GetRegisteredFolderPath(ANDROID_CONTROLLER_TMP_FOLDER);
+            ResourceFolderManager.Register(AndroidControllerTmpFolder);
+            this.resourceDirectory = ResourceFolderManager.GetRegisteredFolderPath(AndroidControllerTmpFolder);
         }
 
         private void CreateResourceDirectories()
@@ -122,23 +122,23 @@ namespace RegawMOD.Android
                 {
                     Adb.KillServer();
                     Thread.Sleep(1000);
-                    ResourceFolderManager.Unregister(ANDROID_CONTROLLER_TMP_FOLDER);
-                    Extract_Resources = true;
+                    ResourceFolderManager.Unregister(AndroidControllerTmpFolder);
+                    extractResources = true;
                 }
             }
             catch (Exception)
             {
-                Extract_Resources = true;
+                extractResources = true;
             }
-            ResourceFolderManager.Register(ANDROID_CONTROLLER_TMP_FOLDER);
+            ResourceFolderManager.Register(AndroidControllerTmpFolder);
         }
 
         private void ExtractResources()
         {
-            if (this.Extract_Resources)
+            if (this.extractResources)
             {
-                string[] res = new string[RESOURCES.Count];
-                RESOURCES.Keys.CopyTo(res, 0);
+                string[] res = new string[resources.Count];
+                resources.Keys.CopyTo(res, 0);
                 Extract.Resources(this, this.resourceDirectory, "Resources.AndroidController", res);
             }
         }
@@ -149,12 +149,28 @@ namespace RegawMOD.Android
         /// <remarks>Needs to be called when application has finished using <see cref="AndroidController"/></remarks>
         public void Dispose()
         {
-            if (Adb.ServerRunning)
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Releases unmanaged and - optionally - managed resources.
+        /// </summary>
+        /// <param name="disposing">
+        /// <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.
+        /// </param>
+        protected void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                Adb.KillServer();
-                Thread.Sleep(1000);
+                if (Adb.ServerRunning)
+                {
+                    Adb.KillServer();
+                    Thread.Sleep(1000);
+                }
+                AndroidController.instance = null;
             }
-            AndroidController.instance = null;
+
         }
 
         /// <summary>
@@ -165,7 +181,7 @@ namespace RegawMOD.Android
         {
             if (this.HasConnectedDevices)
                 return new Device(this.connectedDevices[0]);
-                
+
             return null;
         }
 
@@ -292,14 +308,14 @@ namespace RegawMOD.Android
             }
         }
 
-        private bool _CancelRequest;
+        private bool cancelRequest;
         /// <summary>
         /// Set to true to cancel a WaitForDevice() method call
         /// </summary>
         public bool CancelWait
         {
-            get { return _CancelRequest; }
-            set { _CancelRequest = value; }
+            get { return cancelRequest; }
+            set { cancelRequest = value; }
         }
 
         /// <summary>
