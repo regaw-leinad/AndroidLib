@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Command.cs - Developed by Dan Wager for AndroidLib.dll - 04/12/12
  */
 

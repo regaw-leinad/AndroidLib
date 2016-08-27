@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Device.cs - Developed by Dan Wager for AndroidLib.dll
  */
 
